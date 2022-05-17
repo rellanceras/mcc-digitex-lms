@@ -373,7 +373,7 @@ $(document).ready(function(){
         }
     });
 
-    var table = $('.table').DataTable({
+    var table = $('#courseIns').DataTable({
         dom: 'Bfrtip',
         pageLength : 5,
         buttons: [
@@ -389,8 +389,43 @@ $(document).ready(function(){
         
         ]
     });
+    $('#viewAcadYear').DataTable(
+        {
+        "processing": true,
+        "serverside": true,
+        "ajax": "../admin/curriculum/functions/server_processing.php",
 
-    $('#viewAcadYear').DataTable();
+        "order": [[ 4, "desc" ]], // sorting for status column
+
+        "columnDefs":[{             // toggle visiblity of status column
+            "targets": [4] ,
+            "visible": false ,
+            "searchable": false
+        },
+        {
+            "targets": [5] ,    // populate options column
+            "orderable": false, 
+            "data":4,
+            "render": function(data,type,row){
+                var active = 
+                "<button type='button' disabled class='btn btn-success'>Currently Active</button>"+
+                "<button type='button' class='btn btn-primary' style='margin-bottom: 1%;' data-bs-toggle='modal' data-bs-target='#deleteModal'>Delete</button>";
+                // edit either variable to add things
+                var inactive = '<a href ="../admin/curriculum/functions/CRUD_functions.php?id='+ row[0] +'">Set as Active</a>';
+                if(data==1){
+                    $('#currentActive').text(row[1]);
+                    $('#currentActiveYear').text(row[1]);
+                    //console.log(row[2])
+                    return active 
+                }
+                else{
+                    return inactive
+                }
+            }
+        }],
+
+        }
+    );
     $(function(){
         $('.calendar-container').calendar({
             date:new Date(),// today
