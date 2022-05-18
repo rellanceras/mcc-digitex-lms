@@ -110,9 +110,7 @@ function update_academic_year($id,){
 
 function delete_academic_year($id){
     require_once "../../../config.php";
-    //temporary sql will be updated
-    //have to update database
-    $sql = "DELETE academic_year WHERE id='$id'";
+    $sql = "UPDATE academic_year SET archived=1 WHERE archived=0 && id='$id'";
     if($stmt = mysqli_prepare($conn, $sql)){
         // Bind variables to the prepared statement as parameters
         
