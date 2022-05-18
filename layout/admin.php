@@ -388,13 +388,16 @@ $(document).ready(function(){
             $("#classDeptSum").val($("#classDept").val());
         }
         if ($("#smartwizard").smartWizard("getStepIndex") == 1) {
+            $("#courseInsSum tbody tr").remove();
             if (selectedIns.length == 0) {
                 $("#selectedInsError").text("No instructor/s selected");
                 return false;
             }
             $("#selectedInsError").text("");
             selectedIns.forEach((row)=>{
-                row.shift();
+                if (row.length > 3){
+                    row.pop();
+                }
             });
 
             var tbodyIns = $('#courseInsSum tbody');
@@ -408,13 +411,17 @@ $(document).ready(function(){
             
         }
         if ($("#smartwizard").smartWizard("getStepIndex") == 2) {
+            $("#courseStudsSum tbody tr").remove();
             if (selectedStuds.length == 0) {
                 $("#selectedStudsError").text("No student/s selected");
                 return false;
             }
             $("#selectedStudsError").text("");
+
             selectedStuds.forEach((row)=>{
-                row.shift();
+                if (row.length > 3){
+                    row.pop();
+                }
             });
 
             var tbodyStuds = $('#courseStudsSum tbody');
@@ -425,9 +432,7 @@ $(document).ready(function(){
                 });
                 tbodyStuds.append(tr);
             });
-            
         }
-        
     });
 
     $("#addClass").validate({
@@ -454,11 +459,11 @@ $(document).ready(function(){
         columnDefs: [ {
             orderable: false,
             className: 'select-checkbox',
-            targets: 0
+            targets: 3
         } ],
         select: {
             style:    'multi',
-            selector: 'td:first-child'
+            selector: 'td:last-child'
         },
         order: [[ 1, 'asc' ]]
     });

@@ -104,68 +104,68 @@
                         <table id="courseIns" class="display table table-bordered addClassUsers" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th></th>
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th>Department</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td></td>
-                                    <td></td>
                                     <td>a t</td>
                                     <td>SCST</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
                                     <td></td>
                                     <td>b q</td>
                                     <td>SCST</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
                                     <td></td>
                                     <td>c e</td>
                                     <td>SCST</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
                                     <td></td>
                                     <td>d s</td>
                                     <td>SCST</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
                                     <td></td>
                                     <td>e d</td>
                                     <td>SCST</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
                                     <td></td>
                                     <td>f v</td>
                                     <td>SCST</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
                                     <td></td>
                                     <td>g b</td>
                                     <td>SCST</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td></td>
                                     <td>h a</td>
                                     <td>SCST</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th></th>
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th>Department</th>
+                                    <th></th>
                                 </tr>
                             </tfoot>
                         </table>
@@ -183,68 +183,69 @@
                         <table id="courseStuds" class="display table table-bordered addClassUsers" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th></th>
+                                    
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th>Department</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td></td>
-                                    <td></td>
                                     <td>a t</td>
                                     <td>SCST</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
                                     <td></td>
                                     <td>b q</td>
                                     <td>SCST</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
                                     <td></td>
                                     <td>c e</td>
                                     <td>SCST</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
                                     <td></td>
                                     <td>d s</td>
                                     <td>SCST</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
                                     <td></td>
                                     <td>e d</td>
                                     <td>SCST</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
                                     <td></td>
                                     <td>f v</td>
                                     <td>SCST</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
                                     <td></td>
                                     <td>g b</td>
                                     <td>SCST</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td></td>
                                     <td>h a</td>
                                     <td>SCST</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th></th>
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th>Department</th>
+                                    <th></th>
                                 </tr>
                             </tfoot>
                         </table>
