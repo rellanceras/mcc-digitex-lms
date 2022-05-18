@@ -66,6 +66,7 @@
                 <th>Year</th>
                 <th>Semester</th>
                 <th>Status</th>
+                <th>Archived</th>
                 <th class="thborderright">Options</th>
                 </tr>
             </thead>
@@ -79,14 +80,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Add Academic Year</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close block2" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="../../CRUD_functions.php" method="POST">
+            <form action="../admin/curriculum/functions/CRUD_functions.php" method="POST">
             <div class="modal-body">
                 <label>Year </label>
-                <input type="text" required name="year" class="form-control"/>
+                <input type="text" required name="year" class="form-control block"/>
                 <label for=sem>Semester:</label>
-                <select class="form-control" id="sem" name="sem">
+                <select class="form-control block" id="sem" name="sem">
                     <option value="" disabled selected>Choose option</option>
                     <option value="1st Semester">1st Semester</option>
                     <option value="2nd Semester">2nd Semester</option>
@@ -130,14 +131,18 @@
                 <h5 class="modal-title">Delete Academic Year</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <form action="../admin/curriculum/functions/CRUD_functions.php" method="POST">
             <div class="modal-body p-4">
+                <input type="hidden" required name="delID" id="delID" readonly class="form-control"/>
                 <p>Are you want to delete this academic year?</p>
+                <h6 class="mb-3"><span class="fw-bold" id="deletingYear"></span></h6>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 <!--<button type="button" class="btn btn-primary">Delete</button>-->
-                <a class="btn btn-primary" href ="functions/CRUD_functions.php?id=row[0]">Set as Active</a>
+                <button type="submit" class="btn btn-primary">Delete</button>
             </div>
+            </form>
         </div>
     </div>
 </div>
