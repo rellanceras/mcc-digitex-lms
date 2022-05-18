@@ -4,6 +4,10 @@
 
 -->
 
+<?php
+      require_once($_SERVER['DOCUMENT_ROOT'] . '/mcc-digitex-lms/admin/users/functions/user-actions.php'); 
+      require_once($_SERVER['DOCUMENT_ROOT'] . '/mcc-digitex-lms/admin/users/functions/user-other-actions.php'); 
+?>
 
 <!-- Main Content -->
 <div class="d-flex flex-column flex-grow-1 gap-3 main-content">
@@ -32,81 +36,80 @@
         </a>
         
         <br><br>
-        <table id="view_course" class="display table table-bordered" style="width:100%">
+        <table id="example" class="display table table-bordered" style="width:100%">
             <thead>
                 <tr>
-                    <th>Student ID</th>
-                    <th>Full Name</th>
-                    <th>Email</th>
+                    <th class="d-none">ID</th>
+                    <th>School ID</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Last Name</th>
+                    <th class="d-none">Birthday</th>
+                    <th class="d-none">Address</th>
                     <th>Role</th>
                     <th>Department</th>
                     <th>Program</th>
+                    <th>Email</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>215678</td>
-                    <td>Minatozaki, Sana</td>
-                    <td>minatozakisana@gmail.com</td>
-                    <td>Student</td>
-                    <td>SCST</td>
-                    <td>1IT1</td>
-                    <td><button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#myModal"><i class="bi bi-pencil-square icon-white"></i> Edit</button></td>
-                </tr>
-                <tr>
-                    <td>215678</td>
-                    <td>Park, Jihyo</td>
-                    <td>parkjihyo@gmail.com</td>
-                    <td>Student</td>
-                    <td>SCST</td>
-                    <td>1IT1</td>
-                    <td><button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#myModal"><i class="bi bi-pencil-square icon-white"></i> Edit</button></td>
-                </tr>
-                <tr>
-                    <td>215678</td>
-                    <td>Myoui, Mina</td>
-                    <td>minamyoui@gmail.com</td>
-                    <td>Student</td>
-                    <td>SCST</td>
-                    <td>1IT1</td>
-                    <td><button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#myModal"><i class="bi bi-pencil-square icon-white"></i> Edit</button></td>
-                </tr>
+                <?php getAllUsers(); ?>
             </tbody>
         </table>
     </div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="myModal"  aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Update User</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body p-4">
-                <label>Student ID: </label>
-                <input name="studentID" class="form-control block"/><br>
-                <label>Full Name: </label>
-                <input name="Name" class="form-control block"/><br>
-                <label>Email: </label>
-                <input name="email" class="form-control block"/><br>
-                <label>Role: </label>
-                <select class="form-select block" aria-label="Default select example" style="height: 45px;">
-                    <option value="1">Admin</option>
-                    <option value="2">Teacher</option>
-                    <option value="3">Student</option>
-                  </select><br>
-                <label>Department: </label>
-                <input name="dept" class="form-control block"/><br>
-                <label>Program: </label>
-                <input name="program" class="form-control block"/>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-light">Cancel</button>
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+    <div class="modal fade" id="myModal"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <input input type="hidden" name="id" class="form-control"/>
+                    <input input type="hidden" name="school_id" id="school_id" class="form-control"/>
+
+                    <label>First Name: </label>
+                    <input name="first_name" id="first_name" class="form-control" pattern="[a-zA-Z]{1,}" required><br>
+                    <label>Middle Name: </label>
+                    <input name="middle_name" id="middle_name" class="form-control" pattern="[a-zA-Z]{1,}"><br>
+                    <label>Last Name: </label>
+                    <input name="last_name" id="last_name" class="form-control" pattern="[a-zA-Z]{1,}" required><br>
+
+                    <input type="hidden" name="birthday" id="birthday" class="form-control" required>
+                    <input type="hidden" name="address" id="address" class="form-control"/>
+
+                    <label>Role: </label>
+                    <select class="form-select" name="role" id="role" style="height: 45px;" required>
+                        <option id="role" name="role" value="1" <?php if($role == "1") { echo "selected"; }?>>Admin</option>
+                        <option id="role" name="role" value="2" <?php if($role == "2") { echo "selected"; }?>>Teacher</option>
+                        <option id="role" name="role" value="3" <?php if($role == "3") { echo "selected"; }?>>Student</option>
+                    </select><br>
+                    <label>Department: </label>
+                    <select class="form-select" name="department" id="department" style="height: 45px;" required>
+                        <option id="department" name="department" value="1" <?php if($department == "1") { echo "selected"; }?>>Sample Dept. 1</option>
+                        <option id="department" name="department" value="2" <?php if($department == "2") { echo "selected"; }?>>Sample Dept. 2</option>
+                        <option id="department" name="department" value="3" <?php if($department == "3") { echo "selected"; }?>>Sample Dept. 3</option>
+                    </select><br>
+                    <label>Program: </label>
+                    <select class="form-select" name="program" id="program" style="height: 45px;" required>
+                        <option id="program" name="program" value="1" <?php if($program == "1") { echo "selected"; }?>>Sample Prog. 1</option>
+                        <option id="program" name="program" value="2" <?php if($program == "2") { echo "selected"; }?>>Sample Prog. 2</option>
+                        <option id="program" name="program" value="3" <?php if($program == "3") { echo "selected"; }?>>Sample Prog. 3</option>
+                    </select><br>
+                    <label>Email: </label>
+                    <input name="email" id="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" name="btnSave" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</form>
 <!-- End Modal -->

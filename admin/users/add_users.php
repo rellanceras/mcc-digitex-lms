@@ -107,7 +107,7 @@
             </div>
             <br><br>
             <button type="button" class="btn btn-primary">Save</button>
-            <a href="view_users.html">
+            <a href="?page=Users">
                 <button type="button" class="btn btn-secondary">Cancel</button>
             </a>
         </div>
