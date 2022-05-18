@@ -77,12 +77,24 @@ body {
   background: transparent;
 }
 
-.modal-content{
-  background-color: var(--bg-block-dark) !important;
+.modal-content {
+  background-color: var(--bg-block-dark);
 }
 
 /*Data tables - DARK*/
 
+.select-checkbox::before {
+  border: 1px solid var(--txt-dark) !important;
+}
+
+.select-checkbox::after {
+  font-size: 16px !important;
+  margin-top: -15px !important;
+}
+
+.odd .selected, .even .selected {
+  background-color: var(--bg-accent-dark) !important;
+}
 
 
 table.dataTable th.dt-left,

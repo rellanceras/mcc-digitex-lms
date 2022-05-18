@@ -1,10 +1,9 @@
 <?php
     $allowed = array(
-        'Curriculum' => '../admin/curriculum/view_acadyear',
+        'Curriculum' => '../admin/curriculum/',
         'Class' => '../admin/class/view_class',
         'AddClass' => '../admin/class/add_class',
-        'Users' => '../admin/users/view_users',
-        'AddUsers' => '../admin/users/add_users'
+        'Users' => '../admin/users/view_users'
     );
     $subPages = array(
         'AcademicYear' => '../admin/curriculum/view_acadyear',
@@ -20,11 +19,10 @@
             include($subPages[$sub] . ".php");
             return;
         }
-
+        
         include($allowed[$page] . ".php");
-
+       
     } else {
         include("404.php");
     }
-
 ?>
