@@ -373,7 +373,7 @@ $(document).ready(function(){
         }
     });
 
-    var table = $('#courseIns').DataTable({
+    var table = $('#example').DataTable({
         dom: 'Bfrtip',
         pageLength : 5,
         buttons: [
@@ -426,6 +426,7 @@ $(document).ready(function(){
 
         }
     );
+    $('#view_course').DataTable({});
     $(function(){
         $('.calendar-container').calendar({
             date:new Date(),// today
