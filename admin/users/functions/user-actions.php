@@ -16,7 +16,7 @@
       if(mysqli_num_rows($result) > 0){
         while($row = $result->fetch_assoc()){
           echo "<tr>
-              <td class='d-none'>".$row["id"]. "</td>
+              
               <td>".$row["school_id"]."</td>
               <td>".$row["first_name"]."</td> 
               <td>".$row["middle_name"]."</td>
@@ -35,7 +35,7 @@
           echo "No record found."; 
       }  
   }
-
+  //line 19 <td class='d-none'>".$row["id"]. "</td>
 
   // register new user
   if(isset($_POST['last_name']) && isset($_POST['first_name']) && isset($_POST['middle_name']) && isset($_POST['birthday']) && isset($_POST['address']) && isset($_POST['school_id']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['role']) && isset($_POST['department']) && isset($_POST['program'])){

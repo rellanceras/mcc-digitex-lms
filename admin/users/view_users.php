@@ -38,7 +38,7 @@
         <table id="example" class="display table table-bordered" style="width:100%">
             <thead>
                 <tr>
-                    <th class="d-none">ID</th>
+                    <!-- <th class="d-none">ID</th> -->
                     <th>School ID</th>
                     <th>First Name</th>
                     <th>Middle Name</th>
