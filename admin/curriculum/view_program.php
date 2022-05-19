@@ -22,7 +22,7 @@
             <ol class="breadcrumb px-4 py-2 m-0">
                 <li class="breadcrumb-item"><a class="text-decoration-none" href="#">A.Y. 2023-2024</a></li>
                 <li class="breadcrumb-item"><a class="text-decoration-none" href="#">Curriculum</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Subject</li>
+                <li class="breadcrumb-item active" aria-current="page">Program</li>
             </ol>
         </nav>
     </div>
@@ -33,7 +33,7 @@
                     Academic Year
                 </a>
             </li>
-            <li class="nav-item subnav_active">
+            <li class="subnav_select">
                 <a class="nav-link text-reset" href="?page=Curriculum&sub=Subject">
                     Subject
                 </a>
@@ -43,7 +43,7 @@
                     Department
                 </a>
             </li>
-            <li class="subnav_select">
+            <li class="nav-item subnav_active">
                 <a class="nav-link text-reset" href="?page=Curriculum&sub=Program">
                     Program
                 </a>
@@ -53,58 +53,64 @@
     <!-- Page Content -->
     <div class="block h-100 p-4">
                         
-        <button type="button" class="btn btn-primary" style="margin-bottom: 1%;" data-bs-toggle="modal" data-bs-target="#myModal">
-            Add Subject
-        </button>
-                                
-        <table id="view_course" class="display table table-bordered" style="width:100%"> 
-            <thead>
+        <table id="view_course" class="display table table-bordered" style="width:100%">
+            <thead style="width:100%">
                 <tr>
-                    <th class="thborderleft">Name</th>
-                    <th>Subject Code</th>
-                    <th>Department</th>
+                    <tr>
+                    <th class="thborderleft" style="width:35%">Department</th>
+                    <th style="width:20%">Suject</th>
+                    <th>Semester</th>
                     <th class="thborderright">Options</th>
+                    </tr>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><button type="button" class="btn bi bi-info" style="background-color: #FF9800;color: white;"></button> Advanced Mathematics</td>
-                    <td>GEC-0001</td>
-                    <td>GenEd</td>
-                    <td>
-                        <button type="button" class="btn bi bi-pen" style="background-color: #2196f3;color: white;" data-bs-toggle="modal" data-bs-target="#editModal"></button>
-                        <button type="button" class="btn bi bi-trash" style="background-color: #f44336;color: white;" data-bs-toggle="modal" data-bs-target="#deleteModal"></button>
+                    <td>School of Computer Science and Technology</td>
+                    <td style = "text-align: center;">Advance Mathematics</td>
+                    <td style = "text-align: center;">2nd Semester</td>
+                    <td style = "text-align: center;">
+                        <label class="toggle">
+                            <input type="checkbox">
+                            <span class="labels" data-on="Active" data-off="Set as Active"></span>
+                        </label>            
                     </td>
                 </tr>
                 <tr>
-                    <td><button type="button" class="btn bi bi-info" style="background-color: #FF9800;color: white;"></button> Object Oriented Programming</td>
-                    <td>CSIT-0123</td>
-                    <td>SCST</td>
-                    <td>
-                        <button type="button" class="btn bi bi-pen" style="background-color: #2196f3;color: white;" data-bs-toggle="modal" data-bs-target="#editModal"></button>
-                        <button type="button" class="btn bi bi-trash" style="background-color: #f44336;color: white;" data-bs-toggle="modal" data-bs-target="#deleteModal"></button>
+                    <td>School of Engineering and Architecture</td>
+                    <td style = "text-align: center;">Calculus</td>
+                    <td style = "text-align: center;">1st Semester</td>
+                    <td style = "text-align: center;">
+                        <label class="toggle">
+                                <input type="checkbox">
+                                <span class="labels" data-on="Active" data-off="Set as Active"></span>
+                        </label>
                     </td>
                 </tr>
                 <tr>
-                    <td><button type="button" class="btn bi bi-info" style="background-color: #FF9800;color: white;" data-bs-toggle="modal" data-bs-target="#deleteModal"></button> Calculus </td>
-                    <td>CE101</td>
-                    <td>SEA</td>
-                    <td>
-                        <button type="button" class="btn bi bi-pen" style="background-color: #2196f3;color: white;" data-bs-toggle="modal" data-bs-target="#editModal"></button>
-                        <button type="button" class="btn bi bi-trash" style="background-color: #f44336;color: white;" data-bs-toggle="modal" data-bs-target="#deleteModal"></button>
+                    <td>School of Tourism and Hospitality Management</td>
+                    <td style = "text-align: center;">Phisycal Education</td>
+                    <td style = "text-align: center;">1st Semester</td>
+                    <td style = "text-align: center;">
+                        <label class="toggle">
+                                <input type="checkbox">
+                                <span class="labels" data-on="Active" data-off="Set as Active"></span>
+                        </label>
                     </td>
                 </tr>
                 <tr>
-                    <td><button type="button" class="btn bi bi-info" style="background-color: #FF9800;color: white;"></button> Physical Education</td>
-                    <td>PE-0002</td>
-                    <td>STHM</td>
-                    <td>
-                        <button type="button" class="btn bi bi-pen" style="background-color: #2196f3;color: white;" data-bs-toggle="modal" data-bs-target="#editModal"></button>
-                        <button type="button" class="btn bi bi-trash" style="background-color: #f44336;color: white;" data-bs-toggle="modal" data-bs-target="#deleteModal"></button>
+                    <td>School of Business Management and Accountancy</td>
+                    <td style = "text-align: center;">Algebra</td>
+                    <td style = "text-align: center;">2nd Semester</td>
+                    <td style = "text-align: center;">
+                        <label class="toggle">
+                                <input type="checkbox">
+                                <span class="labels" data-on="Active" data-off="Set as Active"></span>
+                        </label>
                     </td>
                 </tr>
             </tbody>
-        </table>                  
+        </table>
     </div>
 </div>
 
@@ -144,17 +150,10 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-4">
-                <label>Subject Code</label>
-                <input name="scode" class="form-control block"/>
-                <label>Subject Name </label>
-                <input name="sname" class="form-control block"/>
-                <label>Department </label>
-                <select name="dept" class="form-control block">
-                    <option value="" disabled selected> Choose Account Type</option>
-                    <option value="school">school</option>
-                </select>
-                <label>Description </label>
-                <input name="desc" class="form-control block"/>
+                <label>Year </label>
+                <input name="year" class="form-control block"/>
+                <label>Semester </label>
+                <input name="semester" class="form-control block"/>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary">Save</button>
@@ -168,7 +167,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Delete Subject</h5>
+                <h5 class="modal-title">Delete Academic Year</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
                 <div class="modal-body p-4">
@@ -181,3 +180,4 @@
         </div>
     </div>
 </div>
+

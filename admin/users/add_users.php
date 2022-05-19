@@ -3,7 +3,11 @@
     Work in Progress | Template by Nicolas Honrade
 
 -->
+<?php
 
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/mcc-digitex-lms/admin/users/functions/user-actions.php'); 
+
+?>
 
 <!-- Main Content -->
 <div class="d-flex flex-column flex-grow-1 gap-3 main-content">
@@ -28,122 +32,89 @@
     <!-- Page Content -->
     <div class="block h-100 p-4">
         <div class="container p-4">
-            <div class="row">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST"> 
+                <div class="row">
                 <div class="col-6">
                     <h3>Basic Information</h3>
                     <br><br>
                     <div class="form-floating mb-3 col-md-8">
-                        <input type="text" class="form-control block" id="floatingInput" placeholder="Course Name">
+                        <input type="text" class="form-control block" id="last_name" name="last_name" placeholder="Last Name" pattern="[a-zA-Z]{1,}" required>
                         <label for="floatingInput">Last Name</label>
                     </div>
                     <br>
                     <div class="form-floating mb-3 col-md-8">
-                        <input type="text" class="form-control block" id="floatingInput" placeholder="Course Name">
+                        <input type="text" class="form-control block" id="first_name" name="first_name" placeholder="First Name" pattern="[a-zA-Z]{1,}" required>
                         <label for="floatingInput">First Name</label>
                     </div>
                     <br>
                     <div class="form-floating mb-3 col-md-8">
-                        <input type="text" class="form-control block" id="floatingInput" placeholder="Course Name">
+                        <input type="text" class="form-control block" id="middle_name" name="middle_name" placeholder="Middle Name" pattern="[a-zA-Z]{1,}"> 
                         <label for="floatingInput">Middle Name</label>
                     </div>
                     <br>
                     <div class="form-floating mb-3 col-md-8">
-                        <input type="date" class="form-control block" id="floatingInput" placeholder="Course Name">
+                        <input type="date" class="form-control block" id="birthday" name="birthday" placeholder="Birthday" required>
                         <label for="floatingInput">Birthday</label>
                     </div>
                     <br>
                     <div class="form-floating mb-3 col-md-8">
-                        <textarea class="form-control block" placeholder="Course Description" id="floatingTextarea" style="height: 100px"></textarea>
+                        <textarea class="form-control block" placeholder="Complete Address" id="address" name="address" style="height: 100px" required></textarea>
                         <label for="floatingTextarea" >Complete Address</label>
                     </div>
                 </div>
 
+                <!-- Form Aligned Left -->
                 <div class="col-6">
                     <h3>Account Information</h3>
                     <br><br>
                     <div class="form-floating mb-3 col-md-8">
-                        <input type="text" class="form-control block" id="floatingInput" placeholder="Course Name">
-                        <label for="floatingInput">Student ID</label>
-                        </div>
-                        <br>
-                        <div class="form-floating mb-3 col-md-8">
-                        <input type="text" class="form-control block" id="floatingInput" placeholder="Course Name">
-                        <label for="floatingInput">Email Address</label>
-                        </div>
-                        <br>
-                        <div class="form-floating mb-3 col-md-8">
-                        <input type="text" class="form-control block" id="floatingInput" placeholder="Course Name">
-                        <label for="floatingInput">Password</label>
-                        </div>
-                        <br>
-                        <div class="form mb-3 col-md-8">
-                        <select class="form-select block" aria-label="Default select example" style="height: 60px;">
-                            <option selected>Role</option>
-                            <option value="1">.</option>
-                            <option value="2">..</option>
-                            <option value="3">...</option>
-                            </select>
-                        </div>
-                        <br>
-                        <div class="form mb-3 col-md-8">
-                        <select class="form-select block" aria-label="Default select example" style="height: 60px;">
-                            <option selected>Department</option>
-                            <option value="1">.</option>
-                            <option value="2">..</option>
-                            <option value="3">...</option>
-                            </select>
-                        </div>
-                        <br>
-                        <div class="form mb-3 col-md-8">
-                        <select class="form-select block" aria-label="Default select example" style="height: 60px;">
-                            <option selected>Program</option>
-                            <option value="1">.</option>
-                            <option value="2">..</option>
-                            <option value="3">...</option>
-                            </select>
-                        </div>
+                        <input type="text" class="form-control block" id="school_id" name="school_id" placeholder="School ID" pattern="[0-9]{1,}" required>
+                        <label for="floatingInput">School ID</label>
                     </div>
-
-            </div>
-            <br><br>
-            <button type="button" class="btn btn-primary">Save</button>
-            <a href="?page=Users">
-                <button type="button" class="btn btn-secondary">Cancel</button>
-            </a>
+                    <br>
+                    <div class="form-floating mb-3 col-md-8">
+                        <input type="email" class="form-control block" id="email" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Email Address" required>
+                        <label for="floatingInput">Email Address</label>
+                    </div>
+                    <br>
+                    <div class="form-floating mb-3 col-md-8">
+                        <input type="password" class="form-control block" id="password" name="password" placeholder="Password" minlength="8" required>
+                        <label for="floatingInput">Password</label>
+                    </div>
+                    <br>
+                    <div class="form mb-3 col-md-8">
+                        <select name="role" class="form-select block" aria-label="Default select example" style="height: 60px;" required>
+                            <option selected>Role</option>
+                            <option id="role" name="role" value="1" <?php if($role == "1") { echo "selected"; }?>>Admin</option>
+                            <option id="role" name="role" value="2" <?php if($role == "2") { echo "selected"; }?>>Teacher</option>
+                            <option id="role" name="role" value="3"<?php if($role == "3") { echo "selected"; }?>>Student</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form mb-3 col-md-8">
+                        <select name="department" class="form-select block" aria-label="Default select example" style="height: 60px;" required>
+                            <option selected>Department</option>
+                            <option id="department" name="department" value="1" <?php if($department == "1") { echo "selected"; }?>>Sample Dept. 1</option>
+                            <option id="department" name="department" value="2" <?php if($department == "2") { echo "selected"; }?>>Sample Dept. 2</option>
+                            <option id="department" name="department" value="3" <?php if($department == "3") { echo "selected"; }?>>Sample Dept. 3</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form mb-3 col-md-8">
+                        <select name="program" class="form-select block" aria-label="Default select example" style="height: 60px;" required>
+                            <option selected>Program</option>
+                            <option id="program" name="program" value="1" <?php if($program == "1") { echo "selected"; }?>>Sample Prog. 1</option>
+                            <option id="program" name="program" value="2" <?php if($program == "2") { echo "selected"; }?>>Sample Prog. 2</option>
+                            <option id="program" name="program" value="3" <?php if($program == "3") { echo "selected"; }?>>Sample Prog. 3</option>
+                        </select>
+                    </div>
+                </div>
+                    
+                </div>
+                <br><br>
+                <button type="submit" class="btn btn-primary" style="text-align:right">Save</button>
+                <button type="button" class="btn btn-secondary" style="text-align:right">Cancel</button>
+            </form> 
         </div>
     </div>
 </div>
-<!-- Modal -->
-<div class="modal fade" id="myModal"  aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Update User</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <label>Student ID: </label>
-                <input name="studentID" class="form-control"/><br>
-                <label>Full Name: </label>
-                <input name="Name" class="form-control"/><br>
-                <label>Email: </label>
-                <input name="email" class="form-control"/><br>
-                <label>Role: </label>
-                <select class="form-select" aria-label="Default select example" style="height: 45px;">
-                    <option value="1">Admin</option>
-                    <option value="2">Teacher</option>
-                    <option value="3">Student</option>
-                  </select><br>
-                <label>Department: </label>
-                <input name="dept" class="form-control"/><br>
-                <label>Program: </label>
-                <input name="program" class="form-control"/>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-light">Cancel</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Modal -->

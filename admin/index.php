@@ -169,7 +169,7 @@
                     </a>
                 </li>
                 <li class="nav-item nav_select">
-                    <a class="nav-link text-reset tool_tip" href="../layout/admin.php?page=Curriculum" data-bs-toggle="tooltip" data-bs-placement="right" title="Curriculum">
+                    <a class="nav-link text-reset tool_tip" href="../layout/admin.php?page=Curriculum&sub=AcademicYear" data-bs-toggle="tooltip" data-bs-placement="right" title="Curriculum">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons ">local_library</span>
                             <span class="nav_label ms-3">Curriculum</span>

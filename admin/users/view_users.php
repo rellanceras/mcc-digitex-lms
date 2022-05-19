@@ -31,7 +31,9 @@
     </div>
     <!-- Page Content -->
     <div class="block h-100 p-4">
-        
+        <a href="?page=AddUsers">
+            <button type="button" class="btn btn-primary"><i class="bi bi-plus-lg icon-white"></i> Add User</button>
+        </a>
         <br><br>
         <table id="example" class="display table table-bordered" style="width:100%">
             <thead>

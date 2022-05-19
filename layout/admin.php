@@ -101,7 +101,7 @@
                     </li>
                     <hr />
                     <li class="nav-item nav_select mb-2">
-                        <a class="nav-link text-reset text-decoration-none" href="index.php">
+                        <a class="nav-link text-reset text-decoration-none" href="../index.html">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons">grid_view</span>
                                 <span class="nav_label ms-3">Dashboard</span>
@@ -109,7 +109,7 @@
                         </a>
                     </li>
                     <li class="nav-item nav_active mb-2">
-                        <a class="nav-link text-reset text-decoration-none tool_tip" href="?page=Curriculum">
+                        <a class="nav-link text-reset text-decoration-none tool_tip" href="curriculum/view_acadyear.html">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons">local_library</span>
                                 <span class="nav_label ms-3">Curriculum</span>
@@ -117,7 +117,7 @@
                         </a>
                     </li>
                     <li class="nav-item nav_select mb-2">
-                        <a class="nav-link text-reset text-decoration-none tool_tip" href="?page=Class">
+                        <a class="nav-link text-reset text-decoration-none tool_tip" href="#">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons">class</span>
                                 <span class="nav_label ms-3">Class</span>
@@ -125,7 +125,7 @@
                         </a>
                     </li>
                     <li class="nav-item nav_select mb-2">
-                        <a class="nav-link text-reset text-decoration-none tool_tip" href="?page=Users">
+                        <a class="nav-link text-reset text-decoration-none tool_tip" href="#">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons material-icons-round">manage_accounts</span>
                                 <span class="nav_label ms-3">Users</span>
@@ -149,7 +149,7 @@
                     </li>
                     <hr />
                     <li class="nav-item nav_select mb-2">
-                        <a class="nav-link text-reset text-decoration-none tool_tip" href="../index.php">
+                        <a class="nav-link text-reset text-decoration-none tool_tip" href="../../index.html">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons material-icons-round">logout</span>
                                 <span class="nav_label ms-3">Logout</span>
@@ -195,7 +195,7 @@
                     </a>
                 </li>
                 <li class="nav-item <?php if ($_GET['page'] == 'Curriculum') {echo 'nav_active';} else {echo 'nav_select';}?>">
-                    <a class="nav-link text-reset tool_tip" href="?page=Curriculum" data-bs-toggle="tooltip" data-bs-placement="right" title="Courses">
+                    <a class="nav-link text-reset tool_tip" href="?page=Curriculum&sub=AcademicYear" data-bs-toggle="tooltip" data-bs-placement="right" title="Courses">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons material-icons-round">local_library</span>
                             <span class="nav_label ms-3">Curriculum</span>
@@ -211,7 +211,7 @@
                     </a>
                 </li>
                 <li class="nav-item <?php if ($_GET['page'] == 'Users') {echo 'nav_active';} else {echo 'nav_select';}?>">
-                    <a class="nav-link text-reset tool_tip" href="?page=Users" data-bs-toggle="tooltip" data-bs-placement="right" title="Users">
+                    <a class="nav-link text-reset tool_tip" href="?page=Users" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons material-icons-round">manage_accounts</span>
                             <span class="nav_label ms-3">Users</span>
@@ -236,7 +236,7 @@
                 </li>
                 <hr />
                 <li class="nav-item nav_select">
-                    <a class="nav-link text-reset tool_tip" href="../index.php" data-bs-toggle="tooltip" data-bs-placement="right" title="Logout">
+                    <a class="nav-link text-reset tool_tip" href="../../index.html" data-bs-toggle="tooltip" data-bs-placement="right" title="Logout">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons material-icons-round text-center">logout</span>
                             <span class="nav_label ms-3">Logout</span>
@@ -358,7 +358,7 @@
         <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.colVis.min.js"></script>
-        <script type="text/javascript" src="https://cdn.datatables.net/select/1.4.0/js/dataTables.select.min.js"></script>
+        <script src="https://cdn.datatables.net/select/1.4.0/js/dataTables.select.min.js"></script>
         <!-- Smart Wizard -->
         <script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
         <!-- JQuery Validate -->
@@ -368,36 +368,148 @@
 var getWindowSize;
 $(document).ready(function(){
     $('#smartwizard').smartWizard({
+        selected: 3,
         theme: 'dots',
         toolbarSettings: {
             toolbarPosition: 'bottom',
             toolbarButtonPosition: 'center',
+        },
+        autoAdjustHeight: false,
+    });
+    
+    $("#smartwizard").on("leaveStep", function(e, anchorObject, currentStepIndex, nextStepIndex, stepDirection) {
+        if ($("#smartwizard").smartWizard("getStepIndex") == 0) {
+            if (!($("#addClass").valid())) {
+                alert("Please fill up the form");
+                return false;
+            }
+            $("#classNameSum").val($("#className").val());
+            $("#classDescSum").val($("#classDesc").val());
+            $("#classSubjectSum").val($("#classSubject").val());
+            $("#classDeptSum").val($("#classDept").val());
+        }
+        if ($("#smartwizard").smartWizard("getStepIndex") == 1) {
+            $("#courseInsSum tbody tr").remove();
+            if (selectedIns.length == 0) {
+                $("#selectedInsError").text("No instructor/s selected");
+                return false;
+            }
+            $("#selectedInsError").text("");
+            selectedIns.forEach((row)=>{
+                if (row.length > 3){
+                    row.pop();
+                }
+            });
+
+            var tbodyIns = $('#courseInsSum tbody');
+            $.each(selectedIns, function(i) {
+                var tr = $('<tr>');
+                $.each(selectedIns[i], function(j) {
+                    $('<td>').html(selectedIns[i][j]).appendTo(tr);  
+                });
+                tbodyIns.append(tr);
+            });
+            
+        }
+        if ($("#smartwizard").smartWizard("getStepIndex") == 2) {
+            $("#courseStudsSum tbody tr").remove();
+            if (selectedStuds.length == 0) {
+                $("#selectedStudsError").text("No student/s selected");
+                return false;
+            }
+            $("#selectedStudsError").text("");
+
+            selectedStuds.forEach((row)=>{
+                if (row.length > 3){
+                    row.pop();
+                }
+            });
+
+            var tbodyStuds = $('#courseStudsSum tbody');
+            $.each(selectedStuds, function(i) {
+                var tr = $('<tr>');
+                $.each(selectedStuds[i], function(j) {
+                    $('<td>').html(selectedStuds[i][j]).appendTo(tr);  
+                });
+                tbodyStuds.append(tr);
+            });
         }
     });
 
-    var table = $('#example').DataTable({
+    $("#addClass").validate({
+        rules: {
+            cname: "required",
+            cdesc: "required",
+            csubject: "required",
+            cdept: "required",
+        }
+    });
+
+    $('.addClassUsers').DataTable({
         dom: 'Bfrtip',
         pageLength : 5,
         buttons: [
-        {
-            
-        text: '<i class="bi bi-arrow-clockwise"></i>'
+            {
+                text: '<i class="bi bi-arrow-clockwise"></i>'
+            },
+            {
+                extend: 'colvis',
+                text: '<i class="bi bi-layout-three-columns"></i>'
+            },
+        ],
+        columnDefs: [ {
+            orderable: false,
+            className: 'select-checkbox',
+            targets: 3
+        } ],
+        select: {
+            style:    'multi',
+            selector: 'td:last-child'
         },
-        {
-        extend: 'colvis',
-        text: '<i class="bi bi-layout-three-columns"></i>'
-
-        },
-        
-        ]
+        order: [[ 1, 'asc' ]]
     });
-   var tableYear = $('#viewAcadYear').DataTable(
+   
+    
+    var courseIns = $('#courseIns').DataTable();
+    var courseStuds = $('#courseStuds').DataTable();
+    var cname;
+    var cdesc;
+    var csubject;
+    var cdept;
+    var selectedIns = [];
+    var selectedStuds = [];
+
+    courseStuds.on( 'select', function ( e, dt, type, indexes ) {
+        var count = courseStuds.rows( { selected: true } ).count();
+        selectedStuds = courseStuds.rows('.selected').data().toArray();
+        $('#selectedStuds').text(count);
+        console.log(selectedStuds);
+    });
+    courseStuds.on( 'deselect', function ( e, dt, type, indexes ) {
+        var count = courseStuds.rows( { selected: true } ).count();
+        selectedStuds = courseStuds.rows('.selected').data().toArray();
+        $('#selectedStuds').text(count);
+        console.log(selectedStuds);
+    });
+    
+    courseIns.on( 'select', function ( e, dt, type, indexes ) {
+        var count = courseIns.rows( { selected: true } ).count();
+        selectedIns = courseIns.rows('.selected').data().toArray();
+        $('#selectedIns').text(count);
+        console.log(selectedIns);
+    });
+    courseIns.on( 'deselect', function ( e, dt, type, indexes ) {
+        var count = courseIns.rows( { selected: true } ).count();
+        selectedIns = courseIns.rows('.selected').data().toArray();
+        $('#selectedIns').text(count);
+        console.log(selectedIns);     
+    });
+    
+    var tableYear = $('#viewAcadYear').DataTable(
         {
         "processing": true,
         "serverside": true,
         "ajax": "../admin/curriculum/functions/server_processing.php",
-
-        "order": [[ 4, "desc" ]], // sorting for status column
 
         "columnDefs":[
         {             // toggle visiblity of status and archived column
@@ -439,6 +551,27 @@ $(document).ready(function(){
 
         }
     );
+
+    var table = $('#example').DataTable( {
+        // rowReorder: {
+        //     selector: 'td:nth-child(2)'
+        // },
+        // responsive: true,
+        dom: 'Bfrtip',
+        
+        buttons: [
+        {
+            
+        text: '<i class="bi bi-arrow-clockwise"></i>'
+        },
+        {
+        extend: 'colvis',
+        text: '<i class="bi bi-layout-three-columns"></i>'
+
+        },
+        
+        ]
+    } );
     //gets row data on where the clicked button is located and assigns it
     $('#viewAcadYear').on('click','button',function()
     {
