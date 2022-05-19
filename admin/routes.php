@@ -1,6 +1,6 @@
 <?php
     $allowed = array(
-        'Curriculum' => '../admin/curriculum/view_acadyear',
+        'Curriculum' => '../admin/curriculum/',
         'Class' => '../admin/class/view_class',
         'AddClass' => '../admin/class/add_class',
         'Users' => '../admin/users/view_users',
