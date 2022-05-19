@@ -39,6 +39,7 @@
         <link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.4/css/select.dataTables.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.4.0/css/select.dataTables.min.css"/>
         <!-- Smart Wizard -->
         <link href="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
 
@@ -357,6 +358,7 @@
         <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.colVis.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/select/1.4.0/js/dataTables.select.min.js"></script>
         <!-- Smart Wizard -->
         <script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
         <!-- JQuery Validate -->
@@ -389,7 +391,7 @@ $(document).ready(function(){
         
         ]
     });
-    $('#viewAcadYear').DataTable(
+   var tableYear = $('#viewAcadYear').DataTable(
         {
         "processing": true,
         "serverside": true,
@@ -397,21 +399,32 @@ $(document).ready(function(){
 
         "order": [[ 4, "desc" ]], // sorting for status column
 
-        "columnDefs":[{             // toggle visiblity of status column
-            "targets": [4] ,
+        "columnDefs":[
+        {             // toggle visiblity of status and archived column
+            "targets": [4,5] ,
             "visible": false ,
             "searchable": false
         },
+        {             // centers column header and row data
+            "targets": [0,1,2,3] ,
+            className: "dt-center",
+        },
+        {             // disables ordering of certain columns
+            "targets": [1,3] ,
+            "orderable": false
+        },
         {
-            "targets": [5] ,    // populate options column
+            "targets": [6] ,    // populate options column
             "orderable": false, 
+            className: "dt-center",
             "data":4,
             "render": function(data,type,row){
                 var active = 
-                "<button type='button' disabled class='btn btn-success'>Currently Active</button>"+
-                "<button type='button' class='btn btn-primary' style='margin-bottom: 1%;' data-bs-toggle='modal' data-bs-target='#deleteModal'>Delete</button>";
+                "<button type='button' disabled class='btn btn-success'>Currently Active</button>";
                 // edit either variable to add things
-                var inactive = '<a href ="../admin/curriculum/functions/CRUD_functions.php?id='+ row[0] +'">Set as Active</a>';
+                var inactive = 
+                '<a class="btn btn-success" href ="../admin/curriculum/functions/CRUD_functions.php?activeID='+ row[0] +'">Set as Active</a>'+
+                "<button type='button' class='btn btn-primary' style='margin-bottom: 1%;' data-bs-toggle='modal' data-bs-target='#deleteModal'>Delete</button>";
                 if(data==1){
                     $('#currentActive').text(row[1]);
                     $('#currentActiveYear').text(row[1]);
@@ -425,6 +438,14 @@ $(document).ready(function(){
         }],
 
         }
+    );
+    //gets row data on where the clicked button is located and assigns it
+    $('#viewAcadYear').on('click','button',function()
+    {
+        var data = tableYear.row($(this).parents('tr')).data();
+        document.getElementById("delID").value = data[0];
+        $('#deletingYear').text(data[1]);
+    }
     );
     $('#view_course').DataTable({});
     $(function(){
