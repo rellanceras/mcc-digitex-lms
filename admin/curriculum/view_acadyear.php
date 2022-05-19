@@ -136,7 +136,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 <!--<button type="button" class="btn btn-primary">Delete</button>-->
-                <a class="btn btn-primary" href ="functions/CRUD_functions.php?id=row[0]">Set as Active</a>
+                <a class="btn btn-primary" href ="functions/CRUD_functions.php?id=row[0]">Delete</a>
             </div>
         </div>
     </div>

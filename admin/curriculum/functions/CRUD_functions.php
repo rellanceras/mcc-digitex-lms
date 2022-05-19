@@ -89,7 +89,7 @@ function create_academic_year($name,$year,$semester){
     
 }
 
-function update_academic_year($id,){
+function update_academic_year($id){
     require_once "../../../config.php";
     //temporary sql still waiting for front-end update form modal
     $sql = "UPDATE academic_year SET name=$name, acad_year=$year, semester=$semeter WHERE id='$id'";
