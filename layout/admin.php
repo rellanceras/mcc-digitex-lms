@@ -377,6 +377,7 @@ $(document).ready(function(){
 
     var table = $('#example').DataTable({
         dom: 'Bfrtip',
+        responsive: 'true',
         pageLength : 5,
         buttons: [
         {
@@ -389,7 +390,14 @@ $(document).ready(function(){
 
         },
         
-        ]
+        ],
+        'columnDefs': [ {
+
+        'targets': [11], /* column index */
+
+        'orderable': false, /* true or false */
+
+        }]
     });
    var tableYear = $('#viewAcadYear').DataTable(
         {

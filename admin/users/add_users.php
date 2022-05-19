@@ -29,10 +29,10 @@
     <div class="block h-100 p-4">
         <div class="container p-4">
             <div class="row">
-                <div class="col-6">
+                <div class="col-md-6 col-sm-12">
                     <h3>Basic Information</h3>
                     <br><br>
-                    <div class="form-floating mb-3 col-md-8">
+                    <div class="form-floating mb-3 col-md-8 ">
                         <input type="text" class="form-control block" id="floatingInput" placeholder="Course Name">
                         <label for="floatingInput">Last Name</label>
                     </div>
@@ -58,10 +58,10 @@
                     </div>
                 </div>
 
-                <div class="col-6">
+                <div class="mobile-ver col-md-6 col-sm-12">
                     <h3>Account Information</h3>
                     <br><br>
-                    <div class="form-floating mb-3 col-md-8">
+                    <div class="form-floating mb-3 col-md-8 ">
                         <input type="text" class="form-control block" id="floatingInput" placeholder="Course Name">
                         <label for="floatingInput">Student ID</label>
                         </div>
