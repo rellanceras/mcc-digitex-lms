@@ -42,6 +42,8 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.4.0/css/select.dataTables.min.css"/>
         <!-- Smart Wizard -->
         <link href="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
+        <!-- Year Picker -->
+        <link rel='stylesheet' href='../resources/css/yearpicker.css' />
 
 
     <!-- Custom CSS -->
@@ -363,6 +365,8 @@
         <script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
         <!-- JQuery Validate -->
         <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js" type="text/javascript"></script>
+        <!-- Year Picker -->
+        <script src= '../resources/js/yearpicker.js'></script>
 <script>
 
 var getWindowSize;
@@ -401,7 +405,7 @@ $(document).ready(function(){
 
         "columnDefs":[
         {             // toggle visiblity of status and archived column
-            "targets": [4,5] ,
+            "targets": [0,4,5] ,
             "visible": false ,
             "searchable": false
         },
@@ -424,7 +428,7 @@ $(document).ready(function(){
                 // edit either variable to add things
                 var inactive = 
                 '<a class="btn btn-success" href ="../admin/curriculum/functions/CRUD_functions.php?activeID='+ row[0] +'">Set as Active</a>'+
-                "<button type='button' class='btn btn-primary' style='margin-bottom: 1%;' data-bs-toggle='modal' data-bs-target='#deleteModal'>Delete</button>";
+                "<button type='button' class='btn btn-danger' style='margin-bottom: 1%;' data-bs-toggle='modal' data-bs-target='#deleteModal'>Delete</button>";
                 if(data==1){
                     $('#currentActive').text(row[1]);
                     $('#currentActiveYear').text(row[1]);
@@ -447,6 +451,19 @@ $(document).ready(function(){
         $('#deletingYear').text(data[1]);
     }
     );
+    //resets form inside modal on close
+    $('#createModal').on('hidden.bs.modal', function () {
+    $('#createModal form')[0].reset();
+    });
+
+    $(".yearpicker").yearpicker(
+        {
+        startYear: get_year(),
+        selectedClass:'selected',
+        disabledClass:'disabled',
+        }
+    );
+
     $('#view_course').DataTable({});
     $(function(){
         $('.calendar-container').calendar({
@@ -586,7 +603,12 @@ function display_time() {
 
     return strTime;
 }
+function get_year(){
+    const getDate = new Date();
+    let year = getDate.getFullYear();
+    return year;
 
+}
 function display_date() {
     const getDate = new Date(); // This gets whole date based on your current location
 

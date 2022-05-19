@@ -53,7 +53,7 @@
     <!-- Page Content -->
     <div class="block h-100 p-4">
                         
-        <button type="button" class="btn btn-primary" style="margin-bottom: 1%;" data-bs-toggle="modal" data-bs-target="#myModal">
+        <button type="button" class="btn btn-primary" style="margin-bottom: 1%;" data-bs-toggle="modal" data-bs-target="#createModal">
             Add Academic Year
         </button>
 
@@ -61,8 +61,8 @@
         <table id="viewAcadYear" class="display table table-bordered" style="width:100%">
             <thead>
                 <tr>
-                <th class="thborderleft">ID</th>
-                <th>Name</th>
+                <th>ID</th>
+                <th class="thborderleft">Name</th>
                 <th>Year</th>
                 <th>Semester</th>
                 <th>Status</th>
@@ -75,24 +75,38 @@
 </div>
 
 <!-- Add Modal -->
-<div class="modal fade" id="myModal"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="createModal"  aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Add Academic Year</h5>
-                <button type="button" class="btn-close block2" data-bs-dismiss="modal" aria-label="Close"></button>
+                <a class="block2" data-bs-dismiss="modal" aria-label="Close"><span class="material-icons m-1">close</span></a>
             </div>
-            <form action="../admin/curriculum/functions/CRUD_functions.php" method="POST">
+            <form action="../admin/curriculum/functions/CRUD_functions.php" method="POST" autocomplete="off">
             <div class="modal-body">
-                <label>Year </label>
-                <input type="text" required name="year" class="form-control block"/>
-                <label for=sem>Semester:</label>
-                <select class="form-control block" id="sem" name="sem">
-                    <option value="" disabled selected>Choose option</option>
-                    <option value="1st Semester">1st Semester</option>
-                    <option value="2nd Semester">2nd Semester</option>
-                    <option value="Inter-Semester">Inter-Semester</option>
-                </select>
+                <!-- <label>Year </label>
+                <input type="text" required name="year" class="form-control block"/> -->
+                <div class="yearpickerstart-container mb-3">
+                    <div class="main">
+                        <label for="">Start Date</label>
+                        <input type="text" required name="startYear" class="yearpicker form-control block" placeholder="Select Year" value="">
+                    </div>
+                </div>
+                <div class="yearpickerend-container mb-3">
+                    <div class="main ">
+                        <label for="">End Date</label>
+                        <input type="text" required name="endYear" class="yearpicker form-control block" placeholder="Select Year" value="">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for=sem>Semester:</label>
+                    <select class="form-control block" id="sem" name="sem">
+                        <option value="" disabled selected>Choose option</option>
+                        <option value="1st Semester">1st Semester</option>
+                        <option value="2nd Semester">2nd Semester</option>
+                        <option value="Inter-Semester">Inter-Semester</option>
+                    </select>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Save</button>
