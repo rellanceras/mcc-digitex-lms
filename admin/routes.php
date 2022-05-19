@@ -16,14 +16,19 @@
     $page = ( isset($_GET['page']) ) ? $_GET['page'] : ' ';
     $sub = ( isset($_GET['sub']) ) ? $_GET['sub'] : ' ';
     if ( array_key_exists($page, $allowed) ){
-        if ( $page == "Curriculum" && array_key_exists($sub, $subPages) ) {
-            include($subPages[$sub] . ".php");
+        if ( $page == "Curriculum" ) {
+            if ( $page == "Curriculum" && array_key_exists($sub, $subPages) ) {
+                include($subPages[$sub] . ".php");
+                return;
+            }
+            include($subPages['AcademicYear'] . ".php");
             return;
         }
-        
+
         include($allowed[$page] . ".php");
-       
+
     } else {
         include("404.php");
     }
+
 ?>

@@ -88,11 +88,11 @@
 
             if($result){
               echo "<script language='javascript'>alert('Data has been saved.')</script>"; 
-              echo "<script>window.location.href='newuser-admin.php';</script>";
+              echo "<script>window.location.href='?page=AddUsers';</script>";
               $resullt->close();
             } else{
               echo "<script language='javascript'>alert('Data has not been saved.')</script>"; 
-              echo "<script>window.location.href='newuser-admin.php';</script>";
+              echo "<script>window.location.href='?page=AddUsers';</script>";
             }
                       
           }
