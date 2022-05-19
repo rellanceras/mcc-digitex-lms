@@ -368,7 +368,7 @@
 var getWindowSize;
 $(document).ready(function(){
     $('#smartwizard').smartWizard({
-        selected: 3,
+        selected: 0,
         theme: 'dots',
         toolbarSettings: {
             toolbarPosition: 'bottom',
