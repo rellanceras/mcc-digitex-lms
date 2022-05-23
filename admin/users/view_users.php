@@ -16,7 +16,7 @@
         <div class="px-4 pt-4">
             <h3 class="mb-3 fw-bold">
                 <div class="d-flex align-items-center">
-                    <span class="material-icons material-icons-round">manage_accounts</span>
+                    <span class="material-icons material-icons-round">local_library</span>
                     <span class="ms-3">Users</span>
                 </div>
             </h3>
@@ -34,12 +34,11 @@
         <a href="?page=AddUsers">
             <button type="button" class="btn btn-primary"><i class="bi bi-plus-lg icon-white"></i> Add User</button>
         </a>
-        
         <br><br>
         <table id="example" class="display table table-bordered" style="width:100%">
             <thead>
                 <tr>
-                    <th class="d-none">ID</th>
+                    <!-- <th class="d-none">ID</th> -->
                     <th>School ID</th>
                     <th>First Name</th>
                     <th>Middle Name</th>
@@ -70,39 +69,39 @@
                 </div>
                 <div class="modal-body">
                     
-                    <input input type="hidden" name="id" class="form-control"/>
-                    <input input type="hidden" name="school_id" id="school_id" class="form-control"/>
+                    <input input type="hidden" name="id" class="form-control block"/>
+                    <input input type="hidden" name="school_id" id="school_id" class="form-control block"/>
 
                     <label>First Name: </label>
-                    <input name="first_name" id="first_name" class="form-control" pattern="[a-zA-Z]{1,}" required><br>
+                    <input name="first_name" id="first_name" class="form-control block" pattern="[a-zA-Z]{1,}" required><br>
                     <label>Middle Name: </label>
-                    <input name="middle_name" id="middle_name" class="form-control" pattern="[a-zA-Z]{1,}"><br>
+                    <input name="middle_name" id="middle_name" class="form-control block" pattern="[a-zA-Z]{1,}"><br>
                     <label>Last Name: </label>
-                    <input name="last_name" id="last_name" class="form-control" pattern="[a-zA-Z]{1,}" required><br>
+                    <input name="last_name" id="last_name" class="form-control block" pattern="[a-zA-Z]{1,}" required><br>
 
-                    <input type="hidden" name="birthday" id="birthday" class="form-control" required>
-                    <input type="hidden" name="address" id="address" class="form-control"/>
+                    <input type="hidden" name="birthday" id="birthday" class="form-control block" required>
+                    <input type="hidden" name="address" id="address" class="form-control block"/>
 
                     <label>Role: </label>
-                    <select class="form-select" name="role" id="role" style="height: 45px;" required>
+                    <select class="form-select block" name="role" id="role" style="height: 45px;" required>
                         <option id="role" name="role" value="1" <?php if($role == "1") { echo "selected"; }?>>Admin</option>
                         <option id="role" name="role" value="2" <?php if($role == "2") { echo "selected"; }?>>Teacher</option>
                         <option id="role" name="role" value="3" <?php if($role == "3") { echo "selected"; }?>>Student</option>
                     </select><br>
                     <label>Department: </label>
-                    <select class="form-select" name="department" id="department" style="height: 45px;" required>
+                    <select class="form-select block" name="department" id="department" style="height: 45px;" required>
                         <option id="department" name="department" value="1" <?php if($department == "1") { echo "selected"; }?>>Sample Dept. 1</option>
                         <option id="department" name="department" value="2" <?php if($department == "2") { echo "selected"; }?>>Sample Dept. 2</option>
                         <option id="department" name="department" value="3" <?php if($department == "3") { echo "selected"; }?>>Sample Dept. 3</option>
                     </select><br>
                     <label>Program: </label>
-                    <select class="form-select" name="program" id="program" style="height: 45px;" required>
+                    <select class="form-select block" name="program" id="program" style="height: 45px;" required>
                         <option id="program" name="program" value="1" <?php if($program == "1") { echo "selected"; }?>>Sample Prog. 1</option>
                         <option id="program" name="program" value="2" <?php if($program == "2") { echo "selected"; }?>>Sample Prog. 2</option>
                         <option id="program" name="program" value="3" <?php if($program == "3") { echo "selected"; }?>>Sample Prog. 3</option>
                     </select><br>
                     <label>Email: </label>
-                    <input name="email" id="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br>
+                    <input name="email" id="email" class="form-control block" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" name="btnSave" class="btn btn-primary">Save</button>

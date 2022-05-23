@@ -95,7 +95,6 @@ p {
 
 .container-fluid {
     position: relative;
-    /*z-index: 1;*/
 }
 
 .login i {
@@ -160,7 +159,9 @@ p {
     max-width: 1366px;
 }
 
-
+.error {
+    color: var(--red);
+}
 
 
 

@@ -22,353 +22,316 @@
     <!-- Page Content -->
     <div class="block p-4">
         <form id="addClass" method="POST" action="">
-
-        </form>
-        <div id="smartwizard">
-            <ul class="nav">
-                <li>
-                    <a class="nav-link" href="#step-1">
-                        Step 1: <br />
-                        <span class="fw-bold">Configure Class Information</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link" href="#step-2">
-                        Step 2: <br />
-                        <span class="fw-bold">Assign Instructor</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link" href="#step-3">
-                        Step 3: <br />
-                        <span class="fw-bold">Enroll Students</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link" href="#step-4">
-                        Step 4: <br />
-                        <span class="fw-bold">Summary & Finish</span>
-                    </a>
-                </li>
-            </ul>
-            <div class="tab-content">
-                <div id="step-1" class="tab-pane p-4 block2 mx-auto" role="tabpanel">
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="className" class="form-label fw-bold">Class Name:</label>
-                            <input type="text" class="form-control block-sm" id="className" placeholder="Enter Course Name" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="classPic" class="form-label fw-bold">Upload Class Banner:</label>
-                            <input type="file" class="form-control block-sm" id="classBanner" required>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="classDesc" class="form-label fw-bold">Enter Class Description <p class="fw-normal d-inline-block mb-0">(Limited to 300 characters)</p></label>
-                        <textarea class="form-control block-sm" placeholder="Enter Course Description" id="classDesc" style="height: 200px; resize: none;" maxlength="300" required></textarea>
-                        <p id="the-count" class="d-flex justify-content-end">
-                            <span id="current">0</span>
-                            <span id="maximum">/ 300</span>
-                        </p>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="classSubject" class="form-label fw-bold">Choose Subject</label>
-                            <select class="form-select block-sm" id="classSubject" required>
-                                <option selected>--None Selected--</option>
-                                <option value="1">.</option>
-                                <option value="2">..</option>
-                                <option value="3">...</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="courseSubject" class="form-label fw-bold">Choose Department</label>
-                            <select class="form-select block-sm" id="classDept" required>
-                                <option selected>--None Selected--</option>
-                                <option value="1">.</option>
-                                <option value="2">..</option>
-                                <option value="3">...</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div id="step-2" class="tab-pane p-4 block2 mx-auto" role="tabpanel">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                        <a class="nav-link nav_active" href="#">
-                            <div class="d-flex align-items-center">
-                                <span class="nav_label me-3">Instructors: <span id="selectedStuds">0</span></span>
-                                <span class="material-icons">info</span>
-                            </div>
+            <div id="smartwizard">
+                <ul class="nav">
+                    <li>
+                        <a class="nav-link" href="#step-1">
+                            Step 1: <br />
+                            <span class="fw-bold">Configure Class Information</span>
                         </a>
-                    </div>
-                    <table id="courseIns" class="display table table-bordered" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Department</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td></td>
-                                <td>Tiger Nixon</td>
-                                <td>SCST</td>
-                                <td>
-                                    <input class="form-check-input" type="checkbox" value="" id="2">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>Marie Claire</td>
-                                <td>SCST</td>
-                                <td>
-                                    <input class="form-check-input" type="checkbox" value="" id="2">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>Josse Reezal</td>
-                                <td>SCST</td>
-                                <td>
-                                    <input class="form-check-input" type="checkbox" value="" id="2">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>Josse Reezal</td>
-                                <td>SCST</td>
-                                <td>
-                                    <input class="form-check-input" type="checkbox" value="" id="2">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>Josse Reezal</td>
-                                <td>SCST</td>
-                                <td>
-                                    <input class="form-check-input" type="checkbox" value="" id="2">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>Josse Reezal</td>
-                                <td>SCST</td>
-                                <td>
-                                    <input class="form-check-input" type="checkbox" value="" id="2">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>Josse Reezal</td>
-                                <td>SCST</td>
-                                <td>
-                                    <input class="form-check-input" type="checkbox" value="" id="2">
-                                </td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Department</th>
-                                <th></th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-                <div id="step-3" class="tab-pane p-4 block2 mx-auto" role="tabpanel">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                        <a class="nav-link nav_active" href="#">
-                            <div class="d-flex align-items-center">
-                                <span class="nav_label me-3">Students: <span id="selectedStuds">0</span></span>
-                                <span class="material-icons">info</span>
-                            </div>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#step-2">
+                            Step 2: <br />
+                            <span class="fw-bold">Assign Instructor</span>
                         </a>
-                    </div>
-                    <table id="courseStuds" class="display table table-bordered" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Department</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td></td>
-                                <td>Tiger Nixon</td>
-                                <td>SCST</td>
-                                <td>
-                                    <input class="form-check-input" type="checkbox" value="" id="2">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>Marie Claire</td>
-                                <td>SCST</td>
-                                <td>
-                                    <input class="form-check-input" type="checkbox" value="" id="2">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>Josse Reezal</td>
-                                <td>SCST</td>
-                                <td>
-                                    <input class="form-check-input" type="checkbox" value="" id="2">
-                                </td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Department</th>
-                                <th></th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-                <div id="step-4" class="tab-pane p-4 block2 mx-auto" role="tabpanel">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#step-3">
+                            Step 3: <br />
+                            <span class="fw-bold">Enroll Students</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#step-4">
+                            Step 4: <br />
+                            <span class="fw-bold">Summary & Finish</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="step-1" class="tab-pane p-4 block2 mx-auto" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
                                 <label for="className" class="form-label fw-bold">Class Name:</label>
-                                <input type="text" class="form-control-plaintext text-muted block-sm px-3" id="className"  value="Sample Class Name" readonly>
+                                <input type="text" class="form-control block-sm" name="cname" id="className" placeholder="Enter Course Name" required>
                             </div>
-                            <div class="mb-3">
-                                <label for="className" class="form-label fw-bold">Class Description:</label>
-                                <textarea class="form-control-plaintext text-muted block-sm px-3" style="height: 300px; resize: none;" id="classDesc" readonly>Sample Class Desc</textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="classBanner" class="form-label fw-bold">Class Banner:</label>
-                                <input type="text" class="form-control-plaintext text-muted block-sm px-3" id="classBanner" value="Sample File Name" readonly>
+                            <div class="col-md-6 mb-3">
+                                <label for="classPic" class="form-label fw-bold">Upload Class Banner:</label>
+                                <input type="file" class="form-control block-sm" name="cbanner" id="classBanner">
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="className" class="form-label fw-bold">Subject Name:</label>
-                                <input type="text" class="form-control-plaintext text-muted block-sm px-3" id="subjectName"  value="Sample Subject Name" readonly>
+                        <div class="mb-3">
+                            <label for="classDesc" class="form-label fw-bold">Enter Class Description <p class="fw-normal d-inline-block mb-0">(Limited to 300 characters)</p></label>
+                            <textarea class="form-control block-sm" placeholder="Enter Course Description" name="cdesc" id="classDesc" style="height: 200px; resize: none;" maxlength="300" required></textarea>
+                            <p id="the-count" class="d-flex justify-content-end">
+                                <span id="current">0</span>
+                                <span id="maximum">/ 300</span>
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="classSubject" class="form-label fw-bold">Choose Subject</label>
+                                <select class="form-select block-sm" name="csubject" id="classSubject" required>
+                                    <option value="" disabled="disabled" selected>--None Selected--</option>
+                                    <option value="1">.</option>
+                                    <option value="2">..</option>
+                                    <option value="3">...</option>
+                                </select>
                             </div>
-                            <div class="mb-3">
-                                <label for="className" class="form-label fw-bold">Department Name:</label>
-                                <input type="text" class="form-control-plaintext text-muted block-sm px-3" id="deptName"  value="Sample Department Name" readonly>
-                            </div>
-                            <div class="mb-3">
-                                <label for="className" class="form-label fw-bold">Instructor/s:</label>
-                                <table id="courseIns" class="display table table-bordered" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Department</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>3186543</td>
-                                            <td>Maria Clara</td>
-                                            <td>SCST</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3186543</td>
-                                            <td>Maria Clara</td>
-                                            <td>SCST</td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Department</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
+                            <div class="col-md-6 mb-3">
+                                <label for="courseSubject" class="form-label fw-bold">Choose Department</label>
+                                <select class="form-select block-sm" name="cdept" id="classDept" required>
+                                    <option value="" disabled="disabled" selected>--None Selected--</option>
+                                    <option value="1">.</option>
+                                    <option value="2">..</option>
+                                    <option value="3">...</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-                    <hr/>
-                    <div class="row">
-                            <div class="mb-3">
-                                <label for="className" class="form-label fw-bold">Student/s:</label>
-                                <table id="courseIns" class="display table table-bordered" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Department</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>3186543</td>
-                                            <td>Juan Dela Cruz</td>
-                                            <td>SCST</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3186543</td>
-                                            <td>Padre Damaso</td>
-                                            <td>SCST</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3186543</td>
-                                            <td>Juan Dela Cruz</td>
-                                            <td>SCST</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3186543</td>
-                                            <td>Padre Damaso</td>
-                                            <td>SCST</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3186543</td>
-                                            <td>Juan Dela Cruz</td>
-                                            <td>SCST</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3186543</td>
-                                            <td>Padre Damaso</td>
-                                            <td>SCST</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3186543</td>
-                                            <td>Juan Dela Cruz</td>
-                                            <td>SCST</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3186543</td>
-                                            <td>Padre Damaso</td>
-                                            <td>SCST</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3186543</td>
-                                            <td>Juan Dela Cruz</td>
-                                            <td>SCST</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3186543</td>
-                                            <td>Padre Damaso</td>
-                                            <td>SCST</td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Department</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
+                    <div id="step-2" class="tab-pane p-4 block2 mx-auto" role="tabpanel">
+                        <div class="d-flex align-items-center mb-3">
+                            <a class="nav-link nav_active" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav_label me-3">Instructors: <span id="selectedIns">0</span></span>
+                                    <span class="material-icons">info</span>
+                                </div>
+                            </a>
+                            <span class="text-danger mb-0 ms-2" id="selectedInsError"></span>
+                        </div>
+                        
+                        <table id="courseIns" class="display table table-bordered addClassUsers" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Department</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td>a t</td>
+                                    <td>SCST</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>b q</td>
+                                    <td>SCST</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>c e</td>
+                                    <td>SCST</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>d s</td>
+                                    <td>SCST</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>e d</td>
+                                    <td>SCST</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>f v</td>
+                                    <td>SCST</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>g b</td>
+                                    <td>SCST</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>h a</td>
+                                    <td>SCST</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Department</th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
-                    <div class="d-flex justify-content-center">
-                        <button class="btn btn-success">Create Class</button>
+                    <div id="step-3" class="tab-pane p-4 block2 mx-auto" role="tabpanel">
+                        <div class="d-flex align-items-center mb-3">
+                            <a class="nav-link nav_active" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav_label me-3">Students: <span id="selectedStuds">0</span></span>
+                                    <span class="material-icons">info</span>
+                                </div>
+                            </a>
+                            <span class="text-danger mb-0 ms-2" id="selectedStudsError"></span>
+                        </div>
+                        <table id="courseStuds" class="display table table-bordered addClassUsers" style="width:100%">
+                            <thead>
+                                <tr>
+                                    
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Department</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td>a t</td>
+                                    <td>SCST</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>b q</td>
+                                    <td>SCST</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>c e</td>
+                                    <td>SCST</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>d s</td>
+                                    <td>SCST</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>e d</td>
+                                    <td>SCST</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>f v</td>
+                                    <td>SCST</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>g b</td>
+                                    <td>SCST</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>h a</td>
+                                    <td>SCST</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Department</th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        
+                    </div>
+                    <div id="step-4" class="tab-pane p-4 block2 mx-auto" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="className" class="form-label fw-bold">Class Name:</label>
+                                    <input type="text" class="form-control-plaintext text-muted block-sm px-3" id="classNameSum"  value="Sample Class Name" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="className" class="form-label fw-bold">Class Description:</label>
+                                    <textarea class="form-control-plaintext text-muted block-sm px-3" style="height: 300px; resize: none;" id="classDescSum" readonly>Sample Class Desc</textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="classBanner" class="form-label fw-bold">Class Banner:</label>
+                                    <input type="text" class="form-control-plaintext text-muted block-sm px-3" id="classBannerSum" value="Sample File Name" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="className" class="form-label fw-bold">Subject Name:</label>
+                                    <input type="text" class="form-control-plaintext text-muted block-sm px-3" id="classSubjectSum"  value="Sample Subject Name" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="className" class="form-label fw-bold">Department Name:</label>
+                                    <input type="text" class="form-control-plaintext text-muted block-sm px-3" id="classDeptSum"  value="Sample Department Name" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="className" class="form-label fw-bold">Instructor/s:</label>
+                                    <table id="courseInsSum" class="display table table-bordered" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Department</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Department</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                                <div class="mb-3">
+                                    <label for="className" class="form-label fw-bold">Student/s:</label>
+                                    <table id="courseStudsSum" class="display table table-bordered" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Department</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Department</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button class="btn btn-success">Create Class</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
+        
     </div>
 </div>

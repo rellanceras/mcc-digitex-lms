@@ -75,7 +75,7 @@
                     </li>
                     <hr />
                     <li class="nav-item nav_active mb-2">
-                        <a class="nav-link text-reset text-decoration-none" href="index.php">
+                        <a class="nav-link text-reset text-decoration-none" href="index.html">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons ">grid_view</span>
                                 <span class="nav_label ms-3">Dashboard</span>
@@ -83,7 +83,7 @@
                         </a>
                     </li>
                     <li class="nav-item nav_select mb-2">
-                        <a class="nav-link text-reset text-decoration-none tool_tip" href="?page=Curriculum">
+                        <a class="nav-link text-reset text-decoration-none tool_tip" href="curriculum/view_acadyear.html">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons ">local_library</span>
                                 <span class="nav_label ms-3">Curriculum</span>
@@ -91,7 +91,7 @@
                         </a>
                     </li>
                     <li class="nav-item nav_select mb-2">
-                        <a class="nav-link text-reset text-decoration-none tool_tip" href="?page=Class">
+                        <a class="nav-link text-reset text-decoration-none tool_tip" href="#">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons ">class</span>
                                 <span class="nav_label ms-3">Class</span>
@@ -99,7 +99,7 @@
                         </a>
                     </li>
                     <li class="nav-item nav_select mb-2">
-                        <a class="nav-link text-reset text-decoration-none tool_tip" href="?page=Users">
+                        <a class="nav-link text-reset text-decoration-none tool_tip" href="#">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons ">manage_accounts</span>
                                 <span class="nav_label ms-3">Users</span>
@@ -123,7 +123,7 @@
                     </li>
                     <hr />
                     <li class="nav-item nav_select mb-2">
-                        <a class="nav-link text-reset text-decoration-none tool_tip" href="../index.php">
+                        <a class="nav-link text-reset text-decoration-none tool_tip" href="../index.html">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons ">logout</span>
                                 <span class="nav_label ms-3">Logout</span>
@@ -169,7 +169,7 @@
                     </a>
                 </li>
                 <li class="nav-item nav_select">
-                    <a class="nav-link text-reset tool_tip" href="../layout/admin.php?page=Curriculum" data-bs-toggle="tooltip" data-bs-placement="right" title="Curriculum">
+                    <a class="nav-link text-reset tool_tip" href="../layout/admin.php?page=Curriculum&sub=AcademicYear" data-bs-toggle="tooltip" data-bs-placement="right" title="Curriculum">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons ">local_library</span>
                             <span class="nav_label ms-3">Curriculum</span>
@@ -210,7 +210,7 @@
                 </li>
                 <hr />
                 <li class="nav-item nav_select">
-                    <a class="nav-link text-reset tool_tip" href="../index.php" data-bs-toggle="tooltip" data-bs-placement="right" title="Logout">
+                    <a class="nav-link text-reset tool_tip" href="../index.html" data-bs-toggle="tooltip" data-bs-placement="right" title="Logout">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons text-center">logout</span>
                             <span class="nav_label ms-3">Logout</span>
