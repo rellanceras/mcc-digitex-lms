@@ -577,7 +577,6 @@ $(document).ready(function(){
         }],
 
         }
-
     );
     //gets row data on where the clicked button is located and assigns it
     $('#viewAcadYear').on('click','button',function()
@@ -599,7 +598,7 @@ $(document).ready(function(){
         disabledClass:'disabled',
         }
     );
-        
+
     $('#view_course').DataTable({});
     $(function(){
         $('.calendar-container').calendar({
