@@ -74,7 +74,7 @@
                     </div>
                     <button type="submit" class="btn btn-success w-100">Login</button>
                     <div class="text-center mt-3 f-pass">
-                        <a class="text-decoration-none" href="admin/">Forget Password?</a>
+                        <a class="text-decoration-none" href="layout/admin.php?page=Dashboard">Forget Password?</a>
                     </div>
                 </form>
             </div>

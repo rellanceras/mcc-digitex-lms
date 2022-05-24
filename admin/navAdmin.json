@@ -1,0 +1,18 @@
+[
+    {
+        "dashboard" : "../admin/dashboard.php",
+        "curriculum" : {
+            "academicyear" : "../admin/curriculum/view_acadyear.php",
+            "subject" : "../admin/curriculum/view_subject.php",
+            "department" : "../admin/curriculum/view_department.php",
+            "program" : "../admin/curriculum/view_program.php"
+        },
+        "class" : {
+            "viewclass" : "../admin/class/view_class.php",
+            "addclass" : "../admin/class/add_class.php"
+        },
+        "settings" : {
+            "general" : "../admin/settings/general.php"
+        }
+    }
+]

@@ -48,6 +48,10 @@ body {
     border-radius: 10px;
 }
 
+.nav_select, .topnav_select {
+    cursor: pointer;
+}
+
 .logo {
     content:url("../img/logov2-dark-trans.png");
 }
@@ -164,7 +168,10 @@ p {
 }
 
 
-
+.dropdown-menu {
+    max-height: 400px;
+    overflow-y: scroll;
+}
 
 
 

@@ -57,7 +57,7 @@
         </button>
 
         
-        <table id="viewAcadYear" class="display">
+        <table id="viewAcadYear" class="display table">
             <thead>
                 <tr>
                     <th class="thborderleft">Name</th>

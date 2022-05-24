@@ -335,3 +335,195 @@
         
     </div>
 </div>
+
+<script>
+
+$(document).ready(function(){
+    
+    init_smartWizard();
+});
+
+
+function init_smartWizard() {
+    $('#smartwizard').smartWizard({
+        selected: 0,
+        theme: 'dots',
+        toolbarSettings: {
+            toolbarPosition: 'bottom',
+            toolbarButtonPosition: 'center',
+        },
+        autoAdjustHeight: false,
+    });
+    
+    $("#smartwizard").on("leaveStep", function(e, anchorObject, currentStepIndex, nextStepIndex, stepDirection) {
+        if ($("#smartwizard").smartWizard("getStepIndex") == 0) {
+            if (!($("#addClass").valid())) {
+                alert("Please fill up the form");
+                return false;
+            }
+            $("#classNameSum").val($("#className").val());
+            $("#classDescSum").val($("#classDesc").val());
+            $("#classSubjectSum").val($("#classSubject").val());
+            $("#classDeptSum").val($("#classDept").val());
+        }
+        if ($("#smartwizard").smartWizard("getStepIndex") == 1) {
+            $("#courseInsSum tbody tr").remove();
+            if (selectedIns.length == 0) {
+                $("#selectedInsError").text("No instructor/s selected");
+                return false;
+            }
+            $("#selectedInsError").text("");
+            selectedIns.forEach((row)=>{
+                if (row.length > 3){
+                    row.pop();
+                }
+            });
+
+            var tbodyIns = $('#courseInsSum tbody');
+            $.each(selectedIns, function(i) {
+                var tr = $('<tr>');
+                $.each(selectedIns[i], function(j) {
+                    $('<td>').html(selectedIns[i][j]).appendTo(tr);  
+                });
+                tbodyIns.append(tr);
+            });
+            
+        }
+        if ($("#smartwizard").smartWizard("getStepIndex") == 2) {
+            $("#courseStudsSum tbody tr").remove();
+            if (selectedStuds.length == 0) {
+                $("#selectedStudsError").text("No student/s selected");
+                return false;
+            }
+            $("#selectedStudsError").text("");
+
+            selectedStuds.forEach((row)=>{
+                if (row.length > 3){
+                    row.pop();
+                }
+            });
+
+            var tbodyStuds = $('#courseStudsSum tbody');
+            $.each(selectedStuds, function(i) {
+                var tr = $('<tr>');
+                $.each(selectedStuds[i], function(j) {
+                    $('<td>').html(selectedStuds[i][j]).appendTo(tr);  
+                });
+                tbodyStuds.append(tr);
+            });
+        }
+    });
+
+    $("#addClass").validate({
+        rules: {
+            cname: "required",
+            cdesc: "required",
+            csubject: "required",
+            cdept: "required",
+        }
+    });
+
+    $('.addClassUsers').DataTable({
+        dom: 'Bfrtip',
+        pageLength : 5,
+        buttons: [
+            {
+                text: '<i class="bi bi-arrow-clockwise"></i>'
+            },
+            {
+                extend: 'colvis',
+                text: '<i class="bi bi-layout-three-columns"></i>'
+            },
+        ],
+        columnDefs: [ {
+            orderable: false,
+            className: 'select-checkbox',
+            targets: 3
+        } ],
+        select: {
+            style:    'multi',
+            selector: 'td:last-child'
+        },
+        order: [[ 1, 'asc' ]]
+    });
+    
+    var courseIns = $('#courseIns').DataTable();
+    var courseStuds = $('#courseStuds').DataTable();
+    var cname;
+    var cdesc;
+    var csubject;
+    var cdept;
+    var selectedIns = [];
+    var selectedStuds = [];
+
+    courseStuds.on( 'select', function ( e, dt, type, indexes ) {
+        var count = courseStuds.rows( { selected: true } ).count();
+        selectedStuds = courseStuds.rows('.selected').data().toArray();
+        $('#selectedStuds').text(count);
+        $("#selectedStudsError").text("");
+        console.log(selectedStuds);
+    });
+    courseStuds.on( 'deselect', function ( e, dt, type, indexes ) {
+        var count = courseStuds.rows( { selected: true } ).count();
+        selectedStuds = courseStuds.rows('.selected').data().toArray();
+        $('#selectedStuds').text(count);
+        console.log(selectedStuds);
+    });
+    
+    courseIns.on( 'select', function ( e, dt, type, indexes ) {
+        var count = courseIns.rows( { selected: true } ).count();
+        selectedIns = courseIns.rows('.selected').data().toArray();
+        $('#selectedIns').text(count);
+        $("#selectedInsError").text("");
+        console.log(selectedIns);
+    });
+    courseIns.on( 'deselect', function ( e, dt, type, indexes ) {
+        var count = courseIns.rows( { selected: true } ).count();
+        selectedIns = courseIns.rows('.selected').data().toArray();
+        $('#selectedIns').text(count);
+        console.log(selectedIns);     
+    });
+
+    $('#viewAcadYear').DataTable();
+    
+
+    $('textarea').keyup(function() {
+    
+        var characterCount = $(this).val().length,
+            current = $('#current'),
+            maximum = $('#maximum'),
+            theCount = $('#the-count');
+          
+        current.text(characterCount);
+       
+        
+        /*This isn't entirely necessary, just playin around*/
+        if (characterCount < 70) {
+          current.css('color', '#666');
+        }
+        if (characterCount > 70 && characterCount < 90) {
+          current.css('color', '#6d5555');
+        }
+        if (characterCount > 90 && characterCount < 100) {
+          current.css('color', '#793535');
+        }
+        if (characterCount > 100 && characterCount < 120) {
+          current.css('color', '#841c1c');
+        }
+        if (characterCount > 120 && characterCount < 139) {
+          current.css('color', '#8f0001');
+        }
+        
+        if (characterCount >= 140) {
+          maximum.css('color', '#8f0001');
+          current.css('color', '#8f0001');
+          theCount.css('font-weight','bold');
+        } else {
+          maximum.css('color','#666');
+          theCount.css('font-weight','normal');
+        }
+        
+            
+      });
+}
+</script>
