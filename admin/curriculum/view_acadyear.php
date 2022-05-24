@@ -5,6 +5,7 @@
 -->
 
 
+
 <!-- Main Content -->
 <div class="d-flex flex-column flex-grow-1 gap-3 main-content">
     <!-- Page Header -->
@@ -140,7 +141,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 <!--<button type="button" class="btn btn-primary">Delete</button>-->
-                <button type="submit" class="btn btn-primary">Delete</button>
+                <button type="submit" class="btn btn-danger">Delete</button>
             </div>
             </form>
         </div>
