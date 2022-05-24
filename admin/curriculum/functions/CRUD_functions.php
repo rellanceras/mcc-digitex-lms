@@ -13,7 +13,7 @@ function update_active_year($id){
             $sql = "UPDATE academic_year SET active=0 WHERE active=1 && id!='$id'";
             if($stmt = mysqli_prepare($conn,$sql)){
                 if(mysqli_stmt_execute($stmt)){
-                    header("location: ../../../layout/admin.php?page=Curriculum");
+                    header("location: ../../../layout/admin.php?page=Curriculum&sub=AcademicYear");
                     exit();
                 }
             }
@@ -47,6 +47,10 @@ function create_academic_year($name,$year,$semester){
         else{
             $year = $input_year;
         }
+
+        //$input_startyear = $startYear;
+        //$input_endyear = $endYear;
+
         
         // Validate semester
         $input_sem = trim($semester);
@@ -73,7 +77,7 @@ function create_academic_year($name,$year,$semester){
                 // Attempt to execute the prepared statement
                 if(mysqli_stmt_execute($stmt)){
                     // Records created successfully. Redirect to landing page
-                    header("location: ../../../layout/admin.php?page=Curriculum");
+                    header("location: ../../../layout/admin.php?page=Curriculum&sub=AcademicYear");
                     exit();
                 } else{
                     echo "Oops! Something went wrong. Please try again later.";
@@ -100,7 +104,7 @@ function update_academic_year($id){
         // Attempt to execute the prepared statement
         if(mysqli_stmt_execute($stmt)){
             // Records created successfully. Redirect to landing page
-            header("location: ../../../layout/admin.php?page=Curriculum");
+            header("location: ../../../layout/admin.php?page=Curriculum&sub=AcademicYear");
             //exit();
         } else{
             echo "Oops! Something went wrong. Please try again later.";
@@ -117,7 +121,7 @@ function delete_academic_year($id){
         // Attempt to execute the prepared statement
         if(mysqli_stmt_execute($stmt)){
             // Records created successfully. Redirect to landing page
-            header("location: ../../../layout/admin.php?page=Curriculum");
+            header("location: ../../../layout/admin.php?page=Curriculum&sub=AcademicYear");
             exit();
         } else{
             echo "Oops! Something went wrong. Please try again later.";
@@ -129,12 +133,19 @@ if(isset($_GET['activeID'])){
     update_active_year($_GET['activeID']);
 }
 
-if(isset($_POST['year'],$_POST['sem'])){
-    $yearsem = $_POST['year']." ".$_POST['sem'];
-    create_academic_year($yearsem,$_POST['year'],$_POST['sem']);
+if(isset($_POST['startYear'],$_POST['endYear'],$_POST['sem'])){
+    if($_POST['endYear']-$_POST['startYear']==1){
+        $yearsem = $_POST['startYear']."-".$_POST['endYear']." ".$_POST['sem'];
+        $year = $_POST['startYear']."-".$_POST['endYear'];
+        create_academic_year($yearsem,$year,$_POST['sem']);
+    }
+    else{
+       echo "Response.Write('<script language='javascript'>window.alert('Invalid Academic Year');window.location='../../../layout/admin.php?page=Curriculum&sub=AcademicYear';</script>');";
+        //header("location: ../../../layout/admin.php?page=Curriculum");
+    }
 }
 else{
-    header("location: academic_year.php");
+    header("location: ../../../layout/admin.php?page=Curriculum&sub=AcademicYear");
 }
 
 if(isset($_POST['delID'])){

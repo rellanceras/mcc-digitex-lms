@@ -738,7 +738,12 @@ function display_time() {
 
     return strTime;
 }
+function get_year(){
+    const getDate = new Date();
+    let year = getDate.getFullYear();
+    return year;
 
+}
 function display_date() {
     const getDate = new Date(); // This gets whole date based on your current location
 
