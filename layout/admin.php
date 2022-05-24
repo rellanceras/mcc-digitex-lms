@@ -536,7 +536,7 @@ $(document).ready(function(){
                 // edit either variable to add things
                 var inactive = 
                 '<a class="btn btn-success" href ="../admin/curriculum/functions/CRUD_functions.php?activeID='+ row[0] +'">Set as Active</a>'+
-                "<button type='button' class='btn btn-primary' style='margin-bottom: 1%;' data-bs-toggle='modal' data-bs-target='#deleteModal'>Delete</button>";
+                "<button type='button' class='btn btn-danger' style='margin-bottom: 1%;' data-bs-toggle='modal' data-bs-target='#deleteModal'>Delete</button>";
                 if(data==1){
                     $('#currentActive').text(row[1]);
                     $('#currentActiveYear').text(row[1]);
