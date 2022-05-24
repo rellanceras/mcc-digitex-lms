@@ -42,6 +42,8 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.4.0/css/select.dataTables.min.css"/>
         <!-- Smart Wizard -->
         <link href="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
+        <!-- Year Picker -->
+        <link rel='stylesheet' href='../resources/css/yearpicker.css' />
 
 
     <!-- Custom CSS -->
@@ -363,6 +365,8 @@
         <script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
         <!-- JQuery Validate -->
         <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js" type="text/javascript"></script>
+        <!-- Year Picker -->
+        <script src= '../resources/js/yearpicker.js'></script>
 <script>
 
 var getWindowSize;
@@ -504,6 +508,27 @@ $(document).ready(function(){
         $('#selectedIns').text(count);
         console.log(selectedIns);     
     });
+
+    var table = $('#example').DataTable( {
+        // rowReorder: {
+        //     selector: 'td:nth-child(2)'
+        // },
+        // responsive: true,
+        dom: 'Bfrtip',
+        
+        buttons: [
+        {
+            
+        text: '<i class="bi bi-arrow-clockwise"></i>'
+        },
+        {
+        extend: 'colvis',
+        text: '<i class="bi bi-layout-three-columns"></i>'
+
+        },
+        
+        ]
+    } );
     
     var tableYear = $('#viewAcadYear').DataTable(
         {
@@ -511,9 +536,11 @@ $(document).ready(function(){
         "serverside": true,
         "ajax": "../admin/curriculum/functions/server_processing.php",
 
+        "order": [[ 4, "desc" ]], // sorting for status column
+
         "columnDefs":[
         {             // toggle visiblity of status and archived column
-            "targets": [4,5] ,
+            "targets": [0,4,5] ,
             "visible": false ,
             "searchable": false
         },
@@ -550,28 +577,8 @@ $(document).ready(function(){
         }],
 
         }
+
     );
-
-    var table = $('#example').DataTable( {
-        // rowReorder: {
-        //     selector: 'td:nth-child(2)'
-        // },
-        // responsive: true,
-        dom: 'Bfrtip',
-        
-        buttons: [
-        {
-            
-        text: '<i class="bi bi-arrow-clockwise"></i>'
-        },
-        {
-        extend: 'colvis',
-        text: '<i class="bi bi-layout-three-columns"></i>'
-
-        },
-        
-        ]
-    } );
     //gets row data on where the clicked button is located and assigns it
     $('#viewAcadYear').on('click','button',function()
     {
@@ -580,6 +587,19 @@ $(document).ready(function(){
         $('#deletingYear').text(data[1]);
     }
     );
+    //resets form inside modal on close
+    $('#createModal').on('hidden.bs.modal', function () {
+    $('#createModal form')[0].reset();
+    });
+
+    $(".yearpicker").yearpicker(
+        {
+        startYear: get_year(),
+        selectedClass:'selected',
+        disabledClass:'disabled',
+        }
+    );
+        
     $('#view_course').DataTable({});
     $(function(){
         $('.calendar-container').calendar({
