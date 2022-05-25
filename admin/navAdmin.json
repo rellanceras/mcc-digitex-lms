@@ -12,7 +12,10 @@
             "addclass" : "../admin/class/add_class.php"
         },
         "settings" : {
-            "general" : "../admin/settings/general.php"
+            "general" : "../admin/settings/general.php",
+            "security" : "../admin/settings/security.php",
+            "appearance" : "../admin/settings/appearance.php",
+            "archive" : "../admin/settings/archive.php"
         }
     }
 ]

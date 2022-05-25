@@ -9,10 +9,11 @@
         </h3>
         <h6 class="mb-3">Current Academic year: <span class="fw-bold">2023-2024</span></h6>
     </div>
-    <nav class="block bread_block">
+    <nav class="block2 bread_block">
         <ol class="breadcrumb px-4 py-2 m-0">
             <li class="breadcrumb-item"><a class="text-decoration-none" href="#">A.Y. 2023-2024</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Class</li>
+            <li class="breadcrumb-item"><a class="text-decoration-none" href="#">Class</a></li>
+            <li class="breadcrumb-item active" aria-current="page">View Class</li>
         </ol>
     </nav>
 </div>

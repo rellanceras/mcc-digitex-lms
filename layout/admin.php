@@ -308,11 +308,10 @@
                     </ul>
                 </div>
                     
-                <span class="vr"></span>
-                <!-- Theme Switcher -->
+                <!-- <span class="vr"></span>
                 <li class="topnav_select d-flex align-items-center justify-content-center position-relative p-2">
                     <span class="material-icons tool_tip_default themeButton" data-bs-toggle="tooltip" data-bs-placement="bottom"  title="Select Theme">light_mode</span>
-                </li>
+                </li> -->
             </ul>
             <!-- Content -->
             <div class="d-flex gap-3">
@@ -398,22 +397,22 @@ function get_theme() {
     return currentTheme;
 }
 
-// Theme Switch
-$(document).ready(function(){
-    let setTheme;
-    $('.themeButton').click(function(){
-        $(this).text($(this).text() == 'dark_mode' ? 'light_mode' : 'dark_mode');
-        if ($(this).text() == "dark_mode") {
-            $('.themeButton').text("dark_mode");
-            setTheme = "dark";
-        } else {
-            $('.themeButton').text("light_mode");
-            setTheme = "default";
-        }
-        localStorage.setItem("theme", setTheme);
-        update_themeConfig();
-    });
-});
+// // Theme Switch
+// $(document).ready(function(){
+//     let setTheme;
+//     $('.themeButton').click(function(){
+//         $(this).text($(this).text() == 'dark_mode' ? 'light_mode' : 'dark_mode');
+//         if ($(this).text() == "dark_mode") {
+//             $('.themeButton').text("dark_mode");
+//             setTheme = "dark";
+//         } else {
+//             $('.themeButton').text("light_mode");
+//             setTheme = "default";
+//         }
+//         localStorage.setItem("theme", setTheme);
+//         update_theme();
+//     });
+// });
 
 // Theme Initiate
 function init_theme() {
@@ -424,17 +423,11 @@ function init_theme() {
     $('#themeCSS').attr("href", `../resources/css/themes/${get_theme()}.css`);
 }
 
-// Theme Update
-function update_theme() {
-    console.log("Theme Updated");
-    $('#themeCSS').attr("href", `../resources/css/themes/${get_theme()}.css`);
-}
-
-// Update Theme Config for plugins
-function update_themeConfig() {
-    update_theme();
-    
-}
+// // Theme Update
+// function update_theme() {
+//     console.log("Theme Updated");
+//     $('#themeCSS').attr("href", `../resources/css/themes/${get_theme()}.css`);
+// }
 
 $(document).ready(function(){
     $.ajax({
