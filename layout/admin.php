@@ -536,8 +536,7 @@ $(document).ready(function(){
         "serverside": true,
         "ajax": "../admin/curriculum/functions/server_processing.php",
 
-        "order": [[ 4, "desc" ]], // sorting for status column
-
+        order: [[4, 'desc']],
         "columnDefs":[
         {             // toggle visiblity of status and archived column
             "targets": [0,4,5] ,
@@ -563,7 +562,8 @@ $(document).ready(function(){
                 // edit either variable to add things
                 var inactive = 
                 '<a class="btn btn-success" href ="../admin/curriculum/functions/CRUD_functions.php?activeID='+ row[0] +'">Set as Active</a>'+
-                "<button type='button' class='btn btn-danger' style='margin-bottom: 1%;' data-bs-toggle='modal' data-bs-target='#deleteModal'>Delete</button>";
+                "<button type='button' id='deleteBtn' class='btn btn-danger' style='margin-bottom: 1%;' data-bs-toggle='modal' data-bs-target='#deleteModal'>Delete</button>"+
+                "<button type='button' id='editBtn' class='btn btn-primary' style='margin-bottom: 1%;' data-bs-toggle='modal' data-bs-target='#editModal'>Edit</button>";
                 if(data==1){
                     $('#currentActive').text(row[1]);
                     $('#currentActiveYear').text(row[1]);
@@ -579,16 +579,26 @@ $(document).ready(function(){
         }
     );
     //gets row data on where the clicked button is located and assigns it
-    $('#viewAcadYear').on('click','button',function()
+    $('#viewAcadYear').on('click','#deleteBtn',function()
     {
         var data = tableYear.row($(this).parents('tr')).data();
         document.getElementById("delID").value = data[0];
         $('#deletingYear').text(data[1]);
     }
     );
+    $('#viewAcadYear').on('click','#editBtn',function()
+    {
+        var data = tableYear.row($(this).parents('tr')).data();
+        document.getElementById("editID").value = data[0];
+    }
+    );
     //resets form inside modal on close
     $('#createModal').on('hidden.bs.modal', function () {
     $('#createModal form')[0].reset();
+    });
+
+    $('#editModal').on('hidden.bs.modal', function () {
+    $('#editModal form')[0].reset();
     });
 
     $(".yearpicker").yearpicker(

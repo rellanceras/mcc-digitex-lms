@@ -125,15 +125,35 @@
                 <h5 class="modal-title" id="exampleModalLabel">Edit Academic Year</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+        <form action="../admin/curriculum/functions/CRUD_functions.php" method="POST" autocomplete="off">
             <div class="modal-body p-4">
-                <label>Year </label>
-                <input name="year" class="form-control block"/>
-                <label>Semester </label>
-                <input name="semester" class="form-control block"/>
+            <input type="hidden" required name="editID" id="editID" readonly class="form-control"/>
+                    <div class="yearpickerstart-container mb-3">
+                        <div class="main">
+                            <label for="">Start Date</label>
+                            <input type="text" id="editStartYear" required name="editStartYear" class="yearpicker form-control block" placeholder="Select Year" value="">
+                        </div>
+                    </div>
+                    <div class="yearpickerend-container mb-3">
+                        <div class="main ">
+                            <label for="">End Date</label>
+                            <input type="text" id="editEndYear" required name="editEndYear" class="yearpicker form-control block" placeholder="Select Year" value="">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                    <label for=editSem>Semester:</label>
+                        <select class="form-control block" id="editSem" name="editSem">
+                            <option value="" disabled selected>Choose option</option>
+                            <option value="1st Semester">1st Semester</option>
+                            <option value="2nd Semester">2nd Semester</option>
+                            <option value="Inter-Semester">Inter-Semester</option>
+                        </select>
+                    </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary">Save</button>
             </div>
+        </form>
         </div>
     </div>
 </div>
