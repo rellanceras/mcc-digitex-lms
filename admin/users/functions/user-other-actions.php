@@ -18,10 +18,11 @@
             $update_query->execute();
 
             if($update_query){
-            echo "<script language='javascript'>alert('User has been updated.')</script>";
-            //  header("Location: ");
+                echo "<script language='javascript'>alert('User has been updated.')</script>";
+                header("location: ../../../layout/admin.php?page=Users");
             }else{
-            echo "<script language='javascript'>alert('User not updated.')</script>";
+                echo "<script language='javascript'>alert('User not updated.')</script>";
+                header("location: ../../../layout/admin.php?page=Users");
             }
         }
         

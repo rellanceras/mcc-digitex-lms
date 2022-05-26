@@ -509,6 +509,30 @@ $(document).ready(function(){
         console.log(selectedIns);     
     });
 
+
+
+    $('.btnShowEditModal').on('click', function(){
+    $('#myModal').modal('show'); 
+            $tr = $(this).closest('tr');
+
+        var data = $tr.children("td").map(function() {
+            return $(this).text();
+        }).get();
+
+        console.log(data);
+        $('#id').val(data[0]);
+        $('#school_id').val(data[1]);
+        $('#first_name').val(data[2]);
+        $('#middle_name').val(data[3]);
+        $('#last_name').val(data[4]);
+        $('#birthday').val(data[5]);
+        $('#address').val(data[6]);  
+        $('#role').val(data[7]);
+        $('#department').val(data[8]);  
+        $('#program').val(data[9]);
+        $('#email').val(data[10]);
+    });
+
     var table = $('#example').DataTable( {
         // rowReorder: {
         //     selector: 'td:nth-child(2)'
@@ -770,6 +794,7 @@ function display_date() {
 
     return strDate;
 }
+
 </script>
 
 </html>
