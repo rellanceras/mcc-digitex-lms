@@ -30,19 +30,13 @@
             <div class="card block p-2 card-blue flex-grow-1">
                 <div class="card-body text-center">
                     <h3 class="card-title fw-bold"><span class="material-icons">people</span><span class="nav_label ms-3">50</span></h3>
-                    <h6 class="card-subtitle">Users</h6>
+                    <h6 class="card-subtitle">Instructors</h6>
                 </div>
             </div>
             <div class="card block p-2 card-green flex-grow-1">
                 <div class="card-body text-center">
                     <h3 class="card-title fw-bold"><span class="material-icons">how_to_reg</span><span class="nav_label ms-3">50</span></h3>
-                    <h6 class="card-subtitle">Active Users</h6>
-                </div>
-            </div>
-            <div class="card block p-2 card-violet flex-grow-1">
-                <div class="card-body text-center">
-                    <h3 class="card-title fw-bold"><span class="material-icons">task_alt</span><span class="nav_label ms-3">50</span></h3>
-                    <h6 class="card-subtitle">Actions Done</h6>
+                    <h6 class="card-subtitle">Students</h6>
                 </div>
             </div>
         </div>
@@ -61,7 +55,7 @@
                     </div>
                 </div>
                 <div class="col-md-5 col-12 p-4">
-                    <h6 class="fw-bold">Recent Activities</h6>
+                    <h6 class="fw-bold">Logins</h6>
                     <ul class="list-unstyled recent_act">
                         <li class="nav-item nav_select">
                             <a class="nav-link text-reset text-decoration-none" href="#">
@@ -70,8 +64,7 @@
                                     <div class="ms-3">
                                         <p class="m-0">
                                             <span class="fw-bold">Juan Dela Cruz</span><br />
-                                            Answered a <span class="fw-bold">Quiz</span> in
-                                            <span class="fw-bold tool_tip_default" data-bs-toggle="tooltip" data-bs-placement="top"  title="Advanced Mathematics">GEC-0001</span> <br/>
+                                            Logged in at <span class="fw-bold">8:00 AM</span> <br/>
                                             <span class="fst-italic">February 28, 2023</span>
                                         </p>
                                     </div>
@@ -86,8 +79,7 @@
                                     <div class="ms-3">
                                         <p class="m-0">
                                             <span class="fw-bold">Maria Clara</span><br />
-                                            Posted a <span class="fw-bold">Quiz</span> in
-                                            <span class="fw-bold tool_tip_default" data-bs-toggle="tooltip" data-bs-placement="top"  title="Advanced Mathematics">GEC-0001</span> <br/>
+                                            Logged in at <span class="fw-bold">8:00 AM</span> <br/>
                                             <span class="fst-italic">February 25, 2023</span>
                                         </p>
                                     </div>
@@ -102,8 +94,7 @@
                                     <div class="ms-3">
                                         <p class="m-0">
                                             <span class="fw-bold">Chrisostomo Ibarra</span><br />
-                                            Created a <span class="fw-bold">User</span> : 
-                                            <span class="fw-bold tool_tip_default" data-bs-toggle="tooltip" data-bs-placement="top"  title="Padre Damaso">#3184672</span> <br/>
+                                            Logged in at <span class="fw-bold">8:00 AM</span> <br/>
                                             <span class="fst-italic">February 25, 2023</span>
                                         </p>
                                     </div>

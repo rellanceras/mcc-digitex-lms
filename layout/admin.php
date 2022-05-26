@@ -457,13 +457,13 @@ $(document).ready(function(){
             var data = JSON.parse(response)
             switch(page) {
                 case 'curriculum':
-                    $('#mainContent').load(data[0][page].academicyear);
+                    $('#mainContent').load(data[0][page].curriculumIndex);
                     break;
                 case 'class':
                     $('#mainContent').load(data[0][page].viewclass);
                     break;
                 case 'settings':
-                    $('#mainContent').load(data[0][page].general);
+                    $('#mainContent').load(data[0][page].settingsIndex);
                     break;
                 default:
                     $('#mainContent').load(data[0][page]);

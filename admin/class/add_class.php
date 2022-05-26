@@ -50,7 +50,7 @@
                     </li>
                 </ul>
                 <div class="tab-content">
-                    <div id="step-1" class="tab-pane p-4 block2 mx-auto" role="tabpanel">
+                    <div id="step-1" class="tab-pane limited p-4 block2 mx-auto" role="tabpanel">
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="className" class="form-label fw-bold">Class Name:</label>
@@ -71,15 +71,6 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="classSubject" class="form-label fw-bold">Choose Subject</label>
-                                <select class="form-select block-sm" name="csubject" id="classSubject" required>
-                                    <option value="" disabled="disabled" selected>--None Selected--</option>
-                                    <option value="1">.</option>
-                                    <option value="2">..</option>
-                                    <option value="3">...</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 mb-3">
                                 <label for="courseSubject" class="form-label fw-bold">Choose Department</label>
                                 <select class="form-select block-sm" name="cdept" id="classDept" required>
                                     <option value="" disabled="disabled" selected>--None Selected--</option>
@@ -88,9 +79,18 @@
                                     <option value="3">...</option>
                                 </select>
                             </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="classSubject" class="form-label fw-bold">Choose Subject</label>
+                                <select class="form-select block-sm" name="csubject" id="classSubject" required>
+                                    <option value="" disabled="disabled" selected>--None Selected--</option>
+                                    <option value="1">.</option>
+                                    <option value="2">..</option>
+                                    <option value="3">...</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                    <div id="step-2" class="tab-pane p-4 block2 mx-auto" role="tabpanel">
+                    <div id="step-2" class="tab-pane limited p-4 block2 mx-auto" role="tabpanel">
                         <div class="d-flex align-items-center mb-3">
                             <a class="nav-link nav_active" href="#">
                                 <div class="d-flex align-items-center">
@@ -170,7 +170,7 @@
                             </tfoot>
                         </table>
                     </div>
-                    <div id="step-3" class="tab-pane p-4 block2 mx-auto" role="tabpanel">
+                    <div id="step-3" class="tab-pane limited p-4 block2 mx-auto" role="tabpanel">
                         <div class="d-flex align-items-center mb-3">
                             <a class="nav-link nav_active" href="#">
                                 <div class="d-flex align-items-center">
@@ -251,20 +251,12 @@
                         </table>
                         
                     </div>
-                    <div id="step-4" class="tab-pane p-4 block2 mx-auto" role="tabpanel">
+                    <div id="step-4" class="tab-pane limited p-4 block2 mx-auto" role="tabpanel">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="className" class="form-label fw-bold">Class Name:</label>
                                     <input type="text" class="form-control-plaintext text-muted block-sm px-3" id="classNameSum"  value="Sample Class Name" readonly>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="className" class="form-label fw-bold">Class Description:</label>
-                                    <textarea class="form-control-plaintext text-muted block-sm px-3" style="height: 300px; resize: none;" id="classDescSum" readonly>Sample Class Desc</textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="classBanner" class="form-label fw-bold">Class Banner:</label>
-                                    <input type="text" class="form-control-plaintext text-muted block-sm px-3" id="classBannerSum" value="Sample File Name" readonly>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -272,58 +264,62 @@
                                     <label for="className" class="form-label fw-bold">Subject Name:</label>
                                     <input type="text" class="form-control-plaintext text-muted block-sm px-3" id="classSubjectSum"  value="Sample Subject Name" readonly>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="className" class="form-label fw-bold">Department Name:</label>
-                                    <input type="text" class="form-control-plaintext text-muted block-sm px-3" id="classDeptSum"  value="Sample Department Name" readonly>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="className" class="form-label fw-bold">Instructor/s:</label>
-                                    <table id="courseInsSum" class="display table table-bordered" style="width:100%">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Name</th>
-                                                <th>Department</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Name</th>
-                                                <th>Department</th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="className" class="form-label fw-bold">Class Description:</label>
+                                <textarea class="form-control-plaintext text-muted block-sm px-3" style="height: 200px; resize: none;" id="classDescSum" readonly>Sample Class Desc</textarea>
                             </div>
                         </div>
                         <hr/>
                         <div class="row">
-                                <div class="mb-3">
-                                    <label for="className" class="form-label fw-bold">Student/s:</label>
-                                    <table id="courseStudsSum" class="display table table-bordered" style="width:100%">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Name</th>
-                                                <th>Department</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Name</th>
-                                                <th>Department</th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
+                            <div class="mb-3">
+                                <label for="className" class="form-label fw-bold">Instructor/s:</label>
+                                <table id="courseInsSum" class="display table table-bordered" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Department</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Department</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="className" class="form-label fw-bold">Student/s:</label>
+                                <table id="courseStudsSum" class="display table table-bordered" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Department</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Department</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
                         </div>
                         <div class="d-flex justify-content-center">
                             <button class="btn btn-success">Create Class</button>
@@ -339,8 +335,15 @@
 <script>
 
 $(document).ready(function(){
-    
     init_smartWizard();
+    $('#classSubject').prop('disabled', true);
+    $('#classDept').change(function() {
+        if ($(this).val == "") {
+            $('#classSubject').prop('disabled', true);
+        }else {
+            $('#classSubject').prop('disabled', false);
+        }
+    });
 });
 
 

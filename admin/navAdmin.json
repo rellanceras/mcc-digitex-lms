@@ -2,16 +2,18 @@
     {
         "dashboard" : "../admin/dashboard.php",
         "curriculum" : {
+            "curriculumIndex" : "../admin/curriculum/index.php",
+            "all" : "../admin/curriculum/view_all.php",
             "academicyear" : "../admin/curriculum/view_acadyear.php",
             "subject" : "../admin/curriculum/view_subject.php",
-            "department" : "../admin/curriculum/view_department.php",
-            "program" : "../admin/curriculum/view_program.php"
+            "department" : "../admin/curriculum/view_department.php"
         },
         "class" : {
             "viewclass" : "../admin/class/view_class.php",
             "addclass" : "../admin/class/add_class.php"
         },
         "settings" : {
+            "settingsIndex" : "../admin/settings/index.php",
             "general" : "../admin/settings/general.php",
             "security" : "../admin/settings/security.php",
             "appearance" : "../admin/settings/appearance.php",

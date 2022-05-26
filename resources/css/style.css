@@ -164,10 +164,6 @@ p {
     z-index: 0;
 }
 
-.tab-pane {
-    max-width: 1366px;
-}
-
 .error {
     color: var(--red);
 }
@@ -386,4 +382,8 @@ table.dataTable tfoot td {
 
 .themeActive {
     border: var(--blue) solid;
+}
+
+.limited {
+    max-width: 900px;
 }

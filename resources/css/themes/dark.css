@@ -79,6 +79,10 @@ body {
   background-color: var(--bg-block-dark);
 }
 
+input[type="text"]:disabled, .form-select:disabled {
+  background-color: var(--bg-block3-dark) !important;
+}
+
 /*Data tables - DARK*/
 
 .select-checkbox::before {
