@@ -4,7 +4,7 @@ $username = "root";
 // "id18834945_back_end"; //"root" for local or xampp
 $password = "";
 //"<HFwrpy$85/]JSJA"; //"" for local or xampp
-$dbname = "mcc_lms";
+$dbname = "lms3";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);

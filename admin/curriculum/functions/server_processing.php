@@ -7,7 +7,7 @@ $totalRecords = $query->fetch_row()[0];
 //$length = $_GET['length'];
 //$start = $_GET['start'];
  
-$sql = "SELECT * FROM academic_year WHERE archived=0";
+$sql = "SELECT * FROM academic_year";
  
 /*if (isset($_GET['search']) && !empty($_GET['search']['value'])) {
     $search = $_GET['search']['value'];
@@ -24,8 +24,7 @@ while ($row = $query->fetch_assoc()) {
         $row['name'],
         $row['acad_year'],
         $row['semester'],
-        $row['active'],
-        $row['archived']
+        $row['active']
     ];
 }
  

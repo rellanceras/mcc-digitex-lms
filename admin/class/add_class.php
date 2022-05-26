@@ -1,3 +1,8 @@
+ 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.js"></script>
+
+
  <!-- Main Content -->
  <div class="d-flex flex-column flex-grow-1 gap-3 main-content">
     <!-- Page Header -->
@@ -21,9 +26,10 @@
     </div>
     <!-- Page Content -->
     <div class="block p-4">
-        <form id="addClass" method="POST" action="">
+        
+            <form method="post" id="addClass" enctype="multipart/form-data">
 
-        </form>
+       
         <div id="smartwizard">
             <ul class="nav">
                 <li>
@@ -56,16 +62,16 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="className" class="form-label fw-bold">Class Name:</label>
-                            <input type="text" class="form-control block-sm" id="className" placeholder="Enter Course Name" required>
+                            <input type="text" class="form-control block-sm" name="className" id="className" placeholder="Enter Course Name" required>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="classPic" class="form-label fw-bold">Upload Class Banner:</label>
-                            <input type="file" class="form-control block-sm" id="classBanner" required>
+                            <input type="file" class="form-control block-sm" name="classBanner" id="classBanner" required>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="classDesc" class="form-label fw-bold">Enter Class Description <p class="fw-normal d-inline-block mb-0">(Limited to 300 characters)</p></label>
-                        <textarea class="form-control block-sm" placeholder="Enter Course Description" id="classDesc" style="height: 200px; resize: none;" maxlength="300" required></textarea>
+                        <textarea class="form-control block-sm" placeholder="Enter Course Description" name="classDesc" id="classDesc" style="height: 200px; resize: none;" maxlength="300" required></textarea>
                         <p id="the-count" class="d-flex justify-content-end">
                             <span id="current">0</span>
                             <span id="maximum">/ 300</span>
@@ -74,23 +80,24 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="classSubject" class="form-label fw-bold">Choose Subject</label>
-                            <select class="form-select block-sm" id="classSubject" required>
+                            <select class="form-select block-sm" name="classSubject" id="classSubject" required>
                                 <option selected>--None Selected--</option>
-                                <option value="1">.</option>
-                                <option value="2">..</option>
-                                <option value="3">...</option>
+                                <option value="Capstone">Capstone</option>
+                                <option value="OOP">OOP</option>
+                                <option value="OOP Lab">OOP Lab</option>
                             </select>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="courseSubject" class="form-label fw-bold">Choose Department</label>
-                            <select class="form-select block-sm" id="classDept" required>
+                            <select class="form-select block-sm" name="classDept" id="classDept" required>
                                 <option selected>--None Selected--</option>
-                                <option value="1">.</option>
-                                <option value="2">..</option>
-                                <option value="3">...</option>
+                                <option value="SCST">SCST</option>
+                                <option value="SBMA">SBMA</option>
+                                <option value="STHM">STHM</option>
                             </select>
                         </div>
                     </div>
+                    
                 </div>
                 <div id="step-2" class="tab-pane p-4 block2 mx-auto" role="tabpanel">
                     <div class="d-flex align-items-center justify-content-between mb-3">
@@ -365,10 +372,11 @@
                             </div>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <button class="btn btn-success">Create Class</button>
+                      <input type="button" name="save" id="butsave" class="btn btn-success" value="Create Class"/>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+ </form>

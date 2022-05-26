@@ -59,7 +59,7 @@ function create_academic_year($name,$year,$semester){
         // Check input errors before inserting in database
         if(empty($name_err) && empty($year_err) && empty($semester_err)){
             // Prepare an insert statement
-            $sql = "INSERT INTO academic_year (name, acad_year, semester) VALUES (?, ?, ?)"; 
+            $sql = "INSERT INTO academic_year (name, acad_year, semester, active) VALUES (?, ?, ?, 0)"; 
             
             if($stmt = mysqli_prepare($conn, $sql)){
                 // Bind variables to the prepared statement as parameters
@@ -110,7 +110,9 @@ function update_academic_year($id,){
 
 function delete_academic_year($id){
     require_once "../../../config.php";
-    $sql = "UPDATE academic_year SET archived=1 WHERE archived=0 && id='$id'";
+    //temporary sql will be updated
+    //have to update database
+    $sql = "DELETE academic_year WHERE id='$id'";
     if($stmt = mysqli_prepare($conn, $sql)){
         // Bind variables to the prepared statement as parameters
         
@@ -125,8 +127,8 @@ function delete_academic_year($id){
     }
 }
 
-if(isset($_GET['activeID'])){
-    update_active_year($_GET['activeID']);
+if(isset($_GET['id'])){
+    update_active_year($_GET['id']);
 }
 
 if(isset($_POST['year'],$_POST['sem'])){
@@ -135,9 +137,5 @@ if(isset($_POST['year'],$_POST['sem'])){
 }
 else{
     header("location: academic_year.php");
-}
-
-if(isset($_POST['delID'])){
-    delete_academic_year($_POST['delID']);
 }
 ?>
