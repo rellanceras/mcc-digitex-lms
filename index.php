@@ -60,16 +60,16 @@
                     <h3 class="mb-5 fw-bold d-none d-md-inline" id="login_greeting"></h3>
                     <img class="nav_label logo d-md-none" src="resources/img/logov1-trans.png" width="200px" height="auto" class="logo"/>
                 </div>
-                <form>
+                <form action = "login.php" method = "post">
                     <div class="mb-3">
                         <label for="Email" class="form-label">Email address or Username</label>
-                        <input type="email" class="form-control block" id="username" aria-describedby="emailHelp" required>
+                        <input type="email" class="form-control block" id="username" name="username" aria-describedby="emailHelp" required>
                     </div>
                     <div class="mb-3">
                         <label for="Password" class="form-label">Password</label>
                         <div class="input-group">
-                            <input type="password" class="form-control block" id="password" required>
-                            <span class="input-group-text block"><i class="bi bi-eye-fill" id="show_pass"></i></span>
+                            <input type="password" class="form-control block" id="password" name="password" required>
+                            <span class="input-group-text block"><i class="bi bi-eye-fill"  id="show_pass"></i></span>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-success w-100">Login</button>

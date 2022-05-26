@@ -3,6 +3,18 @@
     Work in Progress | Template by Nicolas Honrade
 
 -->
+<?php  
+
+session_start();  
+if(!$_SESSION['user'])  
+{  
+  
+    header("Location: 404.php");//redirect to the login page to secure the welcome page without login access.  
+}  
+  
+
+  
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -238,7 +250,7 @@
                 </li>
                 <hr />
                 <li class="nav-item nav_select">
-                    <a class="nav-link text-reset tool_tip" href="../../index.html" data-bs-toggle="tooltip" data-bs-placement="right" title="Logout">
+                    <a class="nav-link text-reset tool_tip" href="../admin/logout.php" data-bs-toggle="tooltip" data-bs-placement="right" title="Logout">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons material-icons-round text-center">logout</span>
                             <span class="nav_label ms-3">Logout</span>
