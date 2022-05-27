@@ -1,14 +1,10 @@
 <?php
-//require_once "config.php";
 function update_active_year($id){
     require_once "../../../config.php";
     $sql = "UPDATE academic_year SET active=1 WHERE active=0 && id='$id'";
     if($stmt = mysqli_prepare($conn, $sql)){
-        // Bind variables to the prepared statement as parameters
-        
         // Attempt to execute the prepared statement
         if(mysqli_stmt_execute($stmt)){
-            // Records created successfully. Redirect to landing page
             //header("location: academic_year.php");
             $sql = "UPDATE academic_year SET active=0 WHERE active=1 && id!='$id'";
             if($stmt = mysqli_prepare($conn,$sql)){
@@ -17,7 +13,7 @@ function update_active_year($id){
                     exit();
                 }
             }
-            //exit();
+    
         } else{
             echo "Oops! Something went wrong. Please try again later.";
         }
@@ -40,7 +36,7 @@ function create_academic_year($name,$year,$semester){
                 
                 // Attempt to execute the prepared statement
                 if(mysqli_stmt_execute($stmt)){
-                    // Records created successfully. Redirect to landing page
+                    // Redirect to Academic Year page
                     header("location: ../../../layout/admin.php?page=Curriculum&sub=AcademicYear");
                     exit();
                 } else{
@@ -50,10 +46,6 @@ function create_academic_year($name,$year,$semester){
             
             // Close statement
             mysqli_stmt_close($stmt);
-        
-        
-        // Close connection
-        //mysqli_close($conn);
     
 }
 
@@ -62,13 +54,10 @@ function update_academic_year($id,$name,$year,$semester){
     $sql = "UPDATE academic_year SET name='$name', acad_year='$year', semester='$semester' WHERE id='$id'";
 
     if($stmt = mysqli_prepare($conn, $sql)){
-        // Bind variables to the prepared statement as parameters
         
         // Attempt to execute the prepared statement
         if(mysqli_stmt_execute($stmt)){
             echo "Response.Write('<script language='javascript'>window.alert('Update Successful');window.location='../../../layout/admin.php?page=Curriculum&sub=AcademicYear';</script>');";
-            //header("location: ../../../layout/admin.php?page=Curriculum&sub=AcademicYear");
-            //exit();
         } else{
             echo "Oops! Something went wrong. Please try again later.";
         }
@@ -79,7 +68,6 @@ function delete_academic_year($id){
     require_once "../../../config.php";
     $sql = "UPDATE academic_year SET archived=1 WHERE archived=0 && id='$id'";
     if($stmt = mysqli_prepare($conn, $sql)){
-        // Bind variables to the prepared statement as parameters
         
         // Attempt to execute the prepared statement
         if(mysqli_stmt_execute($stmt)){
@@ -92,8 +80,8 @@ function delete_academic_year($id){
     }
 }
 
-if(isset($_GET['activeID'])){
-    update_active_year($_GET['activeID']);
+if(isset($_POST['activeID'])){
+    update_active_year($_POST['activeID']);
 }
 
 if(isset($_POST['startYear'],$_POST['endYear'],$_POST['sem'])){
@@ -105,7 +93,6 @@ if(isset($_POST['startYear'],$_POST['endYear'],$_POST['sem'])){
     else{
        echo "Response.Write('<script language='javascript'>window.alert('Invalid Academic Year');
        window.location='../../../layout/admin.php?page=Curriculum&sub=AcademicYear';</script>');";
-        //header("location: ../../../layout/admin.php?page=Curriculum");
     }
 }
 else{
@@ -124,7 +111,6 @@ if(isset($_POST['editID'],$_POST['editStartYear'],$_POST['editEndYear'],$_POST['
     }
     else{
        echo "Response.Write('<script language='javascript'>window.alert('Invalid Academic Year');window.location='../../../layout/admin.php?page=Curriculum&sub=AcademicYear';</script>');";
-        //header("location: ../../../layout/admin.php?page=Curriculum");
     }
 }
 else{

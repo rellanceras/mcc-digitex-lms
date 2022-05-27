@@ -267,11 +267,11 @@
                                     <span class="ms-3">Dashboard</span>
                                 </div>
                             </h3>
-                            <h6 class="mb-3">Current Academic year: <span class="fw-bold">2023-2024</span></h6>
+                            <h6 class="mb-3">Current Academic year: <span id="currentActive" class="fw-bold">2023-2024</span></h6>
                         </div>
                         <nav class="block bread_block">
                             <ol class="breadcrumb px-4 py-2 m-0">
-                                <li class="breadcrumb-item"><a class="text-decoration-none" href="#">A.Y. 2023-2024</a></li>
+                                <li class="breadcrumb-item"><a id="breadcrumbActive" class="text-decoration-none" href="#">A.Y. 2023-2024</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
                             </ol>
                         </nav>
@@ -287,7 +287,7 @@
                             </div>
                             <div class="card block p-2 card-blue flex-grow-1">
                                 <div class="card-body text-center">
-                                    <h3 class="card-title fw-bold"><span class="material-icons">people</span><span class="nav_label ms-3">50</span></h3>
+                                    <h3 class="card-title fw-bold"><span class="material-icons">people</span><span id="userTotal" class="nav_label ms-3">50</span></h3>
                                     <h6 class="card-subtitle">Users</h6>
                                 </div>
                             </div>
@@ -295,12 +295,6 @@
                                 <div class="card-body text-center">
                                     <h3 class="card-title fw-bold"><span class="material-icons">how_to_reg</span><span class="nav_label ms-3">50</span></h3>
                                     <h6 class="card-subtitle">Active Users</h6>
-                                </div>
-                            </div>
-                            <div class="card block p-2 card-violet flex-grow-1">
-                                <div class="card-body text-center">
-                                    <h3 class="card-title fw-bold"><span class="material-icons">task_alt</span><span class="nav_label ms-3">50</span></h3>
-                                    <h6 class="card-subtitle">Actions Done</h6>
                                 </div>
                             </div>
                         </div>
@@ -431,6 +425,18 @@
 
 var getWindowSize;
 $(document).ready(function(){
+
+    $.ajax({
+    type: "GET",
+    url: "retrieve_total.php",
+    success: function(result) {
+        var totals = JSON.parse(result);
+        $('#userTotal').text(totals.recorduserTotal);
+        $('#currentActive').text(totals.data[0]);
+        $('#breadcrumbActive').text(totals.data[0]);
+    }
+    })
+    
     $('#reportrange').daterangepicker();
     
     $(function() {

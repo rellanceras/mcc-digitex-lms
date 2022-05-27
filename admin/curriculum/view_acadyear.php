@@ -180,3 +180,26 @@
         </div>
     </div>
 </div>
+<!--Active Confirmation Modal -->
+<div class="modal fade" id="activeConfirmModal"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Change Active Academic Year</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="../admin/curriculum/functions/CRUD_functions.php" method="POST">
+            <div class="modal-body p-4">
+                <input type="hidden" required name="activeID" id="activeID" readonly class="form-control"/>
+                <p>Are you want to set this academic year as active?</p>
+                <h6 class="mb-3"><span class="fw-bold" id="activatingYear"></span></h6>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <!--<button type="button" class="btn btn-primary">Delete</button>-->
+                <button type="submit" class="btn btn-primary">Activate</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
