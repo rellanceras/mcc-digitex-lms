@@ -3,7 +3,7 @@
         <tr>
             <tr>
             <th class="thborderleft" style="width:35%">Department</th>
-            <th style="width:20%">Suject</th>
+            <th style="width:20%">Subject</th>
             <th>Semester</th>
             <th class="thborderright">Options</th>
             </tr>
