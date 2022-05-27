@@ -140,48 +140,48 @@
             </ul>
             
             <ul class="d-flex flex-column gap-3 list-unstyled">
-                <li class="nav-item nav_active sb_link">
-                    <a class="nav-link text-reset tool_tip" href="#" data-page="dashboard" data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard">
+                <li class="nav-item nav_select sb_link" id="dashboard">
+                    <a class="nav-link text-reset tool_tip" data-page="dashboard" data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons material-icons-round">grid_view</span>
                             <span class="nav_label ms-3">Dashboard</span>
                         </div>
                     </a>
                 </li>
-                <li class="nav-item nav_select sb_link">
-                    <a class="nav-link text-reset tool_tip" href="#" data-page="curriculum" data-bs-toggle="tooltip" data-bs-placement="right" title="Courses">
+                <li class="nav-item nav_select sb_link" id="curriculum">
+                    <a class="nav-link text-reset tool_tip" data-page="curriculum" data-bs-toggle="tooltip" data-bs-placement="right" title="Courses">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons material-icons-round">local_library</span>
                             <span class="nav_label ms-3">Curriculum</span>
                         </div>
                     </a>
                 </li>
-                <li class="nav-item nav_select sb_link">
-                    <a class="nav-link text-reset tool_tip" href="#" data-page="class" data-bs-toggle="tooltip" data-bs-placement="right" title="Class">
+                <li class="nav-item nav_select sb_link" id="class">
+                    <a class="nav-link text-reset tool_tip" data-page="class" data-bs-toggle="tooltip" data-bs-placement="right" title="Class">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons material-icons-round">class</span>
                             <span class="nav_label ms-3">Class</span>
                         </div>
                     </a>
                 </li>
-                <li class="nav-item nav_select sb_link">
-                    <a class="nav-link text-reset tool_tip" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar">
+                <li class="nav-item nav_select sb_link" id="users">
+                    <a class="nav-link text-reset tool_tip" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons material-icons-round">manage_accounts</span>
                             <span class="nav_label ms-3">Users</span>
                         </div>
                     </a>
                 </li>
-                <li class="nav-item nav_select sb_link">
-                    <a class="nav-link text-reset tool_tip" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar">
+                <li class="nav-item nav_select sb_link" id="calendar">
+                    <a class="nav-link text-reset tool_tip" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons material-icons-round">calendar_month</span>
                             <span class="nav_label ms-3">Calendar</span>
                         </div>
                     </a>
                 </li>
-                <li class="nav-item nav_select sb_link">
-                    <a class="nav-link text-reset tool_tip" href="#" data-page="settings" data-bs-toggle="tooltip" data-bs-placement="right" title="Settings">
+                <li class="nav-item nav_select sb_link" id="settings">
+                    <a class="nav-link text-reset tool_tip" data-page="settings" data-bs-toggle="tooltip" data-bs-placement="right" title="Settings">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons material-icons-round">settings</span>
                             <span class="nav_label ms-3">Settings</span>
@@ -429,21 +429,46 @@ function init_theme() {
 //     $('#themeCSS').attr("href", `../resources/css/themes/${get_theme()}.css`);
 // }
 
+function get_curPage() {
+    const currentPage = localStorage.getItem("page") || "dashboard";
+    return currentPage;
+}
+
 $(document).ready(function(){
+
+    // This Initializes the page
     $.ajax({
         type: 'GET',
         url: '../admin/navAdmin.json',
         dataType: 'html',
     }).done(function(response) {
-        var data = JSON.parse(response)
-        $('#mainContent').load(data[0].dashboard);
-        document.title = 'Dashboard | DigiTeach LMS';
+        var data = JSON.parse(response);
+        $('.sb_link').removeClass('nav_active');
+        switch(get_curPage()) {
+            case 'curriculum':
+                $('#mainContent').load(data[0].curriculum.curriculumIndex);
+                $('#curriculum').addClass('nav_active');
+                break;
+            case 'class':
+                $('#mainContent').load(data[0].class.classIndex);
+                $('#class').addClass('nav_active');
+                break;
+            case 'settings':
+                $('#mainContent').load(data[0].settings.settingsIndex);
+                $('#settings').addClass('nav_active');
+                break;
+            default:
+                $('#mainContent').load(data[0].dashboard);
+                $('#dashboard').addClass('nav_active');
+        }
+        document.title = get_curPage().charAt(0).toUpperCase() + get_curPage().slice(1)  + ' | DigiTeach LMS';
     });
 
+    // This Selects a new page
     $('.sb_link').click(function() {
         var page = $(this).find('a').attr('data-page');
-        $('.sb_link').addClass('nav_select');
         $('.sb_link').removeClass('nav_active');
+        $('.sb_link').addClass('nav_select');
 
         $(this).addClass('nav_active');
         $(this).removeClass('nav_select');
@@ -457,17 +482,18 @@ $(document).ready(function(){
             var data = JSON.parse(response)
             switch(page) {
                 case 'curriculum':
-                    $('#mainContent').load(data[0][page].curriculumIndex);
+                    $('#mainContent').load(data[0].curriculum.curriculumIndex);
                     break;
                 case 'class':
-                    $('#mainContent').load(data[0][page].viewclass);
+                    $('#mainContent').load(data[0].class.classIndex);
                     break;
                 case 'settings':
-                    $('#mainContent').load(data[0][page].settingsIndex);
+                    $('#mainContent').load(data[0].settings.settingsIndex);
                     break;
                 default:
-                    $('#mainContent').load(data[0][page]);
+                    $('#mainContent').load(data[0].dashboard);
             }
+            localStorage.setItem("page", page);
             document.title = page.charAt(0).toUpperCase() + page.slice(1)  + ' | DigiTeach LMS';
         });
         

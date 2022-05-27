@@ -9,6 +9,7 @@
             "department" : "../admin/curriculum/view_department.php"
         },
         "class" : {
+            "classIndex" : "../admin/class/index.php",
             "viewclass" : "../admin/class/view_class.php",
             "addclass" : "../admin/class/add_class.php"
         },
