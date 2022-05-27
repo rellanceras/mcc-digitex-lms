@@ -1,7 +1,7 @@
 <?php 
 
   require_once($_SERVER['DOCUMENT_ROOT'] . '/mcc-digitex-lms/config.php'); 
-  // require_once($_SERVER['DOCUMENT_ROOT'] . '/digitext-lms/admin/users/user-other-actions.php'); 
+  // require_once($_SERVER['DOCUMENT_ROOT'] . '/digitex-lms-girang/admin/users/user-other-actions.php'); 
 
   $id = $school_id = $first_name = $middle_name = $last_name = $birthday = $address = $role = $department = $program = $email = "";
 
@@ -35,7 +35,7 @@
           echo "No record found."; 
       }  
   }
-
+  //line 19 <td class='d-none'>".$row["id"]. "</td>
 
   // register new user
   if(isset($_POST['last_name']) && isset($_POST['first_name']) && isset($_POST['middle_name']) && isset($_POST['birthday']) && isset($_POST['address']) && isset($_POST['school_id']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['role']) && isset($_POST['department']) && isset($_POST['program'])){
@@ -55,7 +55,6 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
         
-
         //check if school id or email already exists
         $check_school_id = "SELECT * FROM user WHERE school_id=?";
         $stmt1 = $conn->prepare($check_school_id); 
@@ -88,11 +87,14 @@
 
             if($result){
               echo "<script language='javascript'>alert('Data has been saved.')</script>"; 
-              echo "<script>window.location.href='newuser-admin.php';</script>";
+              header("location: ../../../layout/admin.php?page=Users");
+              // header("location: ?page=Users");
               $resullt->close();
             } else{
               echo "<script language='javascript'>alert('Data has not been saved.')</script>"; 
-              echo "<script>window.location.href='newuser-admin.php';</script>";
+              header("location: ../../../layout/admin.php?page=AddUsers");
+              // header("location: ?page=AddUsers");
+
             }
                       
           }
@@ -100,7 +102,59 @@
       }
   }
 
-  
+
+  // //update a user -- modal
+  // if(isset($_POST['btnSave'])){
+  //   if(isset($_POST['school_id'])){  
+  //       $school_id = $_POST['school_id'];
+  //       $first_name = $_POST['first_name'];
+  //       $middle_name = $_POST['middle_name'];
+  //       $last_name = $_POST['last_name'];   
+  //       $role = $_POST['role'];
+  //       $department = $_POST['department'];
+  //       $program = $_POST['program'];
+  //       $email = $_POST['email'];
+
+  //       if($first_name && $last_name && $role && $department && $program && $email){
+  //           $update_query = $conn->prepare("UPDATE user SET first_name=?, middle_name=?, last_name=?, role=?, department=?, program=?, email=? WHERE school_id=?");
+  //           $update_query->bind_param('sssiiisi', $first_name, $middle_name, $last_name, $role, $department, $program, $email, $school_id);
+  //           $update_query->execute();
+
+  //           if($update_query){
+  //           echo "<script language='javascript'>alert('User has been updated.')</script>";
+  //           //  header("Location: ");
+  //           }else{
+  //           echo "<script language='javascript'>alert('User not updated.')</script>";
+  //           }
+  //       }
+        
+  //   }
+  // }
+    
 ?>
 
-    
+<!-- <script type="text/javascript">
+    $(document).ready(function(){
+        $('.btnShowEditModal').on('click', function(){
+            $('#myModal').modal('show'); 
+            $tr = $(this).closest('tr');
+
+            var data = $tr.children("td").map(function() {
+                return $(this).text();
+            }).get();
+
+            console.log(data);
+            $('#id').val(data[0]);
+            $('#school_id').val(data[1]);
+            $('#first_name').val(data[2]);
+            $('#middle_name').val(data[3]);
+            $('#last_name').val(data[4]);
+            $('#birthday').val(data[5]);
+            $('#address').val(data[6]);  
+            $('#role').val(data[7]);
+            $('#department').val(data[8]);  
+            $('#program').val(data[9]);
+            $('#email').val(data[10]);
+        });
+    });
+</script> -->
