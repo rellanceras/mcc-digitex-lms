@@ -1,10 +1,10 @@
 <?php
 require_once('../config.php');
  
-$query = $conn->query("SELECT count(id) FROM academic_year");
+$query = $conn->query("SELECT count(id) FROM user WHERE role=3");
 $totalRecords = $query->fetch_row()[0];
 
-$query = $conn->query("SELECT count(id) FROM user");
+$query = $conn->query("SELECT count(id) FROM user WHERE role=2");
 $totaluserRecords = $query->fetch_row()[0];
  
 $sql = "SELECT * FROM academic_year WHERE archived=0 && active=1";
@@ -20,7 +20,7 @@ while ($row = $query->fetch_assoc()) {
 }
  
 echo json_encode([
-    'recordsTotal' => $totalRecords,
-    'recorduserTotal' => $totaluserRecords,
+    'recordsStudentTotal' => $totalRecords,
+    'recordInstructTotal' => $totaluserRecords,
     'data' => $result
 ]);
