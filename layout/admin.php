@@ -28,6 +28,7 @@
 
     <!-- PLUGINS -->
         <!-- Calendar -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css"/>
         <link rel="stylesheet" href="../resources/css/calendarstyle.css" />
         <link rel="stylesheet" href="../resources/css/theme.css" />
         <!-- Date Range Picker -->
@@ -132,7 +133,7 @@
                             </div>
                         </a>
                     </li><li class="nav-item nav_select mb-2">
-                        <a class="nav-link text-reset text-decoration-none tool_tip" href="#">
+                        <a class="nav-link text-reset text-decoration-none tool_tip" href="?page=Calendar">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons">calendar_month</span>
                                 <span class="nav_label ms-3">Calendar</span>
@@ -218,8 +219,8 @@
                         </div>
                     </a>
                 </li>
-                <li class="nav-item nav_select">
-                    <a class="nav-link text-reset tool_tip" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar">
+                <li class="nav-item <?php if ($_GET['page'] == 'Calendar') {echo 'nav_active';} else {echo 'nav_select';}?>">
+                    <a class="nav-link text-reset tool_tip" href="?page=Calendar" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons material-icons-round">calendar_month</span>
                             <span class="nav_label ms-3">Calendar</span>
@@ -343,7 +344,6 @@
     </div>
 </div>
 
-
 </body>
     <!-- PLUGINS -->
         <!-- Bootstrap JS with Popper -->
@@ -351,6 +351,8 @@
         <!-- JQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <!-- Calendar JS -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
         <script src="../resources/js/calendar.min.js"></script>
         <!-- Datatablse JS -->
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
@@ -364,7 +366,6 @@
         <!-- JQuery Validate -->
         <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js" type="text/javascript"></script>
 <script>
-
 var getWindowSize;
 $(document).ready(function(){
     $('#smartwizard').smartWizard({
@@ -381,15 +382,13 @@ $(document).ready(function(){
         pageLength : 5,
         buttons: [
         {
-            
-        text: '<i class="bi bi-arrow-clockwise"></i>'
+            text: '<i class="bi bi-arrow-clockwise"></i>'
         },
         {
-        extend: 'colvis',
-        text: '<i class="bi bi-layout-three-columns"></i>'
-
+            extend: 'colvis',
+            text: '<i class="bi bi-layout-three-columns"></i>',
+            columns: ':not(:first-child):not(:last-child)'
         },
-        
         ],
         'columnDefs': [ {
 
@@ -543,10 +542,12 @@ function themeSelector() {
             $('.themeButton').text("dark_mode");
             activateTheme("dark");
             setTheme = "dark";
+            $('#calendar').evoCalendar('setTheme', 'Midnight Blue');
         } else {
             $('.themeButton').text("light_mode");
             activateTheme("default");
             setTheme = "default";
+            $('#calendar').evoCalendar('setTheme', 'Royal Navy');
         }
 
         localStorage.setItem("theme", setTheme);
@@ -611,6 +612,52 @@ function display_date() {
 
     return strDate;
 }
+// CALENDAR
+$(document).ready(function() {
+    $('#calendar').evoCalendar({
+        theme: 'Royal Navy',
+        todayHighlight: "true",
+
+        calendarEvents: [
+      {
+        id: 'bHay68s', // Event's ID (required)
+        name: "Labor Day", // Event name (required)
+        date: "May/1/2022", // Event date (required)
+        type: "holiday", // Event type (required)
+        everyYear: true // Same event every year (optional)
+      },
+
+      {
+        name: "Exam Week",
+        badge: "5/2 - 5/6", // Event badge (optional)
+        date: ["May/2/2022", "May/6/2022"], // Date range
+        description: "Examination Week", // Event description (optional)
+        type: "event",
+        color: "#63d867" // Event custom color (optional)
+      },
+
+      {
+        id: 'bHay68s', // Event's ID (required)
+        name: "Subject", // Event name (required)
+        date: "May/16/2022", // Event date (required)
+        description: "Deadline of Submission: Assignment #2", // Event description (optional)
+        type: "event",
+        color: "#FF0000"
+      },
+      {
+        id: 'bHay68s', // Event's ID (required)
+        name: "Subject", // Event name (required)
+        date: "May/16/2022", // Event date (required)
+        description: "Deadline of Submission: Assignment #4", // Event description (optional)
+        type: "event",
+        color: "#FF0000"
+      }
+                    ]
+    })
+
+   
+})
+
 </script>
 
 </html>

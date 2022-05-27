@@ -1,5 +1,5 @@
- <!-- Main Content -->
- <div class="d-flex flex-column flex-grow-1 gap-3 main-content">
+<!-- Main Content -->
+<div class="d-flex flex-column flex-grow-1 gap-3 main-content">
     <!-- Page Header -->
     <div class="block" id="page-header">
         <div class="px-4 pt-4">
@@ -24,35 +24,35 @@
         <table id="view_course" class="display table table-bordered" style="width:100%">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
+                    <th>Class Name</th>
+                    <th>Subject</th>
                     <th>Department</th>
-                    <th></th>
+                    <th>Option</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td></td>
                     <td>Tiger Nixon</td>
+                    <td>Advanced Mathematics</td>
                     <td>SCST</td>
                     <td>
-                        <input class="form-check-input" type="checkbox" value="" id="2">
+                        <button type='button' class='btn btn-primary btnShowEditModal' data-bs-toggle='modal' data-bs-target='#myModal'><i class='bi bi-pencil-square icon-white'></i> Edit</button>
                     </td>
                 </tr>
                 <tr>
-                    <td></td>
                     <td>Marie Claire</td>
+                    <td>Advanced Mathematics</td>
                     <td>SCST</td>
                     <td>
-                        <input class="form-check-input" type="checkbox" value="" id="2">
+                        <button type='button' class='btn btn-primary btnShowEditModal' data-bs-toggle='modal' data-bs-target='#myModal'><i class='bi bi-pencil-square icon-white'></i> Edit</button>
                     </td>
                 </tr>
                 <tr>
-                    <td></td>
                     <td>Josse Reezal</td>
+                    <td>Advanced Mathematics</td>
                     <td>SCST</td>
                     <td>
-                        <input class="form-check-input" type="checkbox" value="" id="2">
+                        <button type='button' class='btn btn-primary btnShowEditModal' data-bs-toggle='modal' data-bs-target='#myModal'><i class='bi bi-pencil-square icon-white'></i> Edit</button>
                     </td>
                 </tr>
             </tbody>

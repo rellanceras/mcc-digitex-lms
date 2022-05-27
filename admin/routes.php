@@ -4,7 +4,8 @@
         'Class' => '../admin/class/view_class',
         'AddClass' => '../admin/class/add_class',
         'Users' => '../admin/users/view_users',
-        'AddUsers' => '../admin/users/add_users'
+        'AddUsers' => '../admin/users/add_users',
+        'Calendar' => '../admin/calendar/view_calendar'
     );
     $subPages = array(
         'AcademicYear' => '../admin/curriculum/view_acadyear',

@@ -106,7 +106,7 @@
                             </div>
                         </a>
                     </li><li class="nav-item nav_select mb-2">
-                        <a class="nav-link text-reset text-decoration-none tool_tip" href="#">
+                        <a class="nav-link text-reset text-decoration-none tool_tip" href="?page=Calendar">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons ">calendar_month</span>
                                 <span class="nav_label ms-3">Calendar</span>
@@ -193,7 +193,7 @@
                     </a>
                 </li>
                 <li class="nav-item nav_select">
-                    <a class="nav-link text-reset tool_tip" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar">
+                    <a class="nav-link text-reset tool_tip" href="../layout/admin.php?page=Calendar" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons ">calendar_month</span>
                             <span class="nav_label ms-3">Calendar</span>
