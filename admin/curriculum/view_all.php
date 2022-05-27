@@ -2,7 +2,7 @@
     <thead style="width:100%">
         <tr>
             <tr>
-            <th class="thborderleft" style="width:35%">Department</th>
+            <th class="thborderleft" style="width:45%">Department</th>
             <th style="width:20%">Subject</th>
             <th>Academic Year</th>
             </tr>
