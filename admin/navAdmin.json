@@ -19,6 +19,10 @@
             "security" : "../admin/settings/security.php",
             "appearance" : "../admin/settings/appearance.php",
             "archive" : "../admin/settings/archive.php"
+        },
+        "users" : {
+            "usersIndex" : "../admin/users/index.php",
+            "viewusers" : "../admin/users/view_users.php"
         }
     }
 ]

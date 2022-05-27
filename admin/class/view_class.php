@@ -55,7 +55,6 @@ $(document).ready(function(){
                     console.log("Page does not exist");
             }
             $('#setSubPage').text("Add Class");
-            document.title = page.charAt(0).toUpperCase() + page.slice(1)  + ' | DigiTeach LMS';
         });
     });
 });

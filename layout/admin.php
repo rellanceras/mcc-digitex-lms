@@ -165,7 +165,7 @@
                     </a>
                 </li>
                 <li class="nav-item nav_select sb_link" id="users">
-                    <a class="nav-link text-reset tool_tip" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar">
+                    <a class="nav-link text-reset tool_tip" data-page="users" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons material-icons-round">manage_accounts</span>
                             <span class="nav_label ms-3">Users</span>
@@ -357,9 +357,15 @@
     <script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
     <!-- JQuery Validate -->
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js" type="text/javascript"></script>
+
 <script>
 
+/*   --- SIDEBAR ---   */
+
+// Call function when browser window is resized
 $(window).resize(adapt_sidebar);
+
+// Change sidebar size when window is <= 1200px
 function adapt_sidebar() {
     var WindowSize = $(window).width();
 
@@ -378,41 +384,13 @@ function adapt_sidebar() {
     } 
 }
 
-$(document).ready(function(){
-    $('.tool_tip_default').tooltip('enable');
-    $('#collapse').click(function(){
-        $('.sidebar').toggleClass("mini");
-        $(".sidebar .nav_label").toggleClass("d-none");
-        $("#collapse-btn").toggleClass("justify-content-between");
-        $("#collapse-btn, .nav_link").toggleClass("justify-content-center");
-        $('.tool_tip').tooltip('toggleEnabled');
-    });
-});
-
 /*   --- WEBSITE THEME ---   */
 
-// Get Theme variable
+// Get current theme variable
 function get_theme() {
     const currentTheme = localStorage.getItem("theme") || "default";
     return currentTheme;
 }
-
-// // Theme Switch
-// $(document).ready(function(){
-//     let setTheme;
-//     $('.themeButton').click(function(){
-//         $(this).text($(this).text() == 'dark_mode' ? 'light_mode' : 'dark_mode');
-//         if ($(this).text() == "dark_mode") {
-//             $('.themeButton').text("dark_mode");
-//             setTheme = "dark";
-//         } else {
-//             $('.themeButton').text("light_mode");
-//             setTheme = "default";
-//         }
-//         localStorage.setItem("theme", setTheme);
-//         update_theme();
-//     });
-// });
 
 // Theme Initiate
 function init_theme() {
@@ -423,20 +401,17 @@ function init_theme() {
     $('#themeCSS').attr("href", `../resources/css/themes/${get_theme()}.css`);
 }
 
-// // Theme Update
-// function update_theme() {
-//     console.log("Theme Updated");
-//     $('#themeCSS').attr("href", `../resources/css/themes/${get_theme()}.css`);
-// }
+/*   --- Page Navigation ---   */
 
+// Get current page variable
 function get_curPage() {
     const currentPage = localStorage.getItem("page") || "dashboard";
     return currentPage;
 }
 
-$(document).ready(function(){
 
-    // This Initializes the page
+function init_page() {
+    // Initializes the page based on the current page variable
     $.ajax({
         type: 'GET',
         url: '../admin/navAdmin.json',
@@ -453,6 +428,10 @@ $(document).ready(function(){
                 $('#mainContent').load(data[0].class.classIndex);
                 $('#class').addClass('nav_active');
                 break;
+            case 'users':
+                $('#mainContent').load(data[0].users.usersIndex);
+                $('#users').addClass('nav_active');
+                break;
             case 'settings':
                 $('#mainContent').load(data[0].settings.settingsIndex);
                 $('#settings').addClass('nav_active');
@@ -461,10 +440,10 @@ $(document).ready(function(){
                 $('#mainContent').load(data[0].dashboard);
                 $('#dashboard').addClass('nav_active');
         }
-        document.title = get_curPage().charAt(0).toUpperCase() + get_curPage().slice(1)  + ' | DigiTeach LMS';
+        document.title = get_curPage().charAt(0).toUpperCase() + get_curPage().slice(1)  + ' | DigiTex LMS';
     });
 
-    // This Selects a new page
+    // Selects a new page and saves the page in the browser's local storage
     $('.sb_link').click(function() {
         var page = $(this).find('a').attr('data-page');
         $('.sb_link').removeClass('nav_active');
@@ -487,6 +466,9 @@ $(document).ready(function(){
                 case 'class':
                     $('#mainContent').load(data[0].class.classIndex);
                     break;
+                case 'users':
+                    $('#mainContent').load(data[0].users.usersIndex);
+                    break;
                 case 'settings':
                     $('#mainContent').load(data[0].settings.settingsIndex);
                     break;
@@ -494,39 +476,14 @@ $(document).ready(function(){
                     $('#mainContent').load(data[0].dashboard);
             }
             localStorage.setItem("page", page);
-            document.title = page.charAt(0).toUpperCase() + page.slice(1)  + ' | DigiTeach LMS';
-        });
-        
-    });
-});
-$(document).ready(function(){
-    
-    init_theme();
-    adapt_sidebar();
-
-
-    $(function(){
-        $('.calendar-container').calendar({
-            date:new Date(),// today
-            weekDayLength: 1,
-            prevButton:'<i class="bi bi-chevron-left"></i>',
-            nextButton:'<i class="bi bi-chevron-right"></i>',
-            highlightSelectedWeekday:false, //this prevents blue weekday highlight
-            todayButtonContent:"See Current Day"
+            document.title = get_curPage().charAt(0).toUpperCase() + get_curPage().slice(1)  + ' | DigiTex LMS';
         });
     });
+}
 
-    setInterval(function(){ 
-        $(".time").text(display_time());
-        $(".date").text(display_date());
-    }, 1000);
+/*   --- Time and Date ---   */
 
-
-});
-
-
-
-
+// Gets current time
 function display_time() {
     const getDate = new Date(); // This gets whole date based on your current location
 
@@ -547,6 +504,7 @@ function display_time() {
     return strTime;
 }
 
+// Gets current date
 function display_date() {
     const getDate = new Date(); // This gets whole date based on your current location
 
@@ -563,6 +521,50 @@ function display_date() {
 
     return strDate;
 }
+
+/*   --- Side Calendar ---   */
+
+// Initializes the calendar on the right side
+function init_sideCalendar() {
+    $('.calendar-container').calendar({
+        date:new Date(),// today
+        weekDayLength: 1,
+        prevButton:'<i class="bi bi-chevron-left"></i>',
+        nextButton:'<i class="bi bi-chevron-right"></i>',
+        highlightSelectedWeekday:false, //this prevents blue weekday highlight
+        todayButtonContent:"See Current Day"
+    });
+}
+
+/*   --- Tooltips ---   */
+
+// Initializes the tooltips
+function init_tooltip() {
+    $('.tool_tip_default').tooltip('enable');
+    $('#collapse').click(function(){
+        $('.sidebar').toggleClass("mini");
+        $(".sidebar .nav_label").toggleClass("d-none");
+        $("#collapse-btn").toggleClass("justify-content-between");
+        $("#collapse-btn, .nav_link").toggleClass("justify-content-center");
+        $('.tool_tip').tooltip('toggleEnabled');
+    });
+}
+
+/*   --- Function call on document ready ---   */
+
+$(document).ready(function(){
+    adapt_sidebar();
+    init_theme();
+    init_page();
+    init_sideCalendar();
+    init_tooltip();
+
+    // Updates the time in 1 sec interval
+    setInterval(function(){ 
+        $(".time").text(display_time());
+        $(".date").text(display_date());
+    }, 1000);
+});
 </script>
 
 </html>

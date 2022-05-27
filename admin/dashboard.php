@@ -13,7 +13,7 @@
         </div>
         <nav class="block block2">
             <ol class="breadcrumb px-4 py-2 m-0">
-                <li class="breadcrumb-item"><a class="text-decoration-none" href="#">A.Y. 2023-2024</a></li>
+                <li class="breadcrumb-item"><a class="text-decoration-none">A.Y. 2023-2024</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
             </ol>
         </nav>
@@ -111,17 +111,10 @@
 </div>
 
 <script>
-$(document).ready(function(){
-    init_adminChartLogin();
-});
 
-function get_theme() {
-    const currentTheme = localStorage.getItem("theme") || "default";
-    return currentTheme;
-}
 /*   --- ADMIN LOGIN CHART ---   */
 
-// adminChartLogin Initiate
+// Initializes the Login Chart
 function init_adminChartLogin() {
     if ($('#loginChart').length == 0) { return; }
     console.log("Admin Login Chart Initialized");
@@ -145,17 +138,13 @@ function init_adminChartLogin() {
     };
     var admin_chartLogin = new ApexCharts(document.querySelector("#loginChart"), admin_chartLoginOptions);
 
-
-    $('.themeButton').click(function(){
-        if ($('#loginChart').length == 0) { return; }
-        console.log("Admin Login Chart Theme Updated");
-        admin_chartLogin.updateOptions({theme:{mode:get_theme()}});
-        
-    });
-
     $('.sb_link').click(function() {
         admin_chartLogin.destroy();
     });
     admin_chartLogin.render();
 }
+
+$(document).ready(function(){
+    init_adminChartLogin();
+});
 </script>
