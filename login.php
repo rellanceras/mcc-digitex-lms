@@ -26,15 +26,15 @@ session_start();
             // initialize session variables
              if($account_type == "1"){
                $_SESSION['user'] = $username;
-            header("location: admin/");
+            header("location: layout/admin.php");
         }  else if($account_type == "2"){
                $_SESSION['user'] = $username;
-                   header("location: admin/");
+                   header("location: layout/admin.php");
           
         }
         else if($account_type == "3"){
                $_SESSION['user'] = $username;
-                   header("location: admin/");
+                   header("location: layout/admin.php");
           
         }
 

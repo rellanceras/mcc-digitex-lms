@@ -10,56 +10,35 @@
 ?>
 
 
-<!-- Main Content -->
-<div class="d-flex flex-column flex-grow-1 gap-3 main-content">
-    <!-- Page Header -->
-    <div class="block" id="page-header">
-        <div class="px-4 pt-4">
-            <h3 class="mb-3 fw-bold">
-                <div class="d-flex align-items-center">
-                    <span class="material-icons material-icons-round">local_library</span>
-                    <span class="ms-3">Users</span>
-                </div>
-            </h3>
-            <h6 class="fst-italic mb-3">Manage User Accounts</h6>
-        </div>
-        <nav class="block bread_block">
-            <ol class="breadcrumb px-4 py-2 m-0">
-                <li class="breadcrumb-item"><a class="text-decoration-none" href="#">A.Y. 2023-2024</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Users</li>
-            </ol>
-        </nav>
-    </div>
-    <!-- Page Content -->
-    <div class="block h-100 p-4">
-        <a href="?page=AddUsers">
-            <button type="button" class="btn btn-primary"><i class="bi bi-plus-lg icon-white"></i> Add User</button>
-        </a>
-        <br><br>
-        <table id="example" class="display table table-bordered" style="width:100%">
-            <thead>
-                <tr>
-                    <!-- <th class="d-none">ID</th> -->
-                    <th class="d-none">ID</th>
-                    <th>School ID</th>
-                    <th>First Name</th>
-                    <th>Middle Name</th>
-                    <th>Last Name</th>
-                    <th class="d-none">Birthday</th>
-                    <th class="d-none">Address</th>
-                    <th>Role</th>
-                    <th>Department</th>
-                    <th>Program</th>
-                    <th>Email</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php getAllUsers(); ?>
-            </tbody>
-        </table>
-    </div>
-</div>
+
+<!-- Page Content -->
+    
+<button type="button" class="btn btn-primary d-flex align-items-center mb-3" id="btn_addusers" data-page="addusers"><span class="material-icons">add</span> Add User</button>
+
+<table id="example" class="display table table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <!-- <th class="d-none">ID</th> -->
+            <th class="d-none">ID</th>
+            <th>School ID</th>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+            <th class="d-none">Birthday</th>
+            <th class="d-none">Address</th>
+            <th>Role</th>
+            <th>Department</th>
+            <th>Program</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php getAllUsers(); ?>
+    </tbody>
+</table>
+
+
 
 <!-- Modal -->
 <form action="../admin/users/functions/user-other-actions.php" method="POST">
@@ -115,3 +94,70 @@
     </div>
 </form>
 <!-- End Modal -->
+
+<script>
+    $('.btnShowEditModal').on('click', function(){
+    $('#myModal').modal('show'); 
+            $tr = $(this).closest('tr');
+
+        var data = $tr.children("td").map(function() {
+            return $(this).text();
+        }).get();
+
+        console.log(data);
+        $('#id').val(data[0]);
+        $('#school_id').val(data[1]);
+        $('#first_name').val(data[2]);
+        $('#middle_name').val(data[3]);
+        $('#last_name').val(data[4]);
+        $('#birthday').val(data[5]);
+        $('#address').val(data[6]);  
+        $('#role').val(data[7]);
+        $('#department').val(data[8]);  
+        $('#program').val(data[9]);
+        $('#email').val(data[10]);
+    });
+
+    var table = $('#example').DataTable( {
+        // rowReorder: {
+        //     selector: 'td:nth-child(2)'
+        // },
+        // responsive: true,
+        dom: 'Bfrtip',
+        
+        buttons: [
+        {
+            
+        text: '<i class="bi bi-arrow-clockwise"></i>'
+        },
+        {
+        extend: 'colvis',
+        text: '<i class="bi bi-layout-three-columns"></i>'
+
+        },
+        
+        ]
+    } );
+
+    $(document).ready(function(){
+    $('#btn_addusers').click(function() {
+        var page = $(this).attr('data-page');
+        $.ajax({
+            type: 'GET',
+            url: '../admin/navAdmin.json',
+            dataType: 'html',
+        }).done(function(response) {
+            var data = JSON.parse(response)
+            switch(page) {
+                case 'addusers':
+                    $('#pageContent').load(data[0].users.addusers);
+                    break;
+                default:
+                    console.log("Page does not exist");
+            }
+            document.title = page.charAt(0).toUpperCase() + page.slice(1)  + ' | DigiTeach LMS';
+        });
+        
+    });
+});
+</script>

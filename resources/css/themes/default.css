@@ -5,7 +5,7 @@
 */
 
 :root {
-    --txt-light: #373737;
+    --txt-light: #424242;
     --bg-base-light: #e0e0e0;
     --bg-block-light: #ffffff;
     --bg-block2-light: #f5f5f5;
@@ -31,8 +31,8 @@ body {
     background-color: var(--bg-accent-light);
     color: var(--bg-block-light) !important;
 }
-    .nav_select:hover, .subnav_select:hover {
-        background-color: var(--bg-block2-light);
+    .nav_select:hover, .subnav_select:hover, .topnav_select:hover {
+        background-color: var(--bg-base-light);
     }
 
 .highlight {
@@ -54,6 +54,3 @@ body {
 .topnav_select {
     background-color: var(--bg-block2-light);
 }
-    .topnav_select:hover {
-        background-color: var(--bg-base-light);
-    }

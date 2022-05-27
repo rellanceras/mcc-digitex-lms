@@ -6,74 +6,28 @@
 
 
 
-<!-- Main Content -->
-<div class="d-flex flex-column flex-grow-1 gap-3 main-content">
-    <!-- Page Header -->
-    <div class="block" id="page-header">
-        <div class="px-4 pt-4">
-            <h3 class="mb-3 fw-bold">
-                <div class="d-flex align-items-center">
-                    <span class="material-icons material-icons-round">local_library</span>
-                    <span class="ms-3">Curriculum</span>
-                </div>
-            </h3>
-            <h6 class="mb-3">Current Academic year: <span class="fw-bold" id="currentActive"></span></h6>
-        </div>
-        <nav class="block bread_block">
-            <ol class="breadcrumb px-4 py-2 m-0">
-            <li class="breadcrumb-item"><a class="text-decoration-none" href="#" id="currentActiveYear"></a></li>
-                <li class="breadcrumb-item"><a class="text-decoration-none" href="#">Curriculum</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Academic Year</li>
-            </ol>
-        </nav>
-    </div>
-    <div class="block">
-        <ul class="d-flex flex-row list-unstyled align-items-center gap-3 m-2 subnav">
-            <li class="nav-item subnav_active">
-                <a class="nav-link text-reset" href="?page=Curriculum&sub=AcademicYear">
-                    Academic Year
-                </a>
-            </li>
-            <li class="subnav_select">
-                <a class="nav-link text-reset" href="?page=Curriculum&sub=Subject">
-                    Subject
-                </a>
-            </li>
-            <li class="subnav_select">
-                <a class="nav-link text-reset" href="?page=Curriculum&sub=Department">
-                    Department
-                </a>
-            </li>
-            <li class="subnav_select">
-                <a class="nav-link text-reset" href="?page=Curriculum&sub=Program">
-                    Program
-                </a>
-            </li>
-        </ul>
-    </div>
-    <!-- Page Content -->
-    <div class="block h-100 p-4">
-                        
-        <button type="button" class="btn btn-primary" style="margin-bottom: 1%;" data-bs-toggle="modal" data-bs-target="#createModal">
-            Add Academic Year
-        </button>
 
-                            
-        <table id="viewAcadYear" class="display table table-bordered" style="width:100%">
-            <thead>
-                <tr>
-                <th>ID</th>
-                <th class="thborderleft">Name</th>
-                <th>Year</th>
-                <th>Semester</th>
-                <th>Status</th>
-                <th>Archived</th>
-                <th class="thborderright">Options</th>
-                </tr>
-            </thead>
-        </table>                  
-    </div>
-</div>
+<!-- Page Content -->
+                    
+<button type="button" class="btn btn-primary" style="margin-bottom: 1%;" data-bs-toggle="modal" data-bs-target="#createModal">
+    Add Academic Year
+</button>
+
+                    
+<table id="viewAcadYear" class="display table table-bordered" style="width:100%">
+    <thead>
+        <tr>
+        <th>ID</th>
+        <th class="thborderleft">Name</th>
+        <th>Year</th>
+        <th>Semester</th>
+        <th>Status</th>
+        <th>Archived</th>
+        <th class="thborderright">Options</th>
+        </tr>
+    </thead>
+</table>                  
+
 
 <!-- Add Modal -->
 <div class="modal fade" id="createModal"  aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -181,3 +135,92 @@
         </div>
     </div>
 </div>
+
+<script src= '../resources/js/yearpicker.js'></script>
+<script>
+var tableYear = $('#viewAcadYear').DataTable(
+        {
+        "processing": true,
+        "serverside": true,
+        "ajax": "../admin/curriculum/functions/server_processing.php",
+
+        order: [[4, 'desc']],
+        "columnDefs":[
+        {             // toggle visiblity of status and archived column
+            "targets": [0,4,5] ,
+            "visible": false ,
+            "searchable": false
+        },
+        {             // centers column header and row data
+            "targets": [0,1,2,3] ,
+            className: "dt-center",
+        },
+        {             // disables ordering of certain columns
+            "targets": [1,3] ,
+            "orderable": false
+        },
+        {
+            "targets": [6] ,    // populate options column
+            "orderable": false, 
+            className: "dt-center",
+            "data":4,
+            "render": function(data,type,row){
+                var active = 
+                "<button type='button' disabled class='btn btn-success'>Currently Active</button>";
+                // edit either variable to add things
+                var inactive = 
+                '<a class="btn btn-success" href ="../admin/curriculum/functions/CRUD_functions.php?activeID='+ row[0] +'">Set as Active</a>'+
+                "<button type='button' id='deleteBtn' class='btn btn-danger' style='margin-bottom: 1%;' data-bs-toggle='modal' data-bs-target='#deleteModal'>Delete</button>"+
+                "<button type='button' id='editBtn' class='btn btn-primary' style='margin-bottom: 1%;' data-bs-toggle='modal' data-bs-target='#editModal'>Edit</button>";
+                if(data==1){
+                    $('#currentActive').text(row[1]);
+                    $('#currentActiveYear').text(row[1]);
+                    //console.log(row[2])
+                    return active 
+                }
+                else{
+                    return inactive
+                }
+            }
+        }],
+
+        }
+    );
+    //gets row data on where the clicked button is located and assigns it
+    $('#viewAcadYear').on('click','#deleteBtn',function()
+    {
+        var data = tableYear.row($(this).parents('tr')).data();
+        document.getElementById("delID").value = data[0];
+        $('#deletingYear').text(data[1]);
+    }
+    );
+    $('#viewAcadYear').on('click','#editBtn',function()
+    {
+        var data = tableYear.row($(this).parents('tr')).data();
+        document.getElementById("editID").value = data[0];
+    }
+    );
+    //resets form inside modal on close
+    $('#createModal').on('hidden.bs.modal', function () {
+        $('#createModal form')[0].reset();
+    });
+
+    $('#editModal').on('hidden.bs.modal', function () {
+        $('#editModal form')[0].reset();
+    });
+
+    $(".yearpicker").yearpicker(
+        {
+        startYear: get_year(),
+        selectedClass:'selected',
+        disabledClass:'disabled',
+        }
+    );
+    function get_year(){
+        const getDate = new Date();
+        let year = getDate.getFullYear();
+        return year;
+
+    }
+
+</script>
