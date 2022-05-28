@@ -142,7 +142,7 @@
     } );
 
     $(document).ready(function(){
-    $('#btn_addusers').click(function() {
+        $('#btn_addusers').click(function() {
         var page = $(this).attr('data-page');
         $.ajax({
             type: 'GET',
@@ -155,11 +155,10 @@
                     $('#pageContent').load(data[0].users.addusers);
                     break;
                 default:
-                    console.log("Page does not exist");
+                    $('#pageContent').load(data[0].users.viewusers);
             }
-            document.title = page.charAt(0).toUpperCase() + page.slice(1)  + ' | DigiTeach LMS';
+            $('#setSubPage').text("Add Users");
         });
-        
     });
 });
 </script>
