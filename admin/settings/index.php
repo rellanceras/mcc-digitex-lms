@@ -87,19 +87,19 @@ $(document).ready(function(){
             var data = JSON.parse(response)
             switch(page) {
                 case 'general':
-                    $('#pageContent').load(data[0]['settings'][page]);
+                    $('#pageContent').load(data[0].settings.general);
                     break;
                 case 'security':
-                    $('#pageContent').load(data[0]['settings'][page]);
+                    $('#pageContent').load(data[0].settings.security);
                     break;
                 case 'appearance':
-                    $('#pageContent').load(data[0]['settings'][page]);
+                    $('#pageContent').load(data[0].settings.appearance);
                     break;
                 case 'archive':
-                    $('#pageContent').load(data[0]['settings'][page]);
+                    $('#pageContent').load(data[0].settings.archive);
                     break;
                 default:
-                    console.log("Page does not exist");
+                    $('#pageContent').load(data[0].settings.general);
             }
             $('#setSubPage').text(page.charAt(0).toUpperCase() + page.slice(1));
         });
