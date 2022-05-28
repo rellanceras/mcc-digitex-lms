@@ -112,6 +112,7 @@ p {
 
 .login_block {
     border-radius: 0 25px 25px 0;
+    background-color: #ffffff;
 }
 
 .login_cover {
@@ -208,10 +209,6 @@ p {
 
 #user_num {
     font-size: 14px;
-}
-
-#show_pass{
-    cursor: pointer;
 }
 
 #dateDropdown:hover {
