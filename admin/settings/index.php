@@ -9,11 +9,11 @@
                     <span class="ms-3">Settings</span>
                 </div>
             </h3>
-            <h6 class="mb-3">Current Academic year: <span class="fw-bold">2023-2024</span></h6>
+            <h6 class="mb-3">Current Academic year: <span class="currentActivefw-bold">2023-2024</span></h6>
         </div>
         <nav class="block2">
             <ol class="breadcrumb px-4 py-2 m-0">
-                <li class="breadcrumb-item"><a class="text-decoration-none" href="">A.Y. 2023-2024</a></li>
+                <li class="breadcrumb-item"><a class="breadcrumbActive text-decoration-none" href="">A.Y. 2023-2024</a></li>
                 <li class="breadcrumb-item"><a class="text-decoration-none" href="">Settings</a></li>
                 <li class="breadcrumb-item active" aria-current="page" id="setSubPage">General</li>
             </ol>
@@ -61,6 +61,17 @@ $(document).ready(function(){
         document.title = 'Settings | DigiTeach LMS';
     });
 
+    //display Current Active Year
+    $.ajax({
+    type: "GET",
+    url: "../admin/retrieve_total.php",
+    dataType: 'html'
+    }).done(function(response) {
+        var totals = JSON.parse(response);
+        $('.currentActive').text(totals.data[0]);
+        $('.breadcrumbActive').text(totals.data[0]);
+    })
+
     $('.sn_link').click(function() {
         var page = $(this).find('a').attr('data-page');
         $('.sn_link').addClass('subnav_select');
@@ -93,5 +104,7 @@ $(document).ready(function(){
             $('#setSubPage').text(page.charAt(0).toUpperCase() + page.slice(1));
         });
     });
+
+
 });
 </script>

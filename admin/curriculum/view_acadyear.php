@@ -192,7 +192,7 @@ var tableYear = $('#viewAcadYear').DataTable(
                 "<button type='button' disabled class='btn btn-success'>Currently Active</button>";
                 // edit either variable to add things
                 var inactive = 
-                '<a class="btn btn-success" href ="../admin/curriculum/functions/CRUD_functions.php?activeID='+ row[0] +'">Set as Active</a>'+
+                "<button type='button' id='activeBtn' class='btn btn-success' style='margin-bottom: 1%;' data-bs-toggle='modal' data-bs-target='#activeConfirmModal'>Set as Active</button>"+
                 "<button type='button' id='deleteBtn' class='btn btn-danger' style='margin-bottom: 1%;' data-bs-toggle='modal' data-bs-target='#deleteModal'>Delete</button>"+
                 "<button type='button' id='editBtn' class='btn btn-primary' style='margin-bottom: 1%;' data-bs-toggle='modal' data-bs-target='#editModal'>Edit</button>";
                 if(data==1){
@@ -221,6 +221,13 @@ var tableYear = $('#viewAcadYear').DataTable(
     {
         var data = tableYear.row($(this).parents('tr')).data();
         document.getElementById("editID").value = data[0];
+    }
+    );
+    $('#viewAcadYear').on('click','#activeBtn',function()
+    {
+        var data = tableYear.row($(this).parents('tr')).data();
+        document.getElementById("activeID").value = data[0];
+        $('#activatingYear').text(data[1]);
     }
     );
     //resets form inside modal on close

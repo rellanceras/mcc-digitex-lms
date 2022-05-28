@@ -19,21 +19,30 @@ session_start();
 
         $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
         $count = mysqli_num_rows($result);
-        $account_type = $row["role"];  
+        $id = $row["id"];
+        $sid = $row["school_id"];
+        $fname = $row["first_name"];
+        $lname = $row["last_name"];
+        $account_type = $row["role"];
+        
+        $wname = $fname . " " . $lname;
 
 
         if($count == 1) {
             // initialize session variables
              if($account_type == "1"){
-               $_SESSION['user'] = $username;
+               $_SESSION['user'] = $wname;
+               $_SESSION['sid'] = $sid;
             header("location: layout/admin.php");
         }  else if($account_type == "2"){
-               $_SESSION['user'] = $username;
+               $_SESSION['user'] = $wname;
+               $_SESSION['sid'] = $sid;
                    header("location: layout/admin.php");
           
         }
         else if($account_type == "3"){
-               $_SESSION['user'] = $username;
+               $_SESSION['user'] = $wname;
+               $_SESSION['sid'] = $sid;
                    header("location: layout/admin.php");
           
         }

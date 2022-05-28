@@ -18,9 +18,8 @@
 <table id="view_subject" class="display table table-bordered" style="width:100%"> 
     <thead>
         <tr>
-            
-            <th class="thborderleft">Name</th>
             <th hidden>id</th>
+            <th class="thborderleft">Name</th>
             <th>Subject Code</th>
             <th>Department</th>
             <th hidden>Year</th>
@@ -39,13 +38,12 @@
         ?>
     
         <tr>
-            
-            <td><?php echo $row["subject_name"]; ?></td>
             <td hidden><?php echo $row["id"]; ?></td>
+            <td><?php echo $row["subject_name"]; ?></td>
             <td><?php echo $row["subject_code"]; ?></td>
             <td><?php echo $row["department"]; ?></td>
             <td hidden><?php echo $row["acad_year_id"]; ?></td>
-            <td>
+            <td style="text-align:center">
                 <button type="button" class="btn bi bi-pen btn-primary editSub" data-bs-toggle="modal" data-bs-target="#editModal"></button>
                 <button type="button" class="btn bi bi-trash btn-danger deleteSub" data-bs-toggle="modal" data-bs-target="#deleteModal"></button>
             </td>
