@@ -16,11 +16,7 @@
     --yellow: #ffb300;
     --white: #ffffff;
 
-    /*Glassmorphism*/
-    --txt-glass: #424242;
-    --bg-base-glass: linear-gradient(#68F8A2, #00A3FF);
-    --bg-block-glass: #ffffffd7;
-    --bg-accent-glass: #ffffff;
+    
 
     /*Experimental*/
     /*CANDIDATE 1 FOR DARK MODE*//*
@@ -112,6 +108,7 @@ p {
 
 .login_block {
     border-radius: 0 25px 25px 0;
+    background-color: #ffffff;
 }
 
 .login_cover {
@@ -208,10 +205,6 @@ p {
 
 #user_num {
     font-size: 14px;
-}
-
-#show_pass{
-    cursor: pointer;
 }
 
 #dateDropdown:hover {

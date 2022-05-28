@@ -1,4 +1,3 @@
-
 <a class="btn btn-primary text-light mb-3" id="btn_addclass" data-page="addclass">Add Class</a>
 <table id="view_course" class="display table table-bordered" style="width:100%">
     <thead>
@@ -49,10 +48,10 @@ $(document).ready(function(){
             var data = JSON.parse(response)
             switch(page) {
                 case 'addclass':
-                    $('#pageContent').load(data[0]['class'][page]);
+                    $('#pageContent').load(data[0].class.addclass);
                     break;
                 default:
-                    console.log("Page does not exist");
+                    $('#pageContent').load(data[0].class.viewclass);
             }
             $('#setSubPage').text("Add Class");
         });

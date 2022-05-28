@@ -22,7 +22,8 @@
         },
         "users" : {
             "usersIndex" : "../admin/users/index.php",
-            "viewusers" : "../admin/users/view_users.php"
+            "viewusers" : "../admin/users/view_users.php",
+            "addusers" : "../admin/users/add_users.php"
         }
     }
 ]
