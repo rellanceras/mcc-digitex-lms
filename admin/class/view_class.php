@@ -1,3 +1,6 @@
+
+<!-- Page Content -->
+
 <a class="btn btn-primary text-light mb-3" id="btn_addclass" data-page="addclass">Add Class</a>
 <table id="view_course" class="display table table-bordered" style="width:100%">
     <thead>
@@ -36,6 +39,7 @@
     </tbody>
 </table>
 
+
 <script>
 $(document).ready(function(){
     $('#btn_addclass').click(function() {
@@ -48,13 +52,31 @@ $(document).ready(function(){
             var data = JSON.parse(response)
             switch(page) {
                 case 'addclass':
-                    $('#pageContent').load(data[0].class.addclass);
+                    $('#pageContent').load(data[0]['class'][page]);
                     break;
                 default:
-                    $('#pageContent').load(data[0].class.viewclass);
+                    console.log("Page does not exist");
             }
-            $('#setSubPage').text("Add Class");
+            document.title = page.charAt(0).toUpperCase() + page.slice(1)  + ' | DigiTeach LMS';
         });
+        
+    });
+    
+    var table = $('#view_course').DataTable({
+        dom: 'Bfrtip',
+        pageLength : 5,
+        buttons: [
+        {
+            
+        text: '<i class="bi bi-arrow-clockwise"></i>'
+        },
+        {
+        extend: 'colvis',
+        text: '<i class="bi bi-layout-three-columns"></i>'
+
+        },
+        
+        ]
     });
 });
 </script>

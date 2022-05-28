@@ -129,8 +129,8 @@
                         <div class="d-inline-flex align-items-center nav-link text-reset">
                             <img class="profile_nav" src="../resources/img/test-profile.png" />
                             <span class="nav_label ms-3 text-start">
-                                <span class="fw-bold text-break" id="user_disname">Test name</span> <br />
-                                <span class="text-break" id="user_num">#3120003</span>
+                                <span class="fw-bold text-break" id="user_disname"><?php echo $_SESSION['user']; ?></span> <br />
+                                <span class="text-break" id="user_num"><?php echo $_SESSION['sid']; ?></span>
                             </span>
                         </div>
                     </li>
@@ -185,7 +185,7 @@
                     </li>
                     <hr />
                     <li class="nav-item nav_select sb_link">
-                        <a class="nav-link text-reset" href="../../index.html">
+                        <a class="nav-link text-reset" href="../admin/logout.php">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons material-icons-round">logout</span>
                                 <span class="nav_label ms-3">Logout</span>
@@ -214,8 +214,8 @@
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <img class="profile_nav" src="../resources/img/test-profile.png" />
                             <span class="nav_label ms-3">
-                                <span class="fw-bold text-break" id="user_disname">Test name</span> <br />
-                                <span class="text-break" id="user_num">#3120003</span>
+                                <span class="fw-bold text-break" id="user_disname"><?php echo $_SESSION['user']; ?></span> <br />
+                                <span class="text-break" id="user_num"><?php echo $_SESSION['sid']; ?></span>
                             </span>
                         </div>
                     </a>
@@ -256,7 +256,7 @@
                     </a>
                 </li>
                 <li class="nav-item nav_select sb_link calendar">
-                    <a class="nav-link text-reset tool_tip" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar">
+                    <a class="nav-link text-reset tool_tip" data-page="calendar" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons material-icons-round">calendar_month</span>
                             <span class="nav_label ms-3">Calendar</span>
@@ -273,7 +273,7 @@
                 </li>
                 <hr />
                 <li class="nav-item nav_select sb_link">
-                    <a class="nav-link text-reset tool_tip" href="../../index.html" data-bs-toggle="tooltip" data-bs-placement="right" title="Logout">
+                    <a class="nav-link text-reset tool_tip" href="../admin/logout.php" data-bs-toggle="tooltip" data-bs-placement="right" title="Logout">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons material-icons-round text-center">logout</span>
                             <span class="nav_label ms-3">Logout</span>
@@ -399,7 +399,7 @@
                 </div>
 
                 <div class="right-col d-flex flex-column gap-3 d-none d-xxl-flex">
-                    <div class="calendar p-4 block">
+                    <div id="calendar"class="p-4 block">
                         <div class="calendar-container"></div>
                     </div>
                 </div>
@@ -513,6 +513,11 @@ function init_page() {
                 $('.users').addClass('nav_active');
                 $('.users').removeClass('nav_select');
                 break;
+            case 'calendar':
+                $('#mainContent').load(data[0].calendar.calendarIndex);
+                $('.calendar').addClass('nav_active');
+                $('.calendar').removeClass('nav_select');
+                break;
             case 'settings':
                 $('#mainContent').load(data[0].settings.settingsIndex);
                 $('.settings').addClass('nav_active');
@@ -553,6 +558,11 @@ function init_page() {
                     $('#mainContent').load(data[0].users.usersIndex);
                     $('.users').addClass('nav_active');
                     $('.users').removeClass('nav_select');
+                    break;
+                case 'calendar':
+                    $('#mainContent').load(data[0].calendar.calendarIndex);
+                    $('.calendar').addClass('nav_active');
+                    $('.calendar').removeClass('nav_select');
                     break;
                 case 'settings':
                     $('#mainContent').load(data[0].settings.settingsIndex);

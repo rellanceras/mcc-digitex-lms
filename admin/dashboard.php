@@ -9,11 +9,11 @@
                     <span class="ms-3">Dashboard</span>
                 </div>
             </h3>
-            <h6 class="mb-3">Current Academic year: <span class="fw-bold">2023-2024</span></h6>
+            <h6 class="mb-3">Current Academic year: <span class="currentActive fw-bold">2023-2024</span></h6>
         </div>
         <nav class="block block2">
             <ol class="breadcrumb px-4 py-2 m-0">
-                <li class="breadcrumb-item"><a class="text-decoration-none">A.Y. 2023-2024</a></li>
+                <li class="breadcrumb-item"><a class="breadcrumbActive text-decoration-none" href="#">A.Y. 2023-2024</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
             </ol>
         </nav>
@@ -29,13 +29,13 @@
             </div>
             <div class="card block p-2 card-blue flex-grow-1">
                 <div class="card-body text-center">
-                    <h3 class="card-title fw-bold"><span class="material-icons">people</span><span class="nav_label ms-3">50</span></h3>
+                    <h3 class="card-title fw-bold"><span class="material-icons">people</span><span id="instructTotal" class="nav_label ms-3">50</span></h3>
                     <h6 class="card-subtitle">Instructors</h6>
                 </div>
             </div>
             <div class="card block p-2 card-green flex-grow-1">
                 <div class="card-body text-center">
-                    <h3 class="card-title fw-bold"><span class="material-icons">how_to_reg</span><span class="nav_label ms-3">50</span></h3>
+                    <h3 class="card-title fw-bold"><span class="material-icons">how_to_reg</span><span id="studentTotal" class="nav_label ms-3">50</span></h3>
                     <h6 class="card-subtitle">Students</h6>
                 </div>
             </div>
@@ -111,10 +111,30 @@
 </div>
 
 <script>
+$(document).ready(function(){
+    init_adminChartLogin();
 
+    //display Current Active Year
+    $.ajax({
+    type: "GET",
+    url: "../admin/retrieve_total.php",
+    dataType: 'html'
+    }).done(function(response) {
+        var totals = JSON.parse(response);
+        $('#instructTotal').text(totals.recordInstructTotal);
+        $('#studentTotal').text(totals.recordsStudentTotal);
+        $('.currentActive').text(totals.data[0]);
+        $('.breadcrumbActive').text(totals.data[0]);
+    })
+});
+
+function get_theme() {
+    const currentTheme = localStorage.getItem("theme") || "default";
+    return currentTheme;
+}
 /*   --- ADMIN LOGIN CHART ---   */
 
-// Initializes the Login Chart
+// adminChartLogin Initiate
 function init_adminChartLogin() {
     if ($('#loginChart').length == 0) { return; }
     console.log("Admin Login Chart Initialized");
@@ -138,13 +158,17 @@ function init_adminChartLogin() {
     };
     var admin_chartLogin = new ApexCharts(document.querySelector("#loginChart"), admin_chartLoginOptions);
 
+
+    $('.themeButton').click(function(){
+        if ($('#loginChart').length == 0) { return; }
+        console.log("Admin Login Chart Theme Updated");
+        admin_chartLogin.updateOptions({theme:{mode:get_theme()}});
+        
+    });
+
     $('.sb_link').click(function() {
         admin_chartLogin.destroy();
     });
     admin_chartLogin.render();
 }
-
-$(document).ready(function(){
-    init_adminChartLogin();
-});
 </script>

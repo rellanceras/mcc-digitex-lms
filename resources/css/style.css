@@ -16,7 +16,11 @@
     --yellow: #ffb300;
     --white: #ffffff;
 
-    
+    /*Glassmorphism*/
+    --txt-glass: #424242;
+    --bg-base-glass: linear-gradient(#68F8A2, #00A3FF);
+    --bg-block-glass: #ffffffd7;
+    --bg-accent-glass: #ffffff;
 
     /*Experimental*/
     /*CANDIDATE 1 FOR DARK MODE*//*
@@ -186,7 +190,7 @@ p {
 .right-col {
     width: 300px;
 }
-.calendar {
+#calendar {
     max-height: 600px;
 }
 

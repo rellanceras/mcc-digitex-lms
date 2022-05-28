@@ -24,6 +24,11 @@
             "usersIndex" : "../admin/users/index.php",
             "viewusers" : "../admin/users/view_users.php",
             "addusers" : "../admin/users/add_users.php"
+        },
+        "calendar" : {
+            "calendarIndex" : "../admin/calendar/index.php",
+            "viewcalendar" : "../admin/calendar/view_calendar.php"
         }
+
     }
 ]
