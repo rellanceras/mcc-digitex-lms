@@ -9,11 +9,11 @@
                     <span class="ms-3">Dashboard</span>
                 </div>
             </h3>
-            <h6 class="mb-3">Current Academic year: <span id="currentActive" class="fw-bold">2023-2024</span></h6>
+            <h6 class="mb-3">Current Academic year: <span class="currentActive fw-bold">2023-2024</span></h6>
         </div>
         <nav class="block block2">
             <ol class="breadcrumb px-4 py-2 m-0">
-                <li class="breadcrumb-item"><a id="breadcrumbActive" class="text-decoration-none" href="#">A.Y. 2023-2024</a></li>
+                <li class="breadcrumb-item"><a class="breadcrumbActive text-decoration-none" href="#">A.Y. 2023-2024</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
             </ol>
         </nav>
@@ -114,7 +114,7 @@
 $(document).ready(function(){
     init_adminChartLogin();
 
-
+    //display Current Active Year
     $.ajax({
     type: "GET",
     url: "../admin/retrieve_total.php",
@@ -123,8 +123,8 @@ $(document).ready(function(){
         var totals = JSON.parse(response);
         $('#instructTotal').text(totals.recordInstructTotal);
         $('#studentTotal').text(totals.recordsStudentTotal);
-        $('#currentActive').text(totals.data[0]);
-        $('#breadcrumbActive').text(totals.data[0]);
+        $('.currentActive').text(totals.data[0]);
+        $('.breadcrumbActive').text(totals.data[0]);
     })
 });
 

@@ -576,6 +576,7 @@ $(document).ready(function(){
         $(".date").text(display_date());
     }, 1000);
 });
+
 </script>
 
 </html>
