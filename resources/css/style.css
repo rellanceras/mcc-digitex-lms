@@ -190,7 +190,7 @@ p {
 .right-col {
     width: 300px;
 }
-.calendar {
+#calendar {
     max-height: 600px;
 }
 
