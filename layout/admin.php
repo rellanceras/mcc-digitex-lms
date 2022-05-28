@@ -13,24 +13,105 @@
         <span class="btn nav_select navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar_mobile">
             <i class="bi bi-list"></i>
         </span>
-        <ul class="d-flex list-unstyled align-items-center justify-content-end gap-3 m-0">
+        <ul class="d-flex list-unstyled align-items-center justify-content-end gap-4 m-0">
             <li class="topnav_select d-flex align-items-center justify-content-center position-relative p-2">
                 <span class="material-icons tool_tip_default" data-bs-toggle="tooltip" data-bs-placement="bottom"  title="Messages">chat</span>
                 <span class="position-absolute p-2 start-100 translate-middle badge rounded-circle">
                     <span class="visually-hidden">unread messages</span>
                 </span>
             </li>
-            <li class="topnav_select d-flex align-items-center justify-content-center position-relative p-2">
-                <span class="material-icons tool_tip_default" data-bs-toggle="tooltip" data-bs-placement="bottom"  title="Notifications">notifications</span>
-                <span class="position-absolute p-2 start-100 translate-middle badge rounded-circle">
+
+            <li class="dropdown topnav_select d-flex align-items-center justify-content-center position-relative p-2" data-bs-toggle="dropdown">
+                <span class="material-icons tool_tip_default" data-bs-placement="bottom" title="Notifications">notifications</span>
+                <span class="position-absolute p-2 start-100 translate-middle badge rounded-circle" >
                     <span class="visually-hidden">unread messages</span>
                 </span>
             </li>
-            <span class="vr"></span>
-            <!-- Theme Switcher -->
-            <li class="topnav_select d-flex align-items-center justify-content-center position-relative p-2">
-                <span class="material-icons tool_tip_default themeButton" data-bs-toggle="tooltip" data-bs-placement="bottom"  title="Select Theme">light_mode</span>
-            </li>
+            <div class="dropdown-menu block ps-0 pt-4 mt-3" style="left: auto !important;">
+                <ul class="ps-0">
+                    <h6 class="fw-bold ms-4">Notifications</h6>
+                    <li class="dropdown-item nav_select">
+                        <a class="nav-link text-reset text-decoration-none" href="#">
+                            <div class="d-flex align-items-center">
+                                <img class="profile_pic_student" src="../resources/img/test-profile.png" width="42px" height="42px" style="border-radius: 50px;" />
+                                <div class="ms-3">
+                                    <p class="m-0">
+                                        <span class="fw-bold">Juan Dela Cruz</span><br />
+                                        Answered a <span class="fw-bold">Quiz</span> in
+                                        <span class="fw-bold tool_tip_default" data-bs-placement="top"  title="Advanced Mathematics">GEC-0001</span> <br/>
+                                        <span class="fst-italic">February 28, 2023</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <hr />
+                    <li class="dropdown-item nav_select">
+                        <a class="nav-link text-reset text-decoration-none" href="#">
+                            <div class="d-flex align-items-center">
+                                <img class="profile_pic_instructor" src="../resources/img/test-profile.png" width="42px" height="42px" style="border-radius: 50px;" />
+                                <div class="ms-3">
+                                    <p class="m-0">
+                                        <span class="fw-bold">Maria Clara</span><br />
+                                        Posted a <span class="fw-bold">Quiz</span> in
+                                        <span class="fw-bold tool_tip_default" data-bs-placement="top"  title="Advanced Mathematics">GEC-0001</span> <br/>
+                                        <span class="fst-italic">February 25, 2023</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <hr/>
+                    <li class="dropdown-item nav_select">
+                        <a class="nav-link text-reset text-decoration-none" href="#">
+                            <div class="d-flex align-items-center">
+                                <img class="profile_pic_admin" src="../resources/img/test-profile.png" width="42px" height="42px" style="border-radius: 50px;" />
+                                <div class="ms-3">
+                                    <p class="m-0">
+                                        <span class="fw-bold">Chrisostomo Ibarra</span><br />
+                                        Created a <span class="fw-bold">User</span> : 
+                                        <span class="fw-bold tool_tip_default" data-bs-placement="top"  title="Padre Damaso">#3184672</span> <br/>
+                                        <span class="fst-italic">February 25, 2023</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <hr/>
+                    <li class="dropdown-item nav_select">
+                        <a class="nav-link text-reset text-decoration-none" href="#">
+                            <div class="d-flex align-items-center">
+                                <img class="profile_pic_admin" src="../resources/img/test-profile.png" width="42px" height="42px" style="border-radius: 50px;" />
+                                <div class="ms-3">
+                                    <p class="m-0">
+                                        <span class="fw-bold">Chrisostomo Ibarra</span><br />
+                                        Created a <span class="fw-bold">User</span> : 
+                                        <span class="fw-bold tool_tip_default" data-bs-placement="top"  title="Padre Damaso">#3184672</span> <br/>
+                                        <span class="fst-italic">February 25, 2023</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <hr/>
+                    <li class="dropdown-item nav_select">
+                        <a class="nav-link text-reset text-decoration-none" href="#">
+                            <div class="d-flex align-items-center">
+                                <img class="profile_pic_admin" src="../resources/img/test-profile.png" width="42px" height="42px" style="border-radius: 50px;" />
+                                <div class="ms-3">
+                                    <p class="m-0">
+                                        <span class="fw-bold">Chrisostomo Ibarra</span><br />
+                                        Created a <span class="fw-bold">User</span> : 
+                                        <span class="fw-bold tool_tip_default" data-bs-placement="top"  title="Padre Damaso">#3184672</span> <br/>
+                                        <span class="fst-italic">February 25, 2023</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <hr/>
+                </ul>
+            </div>
         </ul>
 
         <div class="offcanvas offcanvas-start block m-3" tabindex="-1" id="sidebar_mobile">
@@ -43,9 +124,9 @@
                 </button>
             </div>
             <div class="offcanvas-body">
-                <ul class="d-flex flex-column list-unstyled">
-                    <li class="nav-item text-center">
-                        <div class="d-inline-flex align-items-center">
+                <ul class="d-flex flex-column list-unstyled gap-3">
+                    <li class="nav-item">
+                        <div class="d-inline-flex align-items-center nav-link text-reset">
                             <img class="profile_nav" src="../resources/img/test-profile.png" />
                             <span class="nav_label ms-3 text-start">
                                 <span class="fw-bold text-break" id="user_disname"><?php echo $_SESSION['user']; ?></span> <br />
@@ -54,47 +135,48 @@
                         </div>
                     </li>
                     <hr />
-                    <li class="nav-item nav_select mb-2">
-                        <a class="nav-link text-reset text-decoration-none" href="../index.html">
+                    <li class="nav-item nav_select sb_link dashboard">
+                        <a class="nav-link text-reset" data-page="dashboard">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons">grid_view</span>
                                 <span class="nav_label ms-3">Dashboard</span>
                             </div>
                         </a>
                     </li>
-                    <li class="nav-item nav_active mb-2">
-                        <a class="nav-link text-reset text-decoration-none tool_tip" href="curriculum/view_acadyear.html">
+                    <li class="nav-item nav_select sb_link curriculum">
+                        <a class="nav-link text-reset" data-page="curriculum">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons">local_library</span>
                                 <span class="nav_label ms-3">Curriculum</span>
                             </div>
                         </a>
                     </li>
-                    <li class="nav-item nav_select mb-2">
-                        <a class="nav-link text-reset text-decoration-none tool_tip" href="#">
+                    <li class="nav-item nav_select sb_link class">
+                        <a class="nav-link text-reset" data-page="class">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons">class</span>
                                 <span class="nav_label ms-3">Class</span>
                             </div>
                         </a>
                     </li>
-                    <li class="nav-item nav_select mb-2">
-                        <a class="nav-link text-reset text-decoration-none tool_tip" href="#">
+                    <li class="nav-item nav_select sb_link users">
+                        <a class="nav-link text-reset" data-page="users">
                             <div class="d-flex align-items-center">
-                                <span class="material-icons material-icons-round">manage_accounts</span>
+                                <span class="material-icons">manage_accounts</span>
                                 <span class="nav_label ms-3">Users</span>
                             </div>
                         </a>
-                    </li><li class="nav-item nav_select mb-2">
-                        <a class="nav-link text-reset text-decoration-none tool_tip" href="#">
+                    </li>
+                    <li class="nav-item nav_select sb_link calendar">
+                        <a class="nav-link text-reset" data-page="calendar">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons">calendar_month</span>
                                 <span class="nav_label ms-3">Calendar</span>
                             </div>
                         </a>
                     </li>
-                    <li class="nav-item nav_select mb-2">
-                        <a class="nav-link text-reset text-decoration-none tool_tip" href="#">
+                    <li class="nav-item nav_select sb_link settings">
+                        <a class="nav-link text-reset" data-page="settings">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons">settings</span>
                                 <span class="nav_label ms-3">Settings</span>
@@ -102,8 +184,8 @@
                         </a>
                     </li>
                     <hr />
-                    <li class="nav-item nav_select mb-2">
-                        <a class="nav-link text-reset text-decoration-none tool_tip" href="../../index.html">
+                    <li class="nav-item nav_select sb_link">
+                        <a class="nav-link text-reset" href="../admin/logout.php">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons material-icons-round">logout</span>
                                 <span class="nav_label ms-3">Logout</span>
@@ -140,9 +222,8 @@
                 </li>
                 <hr />
             </ul>
-            
             <ul class="d-flex flex-column gap-3 list-unstyled">
-                <li class="nav-item nav_select sb_link" id="dashboard">
+                <li class="nav-item nav_select sb_link dashboard">
                     <a class="nav-link text-reset tool_tip" data-page="dashboard" data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons material-icons-round">grid_view</span>
@@ -150,7 +231,7 @@
                         </div>
                     </a>
                 </li>
-                <li class="nav-item nav_select sb_link" id="curriculum">
+                <li class="nav-item nav_select sb_link curriculum">
                     <a class="nav-link text-reset tool_tip" data-page="curriculum" data-bs-toggle="tooltip" data-bs-placement="right" title="Courses">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons material-icons-round">local_library</span>
@@ -158,7 +239,7 @@
                         </div>
                     </a>
                 </li>
-                <li class="nav-item nav_select sb_link" id="class">
+                <li class="nav-item nav_select sb_link class">
                     <a class="nav-link text-reset tool_tip" data-page="class" data-bs-toggle="tooltip" data-bs-placement="right" title="Class">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons material-icons-round">class</span>
@@ -166,7 +247,7 @@
                         </div>
                     </a>
                 </li>
-                <li class="nav-item nav_select sb_link" id="users">
+                <li class="nav-item nav_select sb_link users">
                     <a class="nav-link text-reset tool_tip" data-page="users" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons material-icons-round">manage_accounts</span>
@@ -174,7 +255,7 @@
                         </div>
                     </a>
                 </li>
-                <li class="nav-item nav_select sb_link" id="calendar">
+                <li class="nav-item nav_select sb_link calendar">
                     <a class="nav-link text-reset tool_tip" data-page="calendar" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons material-icons-round">calendar_month</span>
@@ -182,7 +263,7 @@
                         </div>
                     </a>
                 </li>
-                <li class="nav-item nav_select sb_link" id="settings">
+                <li class="nav-item nav_select sb_link settings">
                     <a class="nav-link text-reset tool_tip" data-page="settings" data-bs-toggle="tooltip" data-bs-placement="right" title="Settings">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons material-icons-round">settings</span>
@@ -225,7 +306,7 @@
                     </span>
                 </li>
                 <div class="dropdown-menu block ps-0 pt-4 mt-3">
-                <ul>
+                    <ul class="ps-0">
                         <h6 class="fw-bold ms-4">Notifications</h6>
                         <li class="dropdown-item nav_select">
                             <a class="nav-link text-reset text-decoration-none" href="#">
@@ -309,21 +390,16 @@
                         <hr/>
                     </ul>
                 </div>
-                    
-                <!-- <span class="vr"></span>
-                <li class="topnav_select d-flex align-items-center justify-content-center position-relative p-2">
-                    <span class="material-icons tool_tip_default themeButton" data-bs-toggle="tooltip" data-bs-placement="bottom"  title="Select Theme">light_mode</span>
-                </li> -->
             </ul>
             <!-- Content -->
             <div class="d-flex gap-3">
                 <!-- Main Content -->
                 <div class="d-flex flex-column flex-grow-1 gap-3" id="mainContent">
-                    <?php //include('../admin/routes.php'); ?>
+                    
                 </div>
 
                 <div class="right-col d-flex flex-column gap-3 d-none d-xxl-flex">
-                    <div class="calendar p-4 block">
+                    <div id="calendar"class="p-4 block">
                         <div class="calendar-container"></div>
                     </div>
                 </div>
@@ -359,7 +435,6 @@
     <script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
     <!-- JQuery Validate -->
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js" type="text/javascript"></script>
-    
 
 <script>
 
@@ -425,28 +500,33 @@ function init_page() {
         switch(get_curPage()) {
             case 'curriculum':
                 $('#mainContent').load(data[0].curriculum.curriculumIndex);
-                $('#curriculum').addClass('nav_active');
+                $('.curriculum').addClass('nav_active');
+                $('.curriculum').removeClass('nav_select');
                 break;
             case 'class':
                 $('#mainContent').load(data[0].class.classIndex);
-                $('#class').addClass('nav_active');
+                $('.class').addClass('nav_active');
+                $('.class').removeClass('nav_select');
                 break;
             case 'users':
                 $('#mainContent').load(data[0].users.usersIndex);
-                $('#users').addClass('nav_active');
+                $('.users').addClass('nav_active');
+                $('.users').removeClass('nav_select');
                 break;
             case 'calendar':
                 $('#mainContent').load(data[0].calendar.calendarIndex);
-                $('#calendar').addClass('nav_active');
+                $('.calendar').addClass('nav_active');
+                $('.calendar').removeClass('nav_select');
                 break;
             case 'settings':
                 $('#mainContent').load(data[0].settings.settingsIndex);
-                $('#settings').addClass('nav_active');
+                $('.settings').addClass('nav_active');
+                $('.settings').removeClass('nav_select');
                 break;
-            
             default:
                 $('#mainContent').load(data[0].dashboard);
-                $('#dashboard').addClass('nav_active');
+                $('.dashboard').addClass('nav_active');
+                $('.dashboard').removeClass('nav_select');
         }
         document.title = get_curPage().charAt(0).toUpperCase() + get_curPage().slice(1)  + ' | DigiTex LMS';
     });
@@ -456,10 +536,6 @@ function init_page() {
         var page = $(this).find('a').attr('data-page');
         $('.sb_link').removeClass('nav_active');
         $('.sb_link').addClass('nav_select');
-
-        $(this).addClass('nav_active');
-        $(this).removeClass('nav_select');
-
         
         $.ajax({
             type: 'GET',
@@ -470,21 +546,33 @@ function init_page() {
             switch(page) {
                 case 'curriculum':
                     $('#mainContent').load(data[0].curriculum.curriculumIndex);
+                    $('.curriculum').addClass('nav_active');
+                    $('.curriculum').removeClass('nav_select');
                     break;
                 case 'class':
                     $('#mainContent').load(data[0].class.classIndex);
+                    $('.class').addClass('nav_active');
+                    $('.class').removeClass('nav_select');
                     break;
                 case 'users':
                     $('#mainContent').load(data[0].users.usersIndex);
+                    $('.users').addClass('nav_active');
+                    $('.users').removeClass('nav_select');
                     break;
                 case 'calendar':
                     $('#mainContent').load(data[0].calendar.calendarIndex);
+                    $('.calendar').addClass('nav_active');
+                    $('.calendar').removeClass('nav_select');
                     break;
                 case 'settings':
                     $('#mainContent').load(data[0].settings.settingsIndex);
+                    $('.settings').addClass('nav_active');
+                    $('.settings').removeClass('nav_select');
                     break;
                 default:
                     $('#mainContent').load(data[0].dashboard);
+                    $('.dashboard').addClass('nav_active');
+                    $('.dashboard').removeClass('nav_select');
             }
             localStorage.setItem("page", page);
             document.title = get_curPage().charAt(0).toUpperCase() + get_curPage().slice(1)  + ' | DigiTex LMS';
@@ -552,6 +640,7 @@ function init_sideCalendar() {
 // Initializes the tooltips
 function init_tooltip() {
     $('.tool_tip_default').tooltip('enable');
+
     $('#collapse').click(function(){
         $('.sidebar').toggleClass("mini");
         $(".sidebar .nav_label").toggleClass("d-none");
@@ -576,7 +665,6 @@ $(document).ready(function(){
         $(".date").text(display_date());
     }, 1000);
 });
-
 </script>
 
 </html>
