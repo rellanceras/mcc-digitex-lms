@@ -43,7 +43,7 @@
             <td><?php echo $row["subject_code"]; ?></td>
             <td><?php echo $row["department"]; ?></td>
             <td hidden><?php echo $row["acad_year_id"]; ?></td>
-            <td>
+            <td style="text-align:center">
                 <button type="button" class="btn bi bi-pen btn-primary editSub" data-bs-toggle="modal" data-bs-target="#editModal"></button>
                 <button type="button" class="btn bi bi-trash btn-danger deleteSub" data-bs-toggle="modal" data-bs-target="#deleteModal"></button>
             </td>
