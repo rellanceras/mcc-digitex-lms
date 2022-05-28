@@ -35,8 +35,12 @@ if(!$_SESSION['user'])
 
     <!-- PLUGINS -->
         <!-- Calendar -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../resources/css/evo-calendar.css" />
+        <link rel="stylesheet" type="text/css" href="../resources/css/evo-calendar.royal-navy.css" />
         <link rel="stylesheet" href="../resources/css/calendarstyle.css" />
         <link rel="stylesheet" href="../resources/css/theme.css" />
+
         <!-- Date Range Picker -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
         <!-- Datatables -->

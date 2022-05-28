@@ -28,7 +28,6 @@
             <th class="d-none">Address</th>
             <th>Role</th>
             <th>Department</th>
-            <th>Program</th>
             <th>Email</th>
             <th></th>
         </tr>
@@ -70,17 +69,21 @@
                         <option name="role" id="role" value="2" <?php if($role == "2") { echo "selected"; }?>>Teacher</option>
                         <option name="role" id="role" value="3" <?php if($role == "3") { echo "selected"; }?>>Student</option>
                     </select><br>
+                    <?php 
+                        $sql = "SELECT abbreviation FROM `department`";
+                        $abbreviations = mysqli_query($conn,$sql);
+                    ?>
                     <label>Department: </label>
                     <select class="form-select block" name="department" id="department" style="height: 45px;" required>
-                        <option name="department" id="department" value="1" <?php if($department == "1") { echo "selected"; }?>>Sample Dept. 1</option>
-                        <option name="department" id="department" value="2" <?php if($department == "2") { echo "selected"; }?>>Sample Dept. 2</option>
-                        <option name="department" id="department" value="3" <?php if($department == "3") { echo "selected"; }?>>Sample Dept. 3</option>
-                    </select><br>
-                    <label>Program: </label>
-                    <select class="form-select block" name="program" id="program" style="height: 45px;" required>
-                        <option name="program" id="program" value="1" <?php if($program == "1") { echo "selected"; }?>>Sample Prog. 1</option>
-                        <option name="program" id="program" value="2" <?php if($program == "2") { echo "selected"; }?>>Sample Prog. 2</option>
-                        <option name="program" id="program" value="3" <?php if($program == "3") { echo "selected"; }?>>Sample Prog. 3</option>
+                        
+                        <?php
+                            while ($abbreviation = mysqli_fetch_array(
+                                    $abbreviations,MYSQLI_ASSOC)):;
+                            ?>
+                            <option name="department" id="department" value="<?php echo $abbreviation["abbreviation"];?>">
+                            <?php echo $abbreviation["abbreviation"];?>
+                            </option>
+                        <?php endwhile;?>
                     </select><br>
                     <label>Email: </label>
                     <input name="email" id="email" class="form-control block" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br>
@@ -113,9 +116,8 @@
         $('#birthday').val(data[5]);
         $('#address').val(data[6]);  
         $('#role').val(data[7]);
-        $('#department').val(data[8]);  
-        $('#program').val(data[9]);
-        $('#email').val(data[10]);
+        $('#department').val(data[8]);
+        $('#email').val(data[9]);
     });
 
     var table = $('#example').DataTable( {
