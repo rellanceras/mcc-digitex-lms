@@ -1,3 +1,6 @@
+<?php
+	require_once('../../config.php'); 
+?>
 <!-- Page Content -->
 <form id="addClass" method="POST" action="">
     <div id="smartwizard">
@@ -49,21 +52,39 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6 mb-3">
+                    <?php 
+                        $sql = "SELECT abbreviation FROM `department`";
+                        $abbreviations = mysqli_query($conn,$sql);
+                    ?>
                         <label for="courseSubject" class="form-label fw-bold">Choose Department</label>
                         <select class="form-select block-sm" name="cdept" id="classDept" required>
                             <option value="" disabled="disabled" selected>--None Selected--</option>
-                            <option value="1">.</option>
-                            <option value="2">..</option>
-                            <option value="3">...</option>
+                            <?php
+                            while ($abbreviation = mysqli_fetch_array(
+                                    $abbreviations,MYSQLI_ASSOC)):;
+                            ?>
+                            <option name="department" id="department" value="<?php echo $abbreviation["abbreviation"];?>">
+                            <?php echo $abbreviation["abbreviation"];?>
+                            </option>
+                            <?php endwhile;?>
                         </select>
                     </div>
                     <div class="col-md-6 mb-3">
+                    <?php 
+                        $sql = "SELECT subject_name FROM `subject`";
+                        $subjects = mysqli_query($conn,$sql);
+                    ?>
                         <label for="classSubject" class="form-label fw-bold">Choose Subject</label>
-                        <select class="form-select block-sm" name="csubject" id="classSubject" required>
+                        <select class="form-select block-sm" name="subject" id="classSubject" required>
                             <option value="" disabled="disabled" selected>--None Selected--</option>
-                            <option value="1">.</option>
-                            <option value="2">..</option>
-                            <option value="3">...</option>
+                            <?php
+                            while ($subject = mysqli_fetch_array(
+                                    $subjects,MYSQLI_ASSOC)):;
+                            ?>
+                            <option name="subject" id="subject" value="<?php echo $subject["subject_name"];?>">
+                            <?php echo $subject["subject_name"];?>
+                            </option>
+                            <?php endwhile;?>
                         </select>
                     </div>
                 </div>
