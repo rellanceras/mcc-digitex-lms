@@ -26,10 +26,23 @@ session_start();
             // initialize session variables
              if($account_type == "1"){
                $_SESSION['user'] = $username;
+               date_default_timezone_set("Asia/Singapore");
+               $datenow = date("M d, Y");
+               $timenow = date("h:i a");
+               $sql = "INSERT INTO `user_logins`(  `email`,`date`, `time`) 
+                VALUES ('$username','$datenow','$timenow')";
+                mysqli_query($conn, $sql);
+
             header("location: admin/");
         }  else if($account_type == "2"){
                $_SESSION['user'] = $username;
                    header("location: admin/");
+                   date_default_timezone_set("Asia/Singapore");
+               $datenow = date("M d, Y");
+               $timenow = date("h:i a");
+               $sql = "INSERT INTO `user_logins`(  `email`,`date`, `time`) 
+                VALUES ('$username','$datenow','$timenow')";
+                mysqli_query($conn, $sql);
           
         }
         else if($account_type == "3"){

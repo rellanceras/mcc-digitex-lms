@@ -10,7 +10,9 @@ if(!$_SESSION['user'])
 {  
   
     header("Location: 404.php");//redirect to the login page to secure the welcome page without login access.  
-}  
+}  else{
+    //echo $_SESSION['user'];
+}
   
 
   
@@ -237,7 +239,7 @@ if(!$_SESSION['user'])
             <!-- Top Nav -->
             <div class="d-none d-sm-flex align-items-center justify-content-end px-4 p-2 block">
                 <a class="text-decoration-none">
-                    <span class="me-3 time tool_tip_default">Time</span>
+                    <span class="me-3 time tool_tip_default">Times</span>
                     <span class="me-3 date tool_tip_default">Date</span>
                 </a>
                 
@@ -332,54 +334,32 @@ if(!$_SESSION['user'])
                             <div class="col-md-5 col-12 p-4">
                                 <h6 class="fw-bold">Recent Activities</h6>
                                 <ul class="list-unstyled recent_act">
-                                    <li class="nav-item nav_select">
-                                        <a class="nav-link text-reset text-decoration-none" href="#">
-                                            <div class="d-flex align-items-center">
-                                                <img class="profile_pic_student" src="../resources/img/test-profile.png" width="42px" height="42px" style="border-radius: 50px;" />
-                                                <div class="ms-3">
-                                                    <p class="m-0">
-                                                        <span class="fw-bold">Juan Dela Cruz</span><br />
-                                                        Answered a <span class="fw-bold">Quiz</span> in
-                                                        <span class="fw-bold tool_tip_default" data-bs-toggle="tooltip" data-bs-placement="top"  title="Advanced Mathematics">GEC-0001</span> <br/>
-                                                        <span class="fst-italic">February 28, 2023</span>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <hr/>
-                                    <li class="nav-item nav_select">
-                                        <a class="nav-link text-reset text-decoration-none" href="#">
-                                            <div class="d-flex align-items-center">
-                                                <img class="profile_pic_instructor" src="../resources/img/test-profile.png" width="42px" height="42px" style="border-radius: 50px;" />
-                                                <div class="ms-3">
-                                                    <p class="m-0">
-                                                        <span class="fw-bold">Maria Clara</span><br />
-                                                        Posted a <span class="fw-bold">Quiz</span> in
-                                                        <span class="fw-bold tool_tip_default" data-bs-toggle="tooltip" data-bs-placement="top"  title="Advanced Mathematics">GEC-0001</span> <br/>
-                                                        <span class="fst-italic">February 25, 2023</span>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <hr/>
+                                    <?php
+                                                         include("../config.php");
+                                                        $query=mysqli_query($conn,"SELECT * FROM user_logins,user where user.email='adminlms@gmail.com'");
+                                                        while($row = mysqli_fetch_array($query)){
+                                                        ?>
                                     <li class="nav-item nav_select">
                                         <a class="nav-link text-reset text-decoration-none" href="#">
                                             <div class="d-flex align-items-center">
                                                 <img class="profile_pic_admin" src="../resources/img/test-profile.png" width="42px" height="42px" style="border-radius: 50px;" />
                                                 <div class="ms-3">
                                                     <p class="m-0">
-                                                        <span class="fw-bold">Chrisostomo Ibarra</span><br />
-                                                        Created a <span class="fw-bold">User</span> : 
-                                                        <span class="fw-bold tool_tip_default" data-bs-toggle="tooltip" data-bs-placement="top"  title="Padre Damaso">#3184672</span> <br/>
-                                                        <span class="fst-italic">February 25, 2023</span>
+                                                        
+                                                        <span class="fw-bold"><?php echo $row['first_name'];?></span><br />
+                                                        Login <span class="fw-bold">Time</span> : 
+                                                        <span class="fw-bold tool_tip_default" data-bs-toggle="tooltip" data-bs-placement="top"  title="Padre Damaso"><?php echo $row['time'];?></span> <br/>
+                                                        <span class="fst-italic"><?php echo $row['date'];?></span>
+                                                        
                                                     </p>
                                                 </div>
                                             </div>
                                         </a>
                                     </li>
                                     <hr/>
+                                      <?php
+                                                        }
+                                                        ?>
                                 </ul>
                             </div>
                         </div>
