@@ -33,16 +33,29 @@ session_start();
              if($account_type == "1"){
                $_SESSION['user'] = $wname;
                $_SESSION['sid'] = $sid;
+               date_default_timezone_set("Asia/Singapore");
+               $datenow = date("M d, Y");
+               $timenow = date("h:i a");
+               $sql = "INSERT INTO `user_logins`(  `email`,`date`, `time`) 
+                VALUES ('$username','$datenow','$timenow')";
+                mysqli_query($conn, $sql);
             header("location: layout/admin.php");
         }  else if($account_type == "2"){
                $_SESSION['user'] = $wname;
                $_SESSION['sid'] = $sid;
+               date_default_timezone_set("Asia/Singapore");
+               $datenow = date("M d, Y");
+               $timenow = date("h:i a");
+               $sql = "INSERT INTO `user_logins`(  `email`,`date`, `time`) 
+                VALUES ('$username','$datenow','$timenow')";
+                mysqli_query($conn, $sql);
                    header("location: layout/admin.php");
           
         }
         else if($account_type == "3"){
                $_SESSION['user'] = $wname;
                $_SESSION['sid'] = $sid;
+               
                    header("location: layout/admin.php");
           
         }
