@@ -1,14 +1,18 @@
 <?php  
+    session_start();  
+    if(!$_SESSION['sid'])  
+    {  
+    
+        header("Location: ../404.php");//redirect to the login page to secure the welcome page without login access.  
+    }
+    include('../config.php');
+    $sid = $_SESSION['sid'];
+    $sql = "SELECT * FROM user WHERE school_id = '$sid'";
 
-session_start();  
-if(!$_SESSION['user'])  
-{  
-  
-    header("Location: ../404.php");//redirect to the login page to secure the welcome page without login access.  
-}  
-  
+    $result = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
-  
+    $wname = $row['first_name'] . " " . $row['last_name'];
 ?>
 
 <!DOCTYPE html>

@@ -129,8 +129,8 @@
                         <div class="d-inline-flex align-items-center nav-link text-reset">
                             <img class="profile_nav" src="../resources/img/test-profile.png" />
                             <span class="nav_label ms-3 text-start">
-                                <span class="fw-bold text-break" id="user_disname"><?php echo $_SESSION['user']; ?></span> <br />
-                                <span class="text-break" id="user_num"><?php echo $_SESSION['sid']; ?></span>
+                                <span class="fw-bold text-break" id="user_disname"><?php echo $wname; ?></span> <br />
+                                <span class="text-break" id="user_num"><?php echo $sid; ?></span>
                             </span>
                         </div>
                     </li>
@@ -214,8 +214,8 @@
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <img class="profile_nav" src="../resources/img/test-profile.png" />
                             <span class="nav_label ms-3">
-                                <span class="fw-bold text-break" id="user_disname"><?php echo $_SESSION['user']; ?></span> <br />
-                                <span class="text-break" id="user_num"><?php echo $_SESSION['sid']; ?></span>
+                                <span class="fw-bold text-break" id="user_disname"><?php echo $wname; ?></span> <br />
+                                <span class="text-break" id="user_num"><?php echo $sid; ?></span>
                             </span>
                         </div>
                     </a>
