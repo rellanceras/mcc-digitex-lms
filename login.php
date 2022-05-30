@@ -63,12 +63,12 @@ session_start();
                     header("location: layout/student.php");
                 }
             }else{
-                $_SESSION['erruser'] = "Invalid Email";
                 $_SESSION['errpass'] = "Invalid Password";
-                echo "invalid";
+                header("location: index.php");
             }
             
         }else {
+            $_SESSION['erruser'] = "Invalid Email";
             header("location: index.php");
         }
 

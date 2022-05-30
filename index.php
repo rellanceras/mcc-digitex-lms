@@ -4,19 +4,28 @@
 
 -->
 <?php
+    $erruser = $errpass = "";
     session_start();
-    if(!$_SESSION['sid']){
+    if(isset($_SESSION['sid'])){
         session_destroy();
     }else{
-        if($_SESSION['role']==1){
-            header("location: layout/admin.php");
-        }else if($_SESSION['role']==2){
-            header("location: layout/teacher.php");
-        }else{
-            header("location: layout/student.php");
+        if(isset($_SESSION['role'])){
+            if($_SESSION['role']==1){
+                header("location: layout/admin.php");
+            }else if($_SESSION['role']==2){
+                header("location: layout/teacher.php");
+            }else if($_SESSION['role']==3){
+                header("location: layout/student.php");
+            }
         }
     }
-
+    if(isset($_SESSION['erruser'])){
+        $erruser = "Invalid Email";
+    }
+    if(isset($_SESSION['errpass'])){
+        $erruser = "Invalid Email";
+        $errpass = "Invalid Password";
+    }
 
 ?>
 <!DOCTYPE html>
@@ -79,7 +88,7 @@
                     <div class="mb-3">
                         <label for="Email" class="form-label">Email address or Username</label>
                         <input type="email" class="form-control block-sm" id="username" name="username" aria-describedby="emailHelp" required>
-                        <p class="text-danger fw-bold">asdfa</p>
+                        <p class="text-danger fw-bold"><?php echo $erruser?></p>
                     </div>
                     <div class="mb-3">
                         <label for="Password" class="form-label">Password</label>
@@ -87,9 +96,9 @@
                             <input type="password" class="form-control block-sm" id="password" name="password"required>
                             <span class="material-icons" id="show_pass" style="margin-left: -30px;">visibility_off</span>
                         </div>
-                        <p class="text-danger fw-bold">asdfa</p>
+                        <p class="text-danger fw-bold"><?php echo $errpass?></p>
                     </div>
-                    <button type="submit" class="btn btn-success w-100">Login</button>
+                    <button type="submit" class="btn btn-success w-100" name="btnLogin">Login</button>
                     <div class="text-center mt-3 f-pass">
                         <a class="text-decoration-none" href="layout/">Forget Password?</a>
                     </div>
