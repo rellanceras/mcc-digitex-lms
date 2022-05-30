@@ -48,8 +48,8 @@
                         <div class="d-inline-flex align-items-center">
                             <img class="profile_nav" src="../resources/img/test-profile.png" />
                             <span class="nav_label ms-3 text-start">
-                                <span class="fw-bold text-break" id="user_disname">Chrisostomo Ibarra</span> <br />
-                                <span class="text-break" id="user_num">#3120003</span>
+                                <span class="fw-bold text-break" id="user_disname"><?php echo $_SESSION['user']; ?></span> <br />
+                                <span class="text-break" id="user_num"><?php echo $_SESSION['sid']; ?></span>
                             </span>
                         </div>
                     </li>
@@ -127,14 +127,16 @@
                     </span>
                 </li>
                 <hr />
-                <li class="nav-item text-center">
-                    <div class="d-inline-flex align-items-center tool_tip" data-bs-toggle="tooltip" data-bs-placement="right" title="Juan Dela Cruz #3180003">
-                        <img class="profile_nav" src="../resources/img/test-profile.png" />
-                        <span class="nav_label ms-3 text-start">
-                            <span class="fw-bold text-break" id="user_disname">Chrisostomo Ibarra</span> <br />
-                            <span class="text-break" id="user_num">#3120003</span>
-                        </span>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link text-reset">
+                        <div class="d-flex align-items-center justify-content-center nav_link">
+                            <img class="profile_nav" src="../resources/img/test-profile.png" />
+                            <span class="nav_label ms-3">
+                                <span class="fw-bold text-break" id="user_disname"><?php echo $_SESSION['user']; ?></span> <br />
+                                <span class="text-break" id="user_num"><?php echo $_SESSION['sid']; ?></span>
+                            </span>
+                        </div>
+                    </a>
                 </li>
                 <hr />
             </ul>
@@ -173,7 +175,7 @@
                     </a>
                 </li>
                 <li class="nav-item nav_select sb_link" id="calendar">
-                    <a class="nav-link text-reset tool_tip" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar">
+                    <a class="nav-link text-reset tool_tip" data-page="calendar" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons material-icons-round">calendar_month</span>
                             <span class="nav_label ms-3">Calendar</span>
@@ -357,6 +359,7 @@
     <script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
     <!-- JQuery Validate -->
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js" type="text/javascript"></script>
+    
 
 <script>
 
@@ -432,10 +435,15 @@ function init_page() {
                 $('#mainContent').load(data[0].users.usersIndex);
                 $('#users').addClass('nav_active');
                 break;
+            case 'calendar':
+                $('#mainContent').load(data[0].calendar.calendarIndex);
+                $('#calendar').addClass('nav_active');
+                break;
             case 'settings':
                 $('#mainContent').load(data[0].settings.settingsIndex);
                 $('#settings').addClass('nav_active');
                 break;
+            
             default:
                 $('#mainContent').load(data[0].dashboard);
                 $('#dashboard').addClass('nav_active');
@@ -468,6 +476,9 @@ function init_page() {
                     break;
                 case 'users':
                     $('#mainContent').load(data[0].users.usersIndex);
+                    break;
+                case 'calendar':
+                    $('#mainContent').load(data[0].calendar.calendarIndex);
                     break;
                 case 'settings':
                     $('#mainContent').load(data[0].settings.settingsIndex);

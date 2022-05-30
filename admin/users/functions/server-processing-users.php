@@ -7,7 +7,7 @@ $totalRecords = $query->fetch_row()[0];
 //$length = $_GET['length'];
 //$start = $_GET['start'];
  
-$sql = "SELECT id, school_id, last_name, first_name, middle_name, birthday, address, role, department, program, email FROM user";
+$sql = "SELECT id, school_id, last_name, first_name, middle_name, birthday, address, role, department, email FROM user";
  
 /*if (isset($_GET['search']) && !empty($_GET['search']['value'])) {
     $search = $_GET['search']['value'];
@@ -29,7 +29,6 @@ while ($row = $query->fetch_assoc()) {
         $row['address'],
         $row['role'],
         $row['department'],
-        $row['program'],
         $row['email']
     ];
 }

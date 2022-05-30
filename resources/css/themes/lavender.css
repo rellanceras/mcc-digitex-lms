@@ -1,0 +1,49 @@
+/*
+    Default Theme (Dark mode)
+
+    Theme created by Nicolas Honrade
+*/
+
+:root {
+    /*Glassmorphism*/
+    --txt-glass: #424242;
+    --bg-base-glass: linear-gradient(#6AC9FF, #B062FF);
+    --bg-block-glass: #ffffff80;
+    --bg-block2-glass: #ffffff;
+    --bg-accent-glass: #2196f3;
+}
+
+body {
+    background-image: var(--bg-base-glass);
+}
+    body, a, i {
+        color: var(--txt-glass) !important;
+    }
+
+.block, .block-sm {
+    background-color: var(--bg-block-glass);
+}
+
+.block2 {
+    background-color: var(--bg-block-glass);
+}
+
+.nav_active, .subnav_active {
+    background-color: var(--bg-accent-glass);
+    color: var(--bg-block2-glass) !important;
+}
+    .nav_select:hover, .subnav_select:hover, .topnav_select:hover {
+        background-color: var(--bg-block2-glass);
+    }
+
+.logo {
+    content:url("../../img/logov1-trans.png");
+}
+
+.topnav_select {
+    background-color: var(--bg-block-glass);
+}
+
+.dropdown-menu, .offcanvas {
+    background-color: var(--bg-block2-glass);
+}
