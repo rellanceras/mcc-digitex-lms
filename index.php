@@ -3,7 +3,22 @@
     Work in Progress | Template by Nicolas Honrade
 
 -->
+<?php
+    session_start();
+    if(!$_SESSION['sid']){
+        session_destroy();
+    }else{
+        if($_SESSION['role']==1){
+            header("location: layout/admin.php");
+        }else if($_SESSION['role']==2){
+            header("location: layout/teacher.php");
+        }else{
+            header("location: layout/student.php");
+        }
+    }
 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,6 +79,7 @@
                     <div class="mb-3">
                         <label for="Email" class="form-label">Email address or Username</label>
                         <input type="email" class="form-control block-sm" id="username" name="username" aria-describedby="emailHelp" required>
+                        <p class="text-danger fw-bold">asdfa</p>
                     </div>
                     <div class="mb-3">
                         <label for="Password" class="form-label">Password</label>
@@ -71,6 +87,7 @@
                             <input type="password" class="form-control block-sm" id="password" name="password"required>
                             <span class="material-icons" id="show_pass" style="margin-left: -30px;">visibility_off</span>
                         </div>
+                        <p class="text-danger fw-bold">asdfa</p>
                     </div>
                     <button type="submit" class="btn btn-success w-100">Login</button>
                     <div class="text-center mt-3 f-pass">
@@ -118,3 +135,4 @@
     }
 </script>
 </html>
+
