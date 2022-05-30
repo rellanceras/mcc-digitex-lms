@@ -4,6 +4,7 @@ session_start();
 
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $erruser = $errpass = "";
    
     $username = stripcslashes($username);
     $password = stripcslashes($password);
@@ -12,13 +13,14 @@ session_start();
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        $sql = "SELECT * FROM user WHERE email = '$username' AND password = '$password'";
+        $sql = "SELECT * FROM user WHERE email = '$username'";
 
         $result = mysqli_query($conn,$sql);
-
-
         $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
         $count = mysqli_num_rows($result);
+
+        $verify = password_verify($password, $row["password"]);
+
         $id = $row["id"];
         $sid = $row["school_id"];
         $fname = $row["first_name"];
@@ -27,39 +29,41 @@ session_start();
         
         $wname = $fname . " " . $lname;
 
-
+        //check user
         if($count == 1) {
+            //test password
+            if($verify==true){
             // initialize session variables
-             if($account_type == "1"){
-               $_SESSION['user'] = $wname;
-               $_SESSION['sid'] = $sid;
-               date_default_timezone_set("Asia/Singapore");
-               $datenow = date("M d, Y");
-               $timenow = date("h:i a");
-               $sql = "INSERT INTO `user_logins`(  `email`,`date`, `time`) 
-                VALUES ('$username','$datenow','$timenow')";
-                mysqli_query($conn, $sql);
-            header("location: layout/admin.php");
-        }  else if($account_type == "2"){
-               $_SESSION['user'] = $wname;
-               $_SESSION['sid'] = $sid;
-               date_default_timezone_set("Asia/Singapore");
-               $datenow = date("M d, Y");
-               $timenow = date("h:i a");
-               $sql = "INSERT INTO `user_logins`(  `email`,`date`, `time`) 
-                VALUES ('$username','$datenow','$timenow')";
-                mysqli_query($conn, $sql);
-                   header("location: layout/admin.php");
-          
-        }
-        else if($account_type == "3"){
-               $_SESSION['user'] = $wname;
-               $_SESSION['sid'] = $sid;
-               
-                   header("location: layout/admin.php");
-          
-        }
-
+                if($account_type == "1"){
+                    $_SESSION['sid'] = $sid;
+                    date_default_timezone_set("Asia/Singapore");
+                    $datenow = date("M d, Y");
+                    $timenow = date("h:i a");
+                    $sql = "INSERT INTO `user_logins`(  `email`,`date`, `time`) 
+                        VALUES ('$username','$datenow','$timenow')";
+                        mysqli_query($conn, $sql);
+                    header("location: layout/admin.php");
+                    echo "welcome admin";
+                }else if($account_type == "2"){
+                    $_SESSION['sid'] = $sid;
+                    date_default_timezone_set("Asia/Singapore");
+                    $datenow = date("M d, Y");
+                    $timenow = date("h:i a");
+                    echo "welcome teacher";
+                    //$sql = "INSERT INTO `user_logins`(  `email`,`date`, `time`) 
+                    //    VALUES ('$username','$datenow','$timenow')";
+                    //    mysqli_query($conn, $sql);
+                    header("location: layout/teacher.php");
+                }else if($account_type == "3"){
+                    $_SESSION['sid'] = $sid;
+                    echo "welcome student";
+                    header("location: layout/student.php");
+                }
+            }else{
+                $erruser = "Invalid Email";
+                $errpass = "Invalid Password";
+                echo "invalid";
+            }
             
         }else {
             header("location: index.php");
