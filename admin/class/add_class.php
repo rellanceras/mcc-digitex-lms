@@ -99,7 +99,6 @@
                     </a>
                     <span class="text-danger mb-0 ms-2" id="selectedInsError"></span>
                 </div>
-                
                 <table id="courseIns" class="display table table-bordered addClassUsers" style="width:100%">
                     <thead>
                         <tr>
@@ -110,54 +109,19 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                            $sql = "SELECT * FROM `user` WHERE role = '2'";
+                            $teachers = mysqli_query($conn,$sql);
+                            while ($teacher = mysqli_fetch_array(
+                                    $teachers,MYSQLI_ASSOC)):;
+                        ?>
                         <tr>
-                            <td></td>
-                            <td>a t</td>
-                            <td>SCST</td>
+                            <td><?php echo $teacher["school_id"];?></td>
+                            <td><?php echo $teacher["first_name"] . " " . $teacher["last_name"];?></td>
+                            <td><?php echo $teacher["department"];?></td>
                             <td></td>
                         </tr>
-                        <tr>
-                            <td></td>
-                            <td>b q</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>c e</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>d s</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>e d</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>f v</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>g b</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>h a</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
+                        <?php endwhile;?>
                     </tbody>
                     <tfoot>
                         <tr>
@@ -190,54 +154,19 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                            $sql = "SELECT * FROM `user` WHERE role = '3'";
+                            $students = mysqli_query($conn,$sql);
+                            while ($student = mysqli_fetch_array(
+                                    $students,MYSQLI_ASSOC)):;
+                        ?>
                         <tr>
-                            <td></td>
-                            <td>a t</td>
-                            <td>SCST</td>
+                            <td><?php echo $student["school_id"];?></td>
+                            <td><?php echo $student["first_name"] . " " . $student["last_name"];?></td>
+                            <td><?php echo $student["department"];?></td>
                             <td></td>
                         </tr>
-                        <tr>
-                            <td></td>
-                            <td>b q</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>c e</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>d s</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>e d</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>f v</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>g b</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>h a</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
+                        <?php endwhile;?>
                     </tbody>
                     <tfoot>
                         <tr>
