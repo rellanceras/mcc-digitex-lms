@@ -66,9 +66,9 @@
 			<form action="../admin/curriculum/functions/CRUD_subject.php" method="POST">
             <div class="modal-body">
                 <label>Subject Code</label>
-                <input name="scode" class="form-control block"/>
+                <input name="scode" class="form-control block" required/>
                 <label>Subject Name </label>
-                <input name="sname" class="form-control block"/>
+                <input name="sname" class="form-control block" required/>
 				
                 <label>Department </label>
 				<?php 
