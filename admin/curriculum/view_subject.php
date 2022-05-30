@@ -5,7 +5,7 @@
 -->
 <?php
 	//include("config.php");
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/mcc-digitex-lms/config.php'); 
+	require_once('../../config.php'); 
 ?>
 
 
@@ -43,7 +43,7 @@
             <td><?php echo $row["subject_code"]; ?></td>
             <td><?php echo $row["department"]; ?></td>
             <td hidden><?php echo $row["acad_year_id"]; ?></td>
-            <td>
+            <td style="text-align:center">
                 <button type="button" class="btn bi bi-pen btn-primary editSub" data-bs-toggle="modal" data-bs-target="#editModal"></button>
                 <button type="button" class="btn bi bi-trash btn-danger deleteSub" data-bs-toggle="modal" data-bs-target="#deleteModal"></button>
             </td>
@@ -66,9 +66,9 @@
 			<form action="../admin/curriculum/functions/CRUD_subject.php" method="POST">
             <div class="modal-body">
                 <label>Subject Code</label>
-                <input name="scode" class="form-control block"/>
+                <input name="scode" class="form-control block" required/>
                 <label>Subject Name </label>
-                <input name="sname" class="form-control block"/>
+                <input name="sname" class="form-control block" required/>
 				
                 <label>Department </label>
 				<?php 

@@ -19,10 +19,10 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <!-- Bootstrap JS with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <!-- Bootstrap Icons -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <!-- Google Font/Icons -->
         <!-- Inter Font Style -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
 
     <!-- Custom CSS -->
     <link href="resources/css/style.css" rel="stylesheet"/>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
             </div>
-            <div class="login_block block col-md-6 p-5">
+            <div class="login_block col-md-6 p-5">
                 <div class="text-center mb-5">
                     <h3 class="mb-5 fw-bold d-none d-md-inline" id="login_greeting"></h3>
                     <img class="nav_label logo d-md-none" src="resources/img/logov1-trans.png" width="200px" height="auto" class="logo"/>
@@ -63,18 +63,18 @@
                 <form action = "login.php" method = "post">
                     <div class="mb-3">
                         <label for="Email" class="form-label">Email address or Username</label>
-                        <input type="email" class="form-control block" id="username" name="username" aria-describedby="emailHelp" required>
+                        <input type="email" class="form-control block-sm" id="username" name="username" aria-describedby="emailHelp" required>
                     </div>
                     <div class="mb-3">
                         <label for="Password" class="form-label">Password</label>
-                        <div class="input-group">
-                            <input type="password" class="form-control block" id="password" name="password" required>
-                            <span class="input-group-text block"><i class="bi bi-eye-fill"  id="show_pass"></i></span>
+                        <div class="d-flex align-items-center">
+                            <input type="password" class="form-control block-sm" id="password" name="password"required>
+                            <span class="material-icons" id="show_pass" style="margin-left: -30px;">visibility_off</span>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-success w-100">Login</button>
                     <div class="text-center mt-3 f-pass">
-                        <a class="text-decoration-none" href="admin/">Forget Password?</a>
+                        <a class="text-decoration-none" href="layout/">Forget Password?</a>
                     </div>
                 </form>
             </div>
@@ -93,12 +93,8 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $("#show_pass").click(function(){
-            $("#show_pass").toggleClass("bi-eye-fill");
-            $("#show_pass").toggleClass("bi-eye-slash-fill");
-
-            var passFlag = $("#password").attr('type') === "password" ? "text" : "password";
-            $("#password").attr('type', passFlag);
-            //console.log(passFlag); //Checker if attr has changed...
+            $("#show_pass").text($("#show_pass").text() === "visibility" ? "visibility_off" : "visibility");
+            $("#password").attr('type', $("#password").attr('type') === "password" ? "text" : "password");
         });
         $("#login_greeting").text(display_time());
     });

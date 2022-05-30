@@ -41,27 +41,6 @@
 
 
 <script>
-$(document).ready(function(){
-    $('#btn_addclass').click(function() {
-        var page = $(this).attr('data-page');
-        $.ajax({
-            type: 'GET',
-            url: '../admin/navAdmin.json',
-            dataType: 'html',
-        }).done(function(response) {
-            var data = JSON.parse(response)
-            switch(page) {
-                case 'addclass':
-                    $('#pageContent').load(data[0]['class'][page]);
-                    break;
-                default:
-                    console.log("Page does not exist");
-            }
-            document.title = page.charAt(0).toUpperCase() + page.slice(1)  + ' | DigiTeach LMS';
-        });
-        
-    });
-    
     var table = $('#view_course').DataTable({
         dom: 'Bfrtip',
         pageLength : 5,
@@ -78,5 +57,24 @@ $(document).ready(function(){
         
         ]
     });
-});
+    $(document).ready(function(){
+        $('#btn_addclass').click(function() {
+            var page = $(this).attr('data-page');
+            $.ajax({
+                type: 'GET',
+                url: '../admin/navAdmin.json',
+                dataType: 'html',
+            }).done(function(response) {
+                var data = JSON.parse(response)
+                switch(page) {
+                    case 'addclass':
+                        $('#pageContent').load(data[0].class.addclass);
+                        break;
+                    default:
+                        $('#pageContent').load(data[0].class.viewclass);
+                }
+                $('#setSubPage').text("Add Class");
+            });
+        });
+    });
 </script>

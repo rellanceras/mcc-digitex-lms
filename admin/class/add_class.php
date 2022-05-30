@@ -1,3 +1,6 @@
+<?php
+	require_once('../../config.php'); 
+?>
 <!-- Page Content -->
 <form id="addClass" method="POST" action="">
     <div id="smartwizard">
@@ -49,21 +52,39 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6 mb-3">
+                    <?php 
+                        $sql = "SELECT abbreviation FROM `department`";
+                        $abbreviations = mysqli_query($conn,$sql);
+                    ?>
                         <label for="courseSubject" class="form-label fw-bold">Choose Department</label>
                         <select class="form-select block-sm" name="cdept" id="classDept" required>
                             <option value="" disabled="disabled" selected>--None Selected--</option>
-                            <option value="1">.</option>
-                            <option value="2">..</option>
-                            <option value="3">...</option>
+                            <?php
+                            while ($abbreviation = mysqli_fetch_array(
+                                    $abbreviations,MYSQLI_ASSOC)):;
+                            ?>
+                            <option name="department" id="department" value="<?php echo $abbreviation["abbreviation"];?>">
+                            <?php echo $abbreviation["abbreviation"];?>
+                            </option>
+                            <?php endwhile;?>
                         </select>
                     </div>
                     <div class="col-md-6 mb-3">
+                    <?php 
+                        $sql = "SELECT subject_name FROM `subject`";
+                        $subjects = mysqli_query($conn,$sql);
+                    ?>
                         <label for="classSubject" class="form-label fw-bold">Choose Subject</label>
-                        <select class="form-select block-sm" name="csubject" id="classSubject" required>
+                        <select class="form-select block-sm" name="subject" id="classSubject" required>
                             <option value="" disabled="disabled" selected>--None Selected--</option>
-                            <option value="1">.</option>
-                            <option value="2">..</option>
-                            <option value="3">...</option>
+                            <?php
+                            while ($subject = mysqli_fetch_array(
+                                    $subjects,MYSQLI_ASSOC)):;
+                            ?>
+                            <option name="subject" id="subject" value="<?php echo $subject["subject_name"];?>">
+                            <?php echo $subject["subject_name"];?>
+                            </option>
+                            <?php endwhile;?>
                         </select>
                     </div>
                 </div>
@@ -78,7 +99,6 @@
                     </a>
                     <span class="text-danger mb-0 ms-2" id="selectedInsError"></span>
                 </div>
-                
                 <table id="courseIns" class="display table table-bordered addClassUsers" style="width:100%">
                     <thead>
                         <tr>
@@ -89,54 +109,19 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                            $sql = "SELECT * FROM `user` WHERE role = '2'";
+                            $teachers = mysqli_query($conn,$sql);
+                            while ($teacher = mysqli_fetch_array(
+                                    $teachers,MYSQLI_ASSOC)):;
+                        ?>
                         <tr>
-                            <td></td>
-                            <td>a t</td>
-                            <td>SCST</td>
+                            <td><?php echo $teacher["school_id"];?></td>
+                            <td><?php echo $teacher["first_name"] . " " . $teacher["last_name"];?></td>
+                            <td><?php echo $teacher["department"];?></td>
                             <td></td>
                         </tr>
-                        <tr>
-                            <td></td>
-                            <td>b q</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>c e</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>d s</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>e d</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>f v</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>g b</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>h a</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
+                        <?php endwhile;?>
                     </tbody>
                     <tfoot>
                         <tr>
@@ -169,54 +154,19 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                            $sql = "SELECT * FROM `user` WHERE role = '3'";
+                            $students = mysqli_query($conn,$sql);
+                            while ($student = mysqli_fetch_array(
+                                    $students,MYSQLI_ASSOC)):;
+                        ?>
                         <tr>
-                            <td></td>
-                            <td>a t</td>
-                            <td>SCST</td>
+                            <td><?php echo $student["school_id"];?></td>
+                            <td><?php echo $student["first_name"] . " " . $student["last_name"];?></td>
+                            <td><?php echo $student["department"];?></td>
                             <td></td>
                         </tr>
-                        <tr>
-                            <td></td>
-                            <td>b q</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>c e</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>d s</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>e d</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>f v</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>g b</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>h a</td>
-                            <td>SCST</td>
-                            <td></td>
-                        </tr>
+                        <?php endwhile;?>
                     </tbody>
                     <tfoot>
                         <tr>

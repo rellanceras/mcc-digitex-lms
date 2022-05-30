@@ -9,13 +9,13 @@
                     <span class="ms-3">Curriculum</span>
                 </div>
             </h3>
-            <h6 class="mb-3">Current Academic year: <span class="fw-bold">2023-2024</span></h6>
+            <h6 class="mb-3">Current Academic year: <span class="currentActive fw-bold">2023-2024</span></h6>
         </div>
         <nav class="block2 bread_block">
             <ol class="breadcrumb px-4 py-2 m-0">
-                <li class="breadcrumb-item"><a class="text-decoration-none" href="#">A.Y. 2023-2024</a></li>
+                <li class="breadcrumb-item"><a class="breadcrumbActive text-decoration-none" href="#">A.Y. 2023-2024</a></li>
                 <li class="breadcrumb-item"><a class="text-decoration-none" href="#">Curriculum</a></li>
-                <li class="breadcrumb-item active" aria-current="page" id="curSubPage">Academic Year</li>
+                <li class="breadcrumb-item active" aria-current="page" id="setSubPage">All</li>
             </ol>
         </nav>
     </div>
@@ -60,6 +60,16 @@ $(document).ready(function(){
         $('#pageContent').load(data[0]['curriculum'].all);
         document.title = 'Curriculum | DigiTeach LMS';
     });
+    //display Current Active Year
+    $.ajax({
+    type: "GET",
+    url: "../admin/retrieve_total.php",
+    dataType: 'html'
+    }).done(function(response) {
+        var totals = JSON.parse(response);
+        $('.currentActive').text(totals.data[0]);
+        $('.breadcrumbActive').text(totals.data[0]);
+    })
 
     $('.sn_link').click(function() {
         var page = $(this).find('a').attr('data-page');
@@ -76,21 +86,21 @@ $(document).ready(function(){
             var data = JSON.parse(response)
             switch(page) {
                 case 'all':
-                    $('#pageContent').load(data[0]['curriculum'][page]);
+                    $('#pageContent').load(data[0].curriculum.all);
                     break;
                 case 'academicyear':
-                    $('#pageContent').load(data[0]['curriculum'][page]);
+                    $('#pageContent').load(data[0].curriculum.academicyear);
                     break;
                 case 'subject':
-                    $('#pageContent').load(data[0]['curriculum'][page]);
+                    $('#pageContent').load(data[0].curriculum.subject);
                     break;
                 case 'department':
-                    $('#pageContent').load(data[0]['curriculum'][page]);
+                    $('#pageContent').load(data[0].curriculum.department);
                     break;
                 default:
-                    console.log("Page does not exist");
+                    $('#pageContent').load(data[0].curriculum.all);
             }
-            $('#curSubPage').text(page.charAt(0).toUpperCase() + page.slice(1));
+            $('#setSubPage').text(page.charAt(0).toUpperCase() + page.slice(1));
         });
     });
 });
