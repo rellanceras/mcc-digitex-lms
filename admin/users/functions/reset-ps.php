@@ -1,13 +1,13 @@
 <?php
 
-    require_once('../../../config.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/mcc-digitex-lms/config.php');
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
 
     // require "vendor/autoload.php";
-    require '../../../vendor/phpmailer/phpmailer/src/Exception.php';
-    require '../../../vendor/phpmailer/phpmailer/src/PHPMailer.php';
-    require '../../../vendor/phpmailer/phpmailer/src/SMTP.php';
+    require '../../vendor/phpmailer/phpmailer/src/Exception.php';
+    require '../../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+    require '../../vendor/phpmailer/phpmailer/src/SMTP.php';
 
     //resetting of user's password thru school_id
     if(isset($_POST['school_id'])){
