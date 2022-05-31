@@ -9,7 +9,7 @@
                     <span class="ms-3">Settings</span>
                 </div>
             </h3>
-            <h6 class="mb-3">Current Academic year: <span class="currentActivefw-bold">2023-2024</span></h6>
+            <h6 class="mb-3">Current Academic year: <span class="currentActive fw-bold">2023-2024</span></h6>
         </div>
         <nav class="block2">
             <ol class="breadcrumb px-4 py-2 m-0">

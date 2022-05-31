@@ -1,6 +1,6 @@
 <?php 
 
-require_once($_SERVER['DOCUMENT_ROOT'] . '/mcc-digitex-lms/config.php'); 
+require_once('../../../config.php'); 
 
 if(isset($_POST["addDept"])){
 

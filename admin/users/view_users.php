@@ -12,8 +12,10 @@
 
 
 <!-- Page Content -->
-    
+<div class="d-flex gap-3">
 <button type="button" class="btn btn-primary d-flex align-items-center mb-3" id="btn_addusers" data-page="addusers"><span class="material-icons">add</span> Add User</button>
+<button type="button" class="btn btn-warning d-flex align-items-center mb-3" id="btn_resetpass" data-page="resetpass">Reset Password</button>
+</div> 
 
 <table id="example" class="display table table-bordered" style="width:100%">
     <thead>
@@ -143,22 +145,40 @@
 
     $(document).ready(function(){
         $('#btn_addusers').click(function() {
-        var page = $(this).attr('data-page');
-        $.ajax({
-            type: 'GET',
-            url: '../admin/navAdmin.json',
-            dataType: 'html',
-        }).done(function(response) {
-            var data = JSON.parse(response)
-            switch(page) {
-                case 'addusers':
-                    $('#pageContent').load(data[0].users.addusers);
-                    break;
-                default:
-                    $('#pageContent').load(data[0].users.viewusers);
-            }
-            $('#setSubPage').text("Add Users");
+            var page = $(this).attr('data-page');
+            $.ajax({
+                type: 'GET',
+                url: '../admin/navAdmin.json',
+                dataType: 'html',
+            }).done(function(response) {
+                var data = JSON.parse(response)
+                switch(page) {
+                    case 'addusers':
+                        $('#pageContent').load(data[0].users.addusers);
+                        break;
+                    default:
+                        $('#pageContent').load(data[0].users.viewusers);
+                }
+                $('#setSubPage').text("Add Users");
+            });
+        });
+        $('#btn_resetpass').click(function() {
+            var page = $(this).attr('data-page');
+            $.ajax({
+                type: 'GET',
+                url: '../admin/navAdmin.json',
+                dataType: 'html',
+            }).done(function(response) {
+                var data = JSON.parse(response)
+                switch(page) {
+                    case 'resetpass':
+                        $('#pageContent').load(data[0].users.resetpass);
+                        break;
+                    default:
+                        $('#pageContent').load(data[0].users.viewusers);
+                }
+                $('#setSubPage').text("Add Users");
+            });
         });
     });
-});
 </script>

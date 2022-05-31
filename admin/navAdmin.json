@@ -23,7 +23,8 @@
         "users" : {
             "usersIndex" : "../admin/users/index.php",
             "viewusers" : "../admin/users/view_users.php",
-            "addusers" : "../admin/users/add_users.php"
+            "addusers" : "../admin/users/add_users.php",
+            "resetpass" : "../admin/users/reset_password.php"
         },
         "calendar" : {
             "calendarIndex" : "../admin/calendar/index.php",

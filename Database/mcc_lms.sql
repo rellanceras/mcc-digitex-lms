@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2022 at 03:03 PM
+-- Generation Time: May 30, 2022 at 07:12 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.15
 
@@ -41,16 +41,17 @@ CREATE TABLE `academic_year` (
 --
 
 INSERT INTO `academic_year` (`id`, `name`, `acad_year`, `semester`, `active`, `archived`) VALUES
-(2, '2029-2030 1st Semester', '2029-2030', '1st Semester', 0, 0),
+(2, '2029-2030 1st Semester', '2029-2030', '1st Semester', 1, 0),
 (3, '2022-20234 Inter-Semester', '2022-20234', '1st Semester', 0, 1),
 (4, '2022-202345 Inter-Semester', '2022-20235', '2nd Semester', 0, 1),
-(5, '2022-2024 Inter-Semester', '2022-2024', '1st Semester', 0, 0),
-(6, '2022-2025 Inter-Semester', '2022-2025', '1st Semester', 1, 0),
+(5, '2022-2024 1st Semester', '2022-2024', '1st Semester', 0, 0),
+(6, '2022-2025 Inter-Semester', '2022-2025', '1st Semester', 0, 0),
 (8, '2023-2024 1st Semester', '2023-2024', '1st Semester', 0, 0),
 (9, '2022-2027 2nd Semester', '2022-2027', '2nd Semester', 0, 0),
 (10, '2022-2023 2nd Semester', '2022-2023', '2nd Semester', 0, 0),
 (11, '2024-2025 Inter-Semester', '2024-2025', 'Inter-Semester', 0, 0),
-(12, '2026-2027 Inter-Semester', '2026-2027', 'Inter-Semester', 0, 1);
+(12, '2026-2027 Inter-Semester', '2026-2027', 'Inter-Semester', 0, 0),
+(13, '2028-2029 2nd Semester', '2028-2029', '2nd Semester', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -76,7 +77,8 @@ INSERT INTO `department` (`id`, `dept_name`, `abbreviation`) VALUES
 (17, 'Junior High School', 'JHS'),
 (18, 'Senior High School', 'SHS'),
 (19, 'Elementary', 'Elem'),
-(20, 'Pre-Elementary', 'Prep');
+(20, 'Pre-Elementary', 'Prep'),
+(21, 'Kinder', 'Kind');
 
 -- --------------------------------------------------------
 
@@ -113,11 +115,11 @@ CREATE TABLE `subject` (
 
 INSERT INTO `subject` (`id`, `subject_code`, `subject_name`, `department`, `subject_description`, `acad_year_id`) VALUES
 (4, 'EQ019', ' Programmings', 'SCST', 'sample2', 2022),
-(11, 'GEX123', 'Math', 'STHM', 'sample', 0),
 (12, 'EQ019', 'Programming', 'SCST', 'sample', 0),
 (17, 'HIS010', 'History', 'JHS', 'JHS History', 0),
 (18, 'PE123', 'Physical Education', 'SHS', 'PE SHS 1', 0),
-(19, 'Sci092', 'Science', 'Elem', 'Elem Science', 0);
+(19, 'Sci092', 'Science', 'Elem', 'Elem Science', 0),
+(20, 'Math1', 'Math', 'Prep', 'First Math', 0);
 
 -- --------------------------------------------------------
 
@@ -144,15 +146,20 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `school_id`, `first_name`, `middle_name`, `last_name`, `birthday`, `address`, `role`, `department`, `email`, `password`) VALUES
-(1, 3181111, 'Admin', NULL, 'lms', '09-09-09', 'laguna', 1, 'SCST', 'adminlms@gmail.com', 'learning'),
-(20, 2344233, 'J', '', 'Antonio', '2022-05-06', 'Laguna', 3, 'SEA', 'ja@test.com', '$2y$10$PqbExCpz/dYoGmT1zQQjA.tmE3v4utCdBqJ9fP2DIM5r2xke4CKS2'),
-(21, 3186123, 'test', 'mid', 'hello', '2022-05-25', 'Dyansatabi', 2, 'JHS', 'hellotest@gmail.com', '$2y$10$ijlDCFc7t592eM4j4sixB.ne1my/9Xnz0qzzw0vaFhQLLlPnENcE6'),
+(1, 3181111, 'Admin', '', 'Lms', '09-09-09', 'laguna', 1, 'SCST', 'adminlms@gmail.com', '$2y$10$s.3QtNsiOGCC/7KN.sOT7.S.Ie0pKUyBHU6TNb6jPppPN.pQ0equC'),
+(2, 3182222, 'Test', 'lms', 'Teacher', 'NULL', 'NULL', 2, 'SCST', 'teacherlms@gmail.com', '$2y$10$s.3QtNsiOGCC/7KN.sOT7.S.Ie0pKUyBHU6TNb6jPppPN.pQ0equC'),
+(3, 3183333, 'Test', 'lms', 'Student', 'NULL', 'NULL', 3, 'SCST', 'studentlms@gmail.com', '$2y$10$s.3QtNsiOGCC/7KN.sOT7.S.Ie0pKUyBHU6TNb6jPppPN.pQ0equC'),
+(20, 2344233, 'J', '', 'Antonio', '2022-05-06', 'Laguna', 1, 'SEA', 'ja@test.com', '$2y$10$PqbExCpz/dYoGmT1zQQjA.tmE3v4utCdBqJ9fP2DIM5r2xke4CKS2'),
+(21, 3186123, 'test', 'mid', 'hello', '2022-05-25', 'Dyansatabi', 2, 'SEA', 'hellotest@gmail.com', '$2y$10$ijlDCFc7t592eM4j4sixB.ne1my/9Xnz0qzzw0vaFhQLLlPnENcE6'),
 (22, 3127612, 'Keefe', 'Barbara', 'Mullen', '1979-10-13', 'Qui odio at vel minu', 3, 'Elem', 'jawosize@mailinator.com', '$2y$10$mLZeyXcIsnozPg0vkFdaXuvF5AcWZPl.yQs0X9LXliwBWPfX/TAxm'),
 (23, 3123564, 'Colleen', 'Madaline Rich', 'Parsons', '1985-05-15', 'Sunt consectetur ve', 3, 'STHM', 'pevifin@mailinator.com', '$2y$10$eyetNaYU.LFClLM5JnYK9eNn8.ICoo/m37c4oaqdetqK7gLTaY2gO'),
 (24, 1233241, 'Kerry', 'Emma Bowman', 'Bolton', '2010-04-25', 'In cupidatat ut est ', 2, 'SHS', 'bify@mailinator.com', '$2y$10$L/m/uMvXkbuTu0SsyuDsWuy/9LEOKjiXY1hQ5uJRb2I2V.3P95xbi'),
 (25, 75, 'Erin', 'April Garrett', 'Berger', '2016-08-17', 'Enim atque ut voluptas excepteur soluta quam qui nisi atque tempor quam omnis cupiditate minima nesciunt repellendus', 2, 'SBMA', 'mihek@mailinator.com', '$2y$10$I6F7/e1K7UoNCBLB58MyPOFlsIjcybWUZ35tArVHb8nP.6KaBH2se'),
 (26, 78, 'Myra', 'Bruce Meyer', 'Ford', '2012-05-25', 'Id minus tempora optio laborum quis molestiae enim accusamus doloribus beatae', 3, 'Elem', 'kewyzuwaf@mailinator.com', '$2y$10$mpsFSEH6PZV6P2/KfZKrEuXY901O8fnTwA9dycAcV.l2VhrsbUfga'),
-(27, 69, 'Jenette', 'Caleb Lloyd', 'Stanley', '1985-12-09', 'Rerum aut sint consectetur consequuntur saepe officia velit deserunt id ab incididunt rerum adipisicing excepteur et', 2, 'Prep', 'xomy@mailinator.com', '$2y$10$I5HWiUiogpZnXUaAwCCHs.P1scvg1EKPPnmXBfiRaj3pDsvxAj13e');
+(27, 69, 'Jenette', 'Caleb Lloyd', 'Stanley', '1985-12-09', 'Rerum aut sint consectetur consequuntur saepe officia velit deserunt id ab incididunt rerum adipisicing excepteur et', 2, 'Prep', 'xomy@mailinator.com', '$2y$10$I5HWiUiogpZnXUaAwCCHs.P1scvg1EKPPnmXBfiRaj3pDsvxAj13e'),
+(28, 2, 'Aaron', 'Camille Pope', 'Dodson', '1984-07-01', 'Blanditiis magna consequatur Consequatur minus nihil consequatur vel necessitatibus exercitationem', 1, 'STHM', 'sewutavezu@mailinator.com', '$2y$10$fJZ/FCZVxoLPSnEiq/Bffuym3uLeNSO7CoYdA6uCCtxIYvgWFtb6G'),
+(29, 15, 'Pamela', 'Laith Russell', 'Levine', '1999-10-05', 'Qui eos quam ad aut porro velit est quasi vero doloremque voluptate ex voluptatibus repudiandae in est voluptas sunt qui', 1, 'Elem', 'learning@gmail.com', '$2y$10$Uf.ptalLgE0pHb4MrLah7eoZzS9YBl17fcGFVump6FVHJJVLpcgGa'),
+(30, 88123123, 'MacKensie', 'Cole Giles', 'Rivas', '2018-09-13', 'Voluptates veniam dolor veritatis non in molestias blanditiis recusandae Et inventore repellendus Sint dolores occaecat ut inventore eveniet', 1, 'SHS', 'testpass@gmail.com', '$2y$10$s.3QtNsiOGCC/7KN.sOT7.S.Ie0pKUyBHU6TNb6jPppPN.pQ0equC');
 
 -- --------------------------------------------------------
 
@@ -178,14 +185,27 @@ CREATE TABLE `user_instances` (
 
 CREATE TABLE `user_logins` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `user_instance_id` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `time` time NOT NULL,
-  `ip_address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `user_agent` text COLLATE utf8_unicode_ci NOT NULL,
-  `last_activity_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `date` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `user_logins`
+--
+
+INSERT INTO `user_logins` (`id`, `email`, `date`, `time`) VALUES
+(2, 'adminlms@gmail.com', 'May 29, 2022', '07:28:00'),
+(3, 'adminlms@gmail.com', 'May 29, 2022', '07:28:00'),
+(4, 'adminlms@gmail.com', 'May 29, 2022', '07:29:00'),
+(5, 'adminlms@gmail.com', 'May 29, 2022', '08:09:00'),
+(6, 'adminlms@gmail.com', 'May 29, 2022', '08:09:00'),
+(7, 'adminlms@gmail.com', 'May 29, 2022', '08:15:00'),
+(8, 'adminlms@gmail.com', 'May 30, 2022', '10:50:00'),
+(9, 'teacherlms@gmail.com', 'May 30, 2022', '11:47:00'),
+(10, 'adminlms@gmail.com', 'May 30, 2022', '12:00:00'),
+(11, 'learning@gmail.com', 'May 30, 2022', '12:13:00'),
+(12, 'adminlms@gmail.com', 'May 30, 2022', '12:21:00');
 
 -- --------------------------------------------------------
 
@@ -267,13 +287,13 @@ ALTER TABLE `user_roles`
 -- AUTO_INCREMENT for table `academic_year`
 --
 ALTER TABLE `academic_year`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `department`
 --
 ALTER TABLE `department`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `section`
@@ -285,13 +305,13 @@ ALTER TABLE `section`
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `user_instances`
@@ -303,7 +323,7 @@ ALTER TABLE `user_instances`
 -- AUTO_INCREMENT for table `user_logins`
 --
 ALTER TABLE `user_logins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `user_roles`
