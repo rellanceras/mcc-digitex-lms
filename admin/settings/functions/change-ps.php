@@ -22,16 +22,16 @@
         $cnewpsw = validate($_POST['cnewpsw']);
         
         if(empty($currentpsw)){
-            header("Location: security?error=Current password is required."); 
+            header("Location: security?error=Current password is required."); //pupunta ng security.php -- may magdi-display dapat na Alert
             exit();
         } else if(empty($newpsw)){
-            header("Location: security?error=New password is required."); 
+            header("Location: security?error=New password is required."); //pupunta ng security.php -- may magdi-display dapat na Alert
             exit();
         } else if(empty($cnewpsw)){
-            header("Location: security?error=Confirm new password is required."); 
+            header("Location: security?error=Confirm new password is required."); //pupunta ng security.php -- may magdi-display dapat na Alert
             exit();
         } else if($newpsw != $cnewpsw){
-            header("Location: security?error=New password and confirm password did not match.");
+            header("Location: security?error=New password and confirm password did not match."); //pupunta ng security.php -- may magdi-display dapat na Alert
         } else{
             $current_schoolid_loggedin = $_SESSION['school_id'];   
 
@@ -62,10 +62,10 @@
             }
         }
     }elseif(!isset($_SESSION['loggedin'])) {
-        header('Location: ../../../404.php');    //if user is trying to access page without logging in
+        header('Location: ../../../404.php'); //if user is trying to access page without logging in -- pupunta ng 404.php
         exit;
     } else{
-            header("Location: security"); //insert location for change password page
+            header("Location: security"); //insert location for change password page -- pupunta ng security.php
     }
 }
 
