@@ -1,5 +1,19 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/mcc-digitex-lms/admin/settings/functions/change-ps.php'); 
+    $error = $success = "";
+
+    session_start();
+    
+    if (isset($_SESSION['error'])){
+        $error = $_SESSION['error'];
+        $success = "";
+        unset($_SESSION['error']);
+    }
+
+    if (isset($_SESSION['success'])){
+        $success = $_SESSION['success'];
+        $error = "";
+        unset($_SESSION['success']);
+    }
 ?>
 
 <form action="../admin/settings/functions/change-ps.php" method="POST">
@@ -8,18 +22,16 @@
             <h4 class="mb-3 fw-bold mt-2"> Change Password</h4>
             <hr/>
 
-            <?php if (isset($_GET['error'])){?> 
+            <?php if (!empty($error)){?> 
                 <div class="alert alert-danger alert-dismissible" role="alert">
-                    <?php echo $_GET['error']; ?>
+                    <?php echo $error; ?>
                 </div>
             <?php } ?>
-
-            <?php if (isset($_GET['success'])){?>
+            <?php if (!empty($success)){?>
                 <div class="alert alert-success alert-dismissible" role="alert">
-                    <?php echo $_GET['success']; ?>
+                    <?php echo $success; ?>
                 </div>
             <?php } ?>
-
             <div class="mb-3">
                 <label for="Password" class="form-label">Old Password</label>
                 <div class="input-group">
