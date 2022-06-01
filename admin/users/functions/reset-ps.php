@@ -1,6 +1,6 @@
 <?php
 
-    require_once('../../../config.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/mcc-digitex-lms/config.php');
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
 
