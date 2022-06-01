@@ -21,22 +21,22 @@
     </div>
     <div class="block">
         <ul class="d-flex flex-row list-unstyled align-items-center gap-3 m-2 subnav">
-            <li class="subnav_active sn_link">
+            <li class="subnav_active sn_link all">
                 <a class="nav-link text-reset" data-page="all">
                     All
                 </a>
             </li>
-            <li class="subnav_select sn_link">
+            <li class="subnav_select sn_link academicyear">
                 <a class="nav-link text-reset" data-page="academicyear">
                     Academic Year
                 </a>
             </li>
-            <li class="subnav_select sn_link">
+            <li class="subnav_select sn_link subject">
                 <a class="nav-link text-reset" data-page="subject">
                     Subject
                 </a>
             </li>
-            <li class="subnav_select sn_link">
+            <li class="subnav_select sn_link department">
                 <a class="nav-link text-reset" data-page="department">
                     Department
                 </a>
@@ -49,7 +49,15 @@
     </div>
 </div>
 
+
+
 <script>
+
+function get_subCurPage() {
+    const currentPage = localStorage.getItem("curPage") || "all";
+    return currentPage;
+}
+
 $(document).ready(function(){
     $.ajax({
         type: 'GET',
@@ -57,8 +65,34 @@ $(document).ready(function(){
         dataType: 'html',
     }).done(function(response) {
         var data = JSON.parse(response)
-        $('#pageContent').load(data[0]['curriculum'].all);
-        document.title = 'Curriculum | DigiTeach LMS';
+        $('.sn_link').removeClass('subnav_active');
+        switch(get_subCurPage()) {
+            case 'all':
+                $('#pageContent').load(data[0].curriculum.all);
+                $('.all').addClass('subnav_active');
+                $('.all').removeClass('subnav_select');
+                break;
+            case 'academicyear':
+                $('#pageContent').load(data[0].curriculum.academicyear);
+                $('.academicyear').addClass('subnav_active');
+                $('.academicyear').removeClass('subnav_select');
+                break;
+            case 'subject':
+                $('#pageContent').load(data[0].curriculum.subject);
+                $('.subject').addClass('subnav_active');
+                $('.subject').removeClass('subnav_select');
+                break;
+            case 'department':
+                $('#pageContent').load(data[0].curriculum.department);
+                $('.department').addClass('subnav_active');
+                $('.department').removeClass('subnav_select');
+                break;
+            default:
+                $('#pageContent').load(data[0].curriculum.all);
+                $('.all').addClass('subnav_active');
+                $('.all').removeClass('subnav_select');
+        }
+            $('#setSubPage').text(get_subCurPage().charAt(0).toUpperCase() + get_subCurPage().slice(1));
     });
     //display Current Active Year
     $.ajax({
@@ -100,6 +134,7 @@ $(document).ready(function(){
                 default:
                     $('#pageContent').load(data[0].curriculum.all);
             }
+            localStorage.setItem("curPage", page);
             $('#setSubPage').text(page.charAt(0).toUpperCase() + page.slice(1));
         });
     });
