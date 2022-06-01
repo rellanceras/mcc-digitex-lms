@@ -6,7 +6,7 @@
 <?php
     $erruser = $errpass = "";
     session_start();
-    if(isset($_SESSION['sid'])){
+    if(!isset($_SESSION['sid'])){
         session_destroy();
     }else{
         if(isset($_SESSION['role'])){
