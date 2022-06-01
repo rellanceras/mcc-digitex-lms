@@ -4,306 +4,654 @@
 
 -->
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | DigiTeach LMS</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- Bootstrap JS with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
-    <!-- Calendar -->
-    <link rel="stylesheet" href="../resources/css/calendarstyle.css" />
-    <link rel="stylesheet" href="../resources/css/theme.css" />
-
-
-    <!-- Custom CSS -->
-    <link href="../resources/css/style.css" rel="stylesheet"/>
-
-    <link rel="icon" href="../resources/img/logo-sm-trans.png">
-</head>
+<?php include('admin-header.php'); ?>
 <body>
+<div class="container-fluid">
 
-<div class="container-fluid p-0">
+<nav class="d-md-none navbar block navbar-light m-2">
+    <div class="container-fluid">
+        <span class="btn nav_select navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar_mobile">
+            <i class="bi bi-list"></i>
+        </span>
+        <ul class="d-flex list-unstyled align-items-center justify-content-end gap-4 m-0">
+            <li class="topnav_select d-flex align-items-center justify-content-center position-relative p-2">
+                <span class="material-icons tool_tip_default" data-bs-toggle="tooltip" data-bs-placement="bottom"  title="Messages">chat</span>
+                <span class="position-absolute p-2 start-100 translate-middle badge rounded-circle">
+                    <span class="visually-hidden">unread messages</span>
+                </span>
+            </li>
 
-    <nav class="d-sm-none navbar content navbar-light m-2">
-        <div class="container-fluid">
-            <span class="btn nav_select navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="bi bi-list"></i>
-            </span>
-            <a class="navbar-brand" href="#"><i class="bi bi-chat me-4"></i><i class="bi bi-bell"></i></a>
-            <div class="offcanvas offcanvas-start content m-3" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-                <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasExampleLabel">
-                    <img class="nav_label logo" src="../resources/img/logov2-trans.png" width="125px" height="auto" class="logo"/>
+            <li class="dropdown topnav_select d-flex align-items-center justify-content-center position-relative p-2" data-bs-toggle="dropdown">
+                <span class="material-icons tool_tip_default" data-bs-placement="bottom" title="Notifications">notifications</span>
+                <span class="position-absolute p-2 start-100 translate-middle badge rounded-circle" >
+                    <span class="visually-hidden">unread messages</span>
+                </span>
+            </li>
+            <div class="dropdown-menu block ps-0 pt-4 mt-3" style="left: auto !important;">
+                <ul class="ps-0">
+                    <h6 class="fw-bold ms-4">Notifications</h6>
+                    <li class="dropdown-item nav_select">
+                        <a class="nav-link text-reset text-decoration-none" href="#">
+                            <div class="d-flex align-items-center">
+                                <img class="profile_pic_student" src="../resources/img/test-profile.png" width="42px" height="42px" style="border-radius: 50px;" />
+                                <div class="ms-3">
+                                    <p class="m-0">
+                                        <span class="fw-bold">Juan Dela Cruz</span><br />
+                                        Answered a <span class="fw-bold">Quiz</span> in
+                                        <span class="fw-bold tool_tip_default" data-bs-placement="top"  title="Advanced Mathematics">GEC-0001</span> <br/>
+                                        <span class="fst-italic">February 28, 2023</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <hr />
+                    <li class="dropdown-item nav_select">
+                        <a class="nav-link text-reset text-decoration-none" href="#">
+                            <div class="d-flex align-items-center">
+                                <img class="profile_pic_instructor" src="../resources/img/test-profile.png" width="42px" height="42px" style="border-radius: 50px;" />
+                                <div class="ms-3">
+                                    <p class="m-0">
+                                        <span class="fw-bold">Maria Clara</span><br />
+                                        Posted a <span class="fw-bold">Quiz</span> in
+                                        <span class="fw-bold tool_tip_default" data-bs-placement="top"  title="Advanced Mathematics">GEC-0001</span> <br/>
+                                        <span class="fst-italic">February 25, 2023</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <hr/>
+                    <li class="dropdown-item nav_select">
+                        <a class="nav-link text-reset text-decoration-none" href="#">
+                            <div class="d-flex align-items-center">
+                                <img class="profile_pic_admin" src="../resources/img/test-profile.png" width="42px" height="42px" style="border-radius: 50px;" />
+                                <div class="ms-3">
+                                    <p class="m-0">
+                                        <span class="fw-bold">Chrisostomo Ibarra</span><br />
+                                        Created a <span class="fw-bold">User</span> : 
+                                        <span class="fw-bold tool_tip_default" data-bs-placement="top"  title="Padre Damaso">#3184672</span> <br/>
+                                        <span class="fst-italic">February 25, 2023</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <hr/>
+                    <li class="dropdown-item nav_select">
+                        <a class="nav-link text-reset text-decoration-none" href="#">
+                            <div class="d-flex align-items-center">
+                                <img class="profile_pic_admin" src="../resources/img/test-profile.png" width="42px" height="42px" style="border-radius: 50px;" />
+                                <div class="ms-3">
+                                    <p class="m-0">
+                                        <span class="fw-bold">Chrisostomo Ibarra</span><br />
+                                        Created a <span class="fw-bold">User</span> : 
+                                        <span class="fw-bold tool_tip_default" data-bs-placement="top"  title="Padre Damaso">#3184672</span> <br/>
+                                        <span class="fst-italic">February 25, 2023</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <hr/>
+                    <li class="dropdown-item nav_select">
+                        <a class="nav-link text-reset text-decoration-none" href="#">
+                            <div class="d-flex align-items-center">
+                                <img class="profile_pic_admin" src="../resources/img/test-profile.png" width="42px" height="42px" style="border-radius: 50px;" />
+                                <div class="ms-3">
+                                    <p class="m-0">
+                                        <span class="fw-bold">Chrisostomo Ibarra</span><br />
+                                        Created a <span class="fw-bold">User</span> : 
+                                        <span class="fw-bold tool_tip_default" data-bs-placement="top"  title="Padre Damaso">#3184672</span> <br/>
+                                        <span class="fst-italic">February 25, 2023</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <hr/>
+                </ul>
+            </div>
+        </ul>
+
+        <div class="offcanvas offcanvas-start block m-3" tabindex="-1" id="sidebar_mobile">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title">
+                    <img class="nav_label logo" src="../resources/img/logov2-trans.png" width="125px" height="auto"/>
                 </h5>
-                <button type="button" class="btn text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
+                <button type="button" class="btn text-reset" data-bs-dismiss="offcanvas">
                     <i class="bi bi-x-lg"></i>
                 </button>
-                </div>
-                <div class="offcanvas-body p-0">
-                        <ul class="flex-column list-unstyled p-3">
-                            <li class="nav-item text-center">
-                                <a class="text-decoration-none">
-                                    <div class="d-inline-flex align-items-center">
-                                        <img class="profile_pic" src="../resources/img/test-profile.png" width="42px" height="42px" style="border-radius: 50px;" />
-                                        <span class="nav_label ms-3 text-start">
-                                            <span class="fw-bold text-break" id="user_disname">Juan Dela Cruz</span> <br />
-                                            <span class="text-break" id="user_num">#3180003</span>
-                                        </span>
-                                    </div>
-                                </a>
-                            </li>
-                            <hr />
-                            <li class="nav-item nav_select active">
-                                <a class="nav-link text-decoration-none">
-                                    <i class="bi bi-house-door"></i> <span class="ms-3">Dashboard</span>
-                                </a>
-                            </li>
-                            <li class="nav-item nav_select">
-                                <a class="nav-link text-decoration-none">
-                                    <i class="bi bi-book"></i> <span class="ms-3">Courses</span>
-                                </a>
-                            </li>
-                            <li class="nav-item nav_select">
-                                <a class="nav-link text-decoration-none">
-                                    <i class="bi bi-mortarboard"></i> <span class="ms-3">Grades</span>
-                                </a>
-                            </li>
-                            <li class="nav-item nav_select">
-                                <a class="nav-link text-decoration-none">
-                                    <i class="bi bi-calendar"></i> <span class="ms-3">Calendar</span>
-                                </a>
-                            </li>
-                            <li class="nav-item nav_select">
-                                <a class="nav-link text-decoration-none">
-                                    <i class="bi bi-gear"></i> <span class="ms-3">Settings</span>
-                                </a>
-                            </li>
-                            <hr />
-                            <li class="nav-item nav_select">
-                                <a class="nav-link text-decoration-none">
-                                    <i class="bi bi-box-arrow-right"></i> <span class="ms-3">Logout</span>
-                                </a>
-                            </li>
-                        </ul>
-                </div>
             </div>
-    </nav>
+            <div class="offcanvas-body">
+                <ul class="d-flex flex-column list-unstyled gap-3">
+                    <li class="nav-item">
+                        <div class="d-inline-flex align-items-center nav-link text-reset">
+                            <img class="profile_nav" src="../resources/img/test-profile.png" />
+                            <span class="nav_label ms-3 text-start">
+                                <span class="fw-bold text-break" id="user_disname"><?php echo $wname; ?></span> <br />
+                                <span class="text-break" id="user_num"><?php echo $sid; ?></span>
+                            </span>
+                        </div>
+                    </li>
+                    <hr />
+                    <li class="nav-item nav_select sb_link dashboard">
+                        <a class="nav-link text-reset" data-page="dashboard">
+                            <div class="d-flex align-items-center">
+                                <span class="material-icons">grid_view</span>
+                                <span class="nav_label ms-3">Dashboard</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item nav_select sb_link curriculum">
+                        <a class="nav-link text-reset" data-page="curriculum">
+                            <div class="d-flex align-items-center">
+                                <span class="material-icons">local_library</span>
+                                <span class="nav_label ms-3">Curriculum</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item nav_select sb_link class">
+                        <a class="nav-link text-reset" data-page="class">
+                            <div class="d-flex align-items-center">
+                                <span class="material-icons">class</span>
+                                <span class="nav_label ms-3">Class</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item nav_select sb_link users">
+                        <a class="nav-link text-reset" data-page="users">
+                            <div class="d-flex align-items-center">
+                                <span class="material-icons">manage_accounts</span>
+                                <span class="nav_label ms-3">Users</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item nav_select sb_link calendar">
+                        <a class="nav-link text-reset" data-page="calendar">
+                            <div class="d-flex align-items-center">
+                                <span class="material-icons">calendar_month</span>
+                                <span class="nav_label ms-3">Calendar</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item nav_select sb_link settings">
+                        <a class="nav-link text-reset" data-page="settings">
+                            <div class="d-flex align-items-center">
+                                <span class="material-icons">settings</span>
+                                <span class="nav_label ms-3">Settings</span>
+                            </div>
+                        </a>
+                    </li>
+                    <hr />
+                    <li class="nav-item nav_select sb_link">
+                        <a class="nav-link text-reset" href="../admin/logout.php">
+                            <div class="d-flex align-items-center">
+                                <span class="material-icons material-icons-round">logout</span>
+                                <span class="nav_label ms-3">Logout</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
 
     <div class="d-flex gap-3 min-vh-100 p-2">
-        <div class="sidebar content p-3">
-            <ul class="flex-column list-unstyled">
-                <li class="nav-item text-end d-flex justify-content-between align-items-start" id="collapse-btn">
+        <!-- Side Bar -->
+        <div class="d-none d-md-block sidebar block p-3">
+            <ul class="d-flex flex-column list-unstyled">
+                <li class="nav-item d-flex justify-content-between align-items-start" id="collapse-btn">
                     <img class="nav_label logo" src="../resources/img/logov1-trans.png" width="125px" height="auto" class="logo"/>
                     <span class="btn nav_select" id="collapse">
                         <i class="bi bi-list"></i>
                     </span>
                 </li>
                 <hr />
-                <li class="nav-item text-center">
-                    <a class="text-decoration-none">
-                        <div class="d-inline-flex align-items-center tool_tip" data-bs-toggle="tooltip" data-bs-placement="right" title="Juan Dela Cruz #3180003">
-                            <img class="profile_pic" src="../resources/img/test-profile.png" width="42px" height="42px" style="border-radius: 50px;" />
-                            <span class="nav_label ms-3 text-start">
-                                <span class="fw-bold text-break" id="user_disname">Juan Dela Cruz</span> <br />
-                                <span class="text-break" id="user_num">#3180003</span>
+                <li class="nav-item">
+                    <a class="nav-link text-reset">
+                        <div class="d-flex align-items-center justify-content-center nav_link">
+                            <img class="profile_nav" src="../resources/img/test-profile.png" />
+                            <span class="nav_label ms-3">
+                                <span class="fw-bold text-break" id="user_disname"><?php echo $wname; ?></span> <br />
+                                <span class="text-break" id="user_num"><?php echo $sid; ?></span>
                             </span>
                         </div>
                     </a>
                 </li>
                 <hr />
             </ul>
-            
-            <ul class="flex-column list-unstyled">
-                <li class="nav-item nav_select active">
-                    <a class="nav-link text-decoration-none tool_tip" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard">
-                        
-                        <img src="../resources/img/dash.png" width="25px" height="auto">
-                        <span class="nav_label ms-3">Dashboard</span>
+            <ul class="d-flex flex-column gap-3 list-unstyled">
+                <li class="nav-item nav_select sb_link dashboard">
+                    <a class="nav-link text-reset tool_tip" data-page="dashboard" data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard">
+                        <div class="d-flex align-items-center justify-content-center nav_link">
+                            <span class="material-icons material-icons-round">grid_view</span>
+                            <span class="nav_label ms-3">Dashboard</span>
+                        </div>
                     </a>
                 </li>
-                <li class="nav-item nav_select">
-                    <a class="nav-link text-decoration-none tool_tip" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Courses">
-                        
-                            <img src="../resources/img/book.png" width="25px" height="auto">
-                            <span class="nav_label ms-3">Courses</span>
+                <li class="nav-item nav_select sb_link class">
+                    <a class="nav-link text-reset tool_tip" data-page="class" data-bs-toggle="tooltip" data-bs-placement="right" title="Class">
+                        <div class="d-flex align-items-center justify-content-center nav_link">
+                            <span class="material-icons material-icons-round">class</span>
+                            <span class="nav_label ms-3">Class</span>
+                        </div>
                     </a>
                 </li>
-                <li class="nav-item nav_select">
-                    <a class="nav-link text-decoration-none tool_tip" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Grades">
-                        <img src="../resources/img/grade.png" width="25px" height="auto">
-                        <span class="nav_label ms-3">Grades</span>
+                <li class="nav-item nav_select sb_link grades">
+                    <a class="nav-link text-reset tool_tip" data-page="grades" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar">
+                        <div class="d-flex align-items-center justify-content-center nav_link">
+                            <span class="material-icons material-icons-round">school</span>
+                            <span class="nav_label ms-3">Grades</span>
+                        </div>
                     </a>
                 </li>
-                <li class="nav-item nav_select">
-                    <a class="nav-link text-decoration-none tool_tip" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar">
-                        <img src="../resources/img/cal.png" width="25px" height="auto">
-                        <span class="nav_label ms-3">Calendar</span>
+                <li class="nav-item nav_select sb_link calendar">
+                    <a class="nav-link text-reset tool_tip" data-page="calendar" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar">
+                        <div class="d-flex align-items-center justify-content-center nav_link">
+                            <span class="material-icons material-icons-round">calendar_month</span>
+                            <span class="nav_label ms-3">Calendar</span>
+                        </div>
                     </a>
                 </li>
-                <li class="nav-item nav_select">
-                    <a class="nav-link text-decoration-none tool_tip" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Settings">
-                        <i class="bi bi-gear"></i>
-                        <span class="nav_label ms-3">Settings</span>
+                <li class="nav-item nav_select sb_link settings">
+                    <a class="nav-link text-reset tool_tip" data-page="settings" data-bs-toggle="tooltip" data-bs-placement="right" title="Settings">
+                        <div class="d-flex align-items-center justify-content-center nav_link">
+                            <span class="material-icons material-icons-round">settings</span>
+                            <span class="nav_label ms-3">Settings</span>
+                        </div>
                     </a>
                 </li>
                 <hr />
-                <li class="nav-item nav_select">
-                    <a class="nav-link text-decoration-none tool_tip" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Logout">
-                        <img src="../resources/img/logout.png" width="25px" height="auto">
-                        <span class="nav_label ms-3">Logout</span>
+                <li class="nav-item nav_select sb_link">
+                    <a class="nav-link text-reset tool_tip" href="../admin/logout.php" data-bs-toggle="tooltip" data-bs-placement="right" title="Logout">
+                        <div class="d-flex align-items-center justify-content-center nav_link">
+                            <span class="material-icons material-icons-round text-center">logout</span>
+                            <span class="nav_label ms-3">Logout</span>
+                        </div>
                     </a>
                 </li>
             </ul>
         </div>
-        <div class="flex-grow-1 d-flex flex-column gap-3">
-            <div class="content d-none d-sm-block d-xxl-none">
-                <div class="px-4 py-2 text-end align-middle">
-                    <span class="me-3 time tool_tip_default" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Time">Time goes here</span>
-                    <span class="me-3 date tool_tip_default" data-bs-toggle="tooltip" data-bs-placement="bottom"  title="Date">Date goes here</span>
-                    <span class="vr me-3"></span>
-                    <i class="bi bi-chat me-3 tool_tip_default" data-bs-toggle="tooltip" data-bs-placement="bottom"  title="Messages"></i>
-                    <i class="bi bi-bell tool_tip_default" data-bs-toggle="tooltip" data-bs-placement="left"  title="Notifications"></i>
+
+        <!-- Main Section -->
+        <div class="d-flex flex-column gap-3 flex-grow-1 main-section">
+            <!-- Top Nav -->
+            <ul class="d-none d-md-flex flex-row list-unstyled align-items-center justify-content-end gap-4 px-4 p-2 m-0 block">
+                <li>
+                    <span class="me-3 time tool_tip_default">Time</span>
+                    <span class="me-3 date tool_tip_default">Date</span>
+                </li>
+                <span class="vr"></span>
+                <li class="topnav_select d-flex align-items-center justify-content-center position-relative p-2">
+                    <span class="material-icons tool_tip_default" data-bs-toggle="tooltip" data-bs-placement="bottom"  title="Messages">chat</span>
+                    <span class="position-absolute p-2 start-100 translate-middle badge rounded-circle">
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
+                </li>
+
+                <li class="dropdown topnav_select d-flex align-items-center justify-content-center position-relative p-2" data-bs-toggle="dropdown">
+                    <span class="material-icons tool_tip_default" data-bs-placement="bottom" title="Notifications">notifications</span>
+                    <span class="position-absolute p-2 start-100 translate-middle badge rounded-circle" >
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
+                </li>
+                <div class="dropdown-menu block ps-0 pt-4 mt-3">
+                    <ul class="ps-0">
+                        <h6 class="fw-bold ms-4">Notifications</h6>
+                        <li class="dropdown-item nav_select">
+                            <a class="nav-link text-reset text-decoration-none" href="#">
+                                <div class="d-flex align-items-center">
+                                    <img class="profile_pic_student" src="../resources/img/test-profile.png" width="42px" height="42px" style="border-radius: 50px;" />
+                                    <div class="ms-3">
+                                        <p class="m-0">
+                                            <span class="fw-bold">Juan Dela Cruz</span><br />
+                                            Answered a <span class="fw-bold">Quiz</span> in
+                                            <span class="fw-bold tool_tip_default" data-bs-placement="top"  title="Advanced Mathematics">GEC-0001</span> <br/>
+                                            <span class="fst-italic">February 28, 2023</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <hr />
+                        <li class="dropdown-item nav_select">
+                            <a class="nav-link text-reset text-decoration-none" href="#">
+                                <div class="d-flex align-items-center">
+                                    <img class="profile_pic_instructor" src="../resources/img/test-profile.png" width="42px" height="42px" style="border-radius: 50px;" />
+                                    <div class="ms-3">
+                                        <p class="m-0">
+                                            <span class="fw-bold">Maria Clara</span><br />
+                                            Posted a <span class="fw-bold">Quiz</span> in
+                                            <span class="fw-bold tool_tip_default" data-bs-placement="top"  title="Advanced Mathematics">GEC-0001</span> <br/>
+                                            <span class="fst-italic">February 25, 2023</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <hr/>
+                        <li class="dropdown-item nav_select">
+                            <a class="nav-link text-reset text-decoration-none" href="#">
+                                <div class="d-flex align-items-center">
+                                    <img class="profile_pic_admin" src="../resources/img/test-profile.png" width="42px" height="42px" style="border-radius: 50px;" />
+                                    <div class="ms-3">
+                                        <p class="m-0">
+                                            <span class="fw-bold">Chrisostomo Ibarra</span><br />
+                                            Created a <span class="fw-bold">User</span> : 
+                                            <span class="fw-bold tool_tip_default" data-bs-placement="top"  title="Padre Damaso">#3184672</span> <br/>
+                                            <span class="fst-italic">February 25, 2023</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <hr/>
+                        <li class="dropdown-item nav_select">
+                            <a class="nav-link text-reset text-decoration-none" href="#">
+                                <div class="d-flex align-items-center">
+                                    <img class="profile_pic_admin" src="../resources/img/test-profile.png" width="42px" height="42px" style="border-radius: 50px;" />
+                                    <div class="ms-3">
+                                        <p class="m-0">
+                                            <span class="fw-bold">Chrisostomo Ibarra</span><br />
+                                            Created a <span class="fw-bold">User</span> : 
+                                            <span class="fw-bold tool_tip_default" data-bs-placement="top"  title="Padre Damaso">#3184672</span> <br/>
+                                            <span class="fst-italic">February 25, 2023</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <hr/>
+                        <li class="dropdown-item nav_select">
+                            <a class="nav-link text-reset text-decoration-none" href="#">
+                                <div class="d-flex align-items-center">
+                                    <img class="profile_pic_admin" src="../resources/img/test-profile.png" width="42px" height="42px" style="border-radius: 50px;" />
+                                    <div class="ms-3">
+                                        <p class="m-0">
+                                            <span class="fw-bold">Chrisostomo Ibarra</span><br />
+                                            Created a <span class="fw-bold">User</span> : 
+                                            <span class="fw-bold tool_tip_default" data-bs-placement="top"  title="Padre Damaso">#3184672</span> <br/>
+                                            <span class="fst-italic">February 25, 2023</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <hr/>
+                    </ul>
                 </div>
-            </div>
-            <div class="content" id="page-header">
-                <div class="px-4 pt-4">
-                    <h3 class="mb-3 fw-bold"><i class="bi bi-house-door me-2"></i> Dashboard</h3>
-                    <p>Current Academic year: <span class="fw-bold">2023-2024</span></p>
+            </ul>
+            <!-- Content -->
+            <div class="d-flex gap-3">
+                <!-- Main Content -->
+                <div class="d-flex flex-column flex-grow-1 gap-3" id="mainContent">
+                    
                 </div>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb px-4 py-2 m-0">
-                        <li class="breadcrumb-item"><a class="text-decoration-none" href="#">A.Y. 2023-2024</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-                    </ol>
-                </nav>
-            </div>
-            <div class="content p-4 flex-grow-1" id="main-content">
-                No content yet...
-            </div>
-        </div>
-        <div class="d-none d-xxl-flex flex-column gap-3">
-            <div class="content">
-                <div class="px-4 py-2 text-end align-middle">
-                    <span class="me-3 time tool_tip_default" data-bs-toggle="tooltip" data-bs-placement="bottom"  title="Time">Time goes here</span>
-                    <span class="me-3 date tool_tip_default" data-bs-toggle="tooltip" data-bs-placement="bottom"  title="Date">Date goes here</span>
-                    <span class="vr me-3"></span>
-                    <i class="bi bi-chat me-3 tool_tip_default" data-bs-toggle="tooltip" data-bs-placement="bottom"  title="Messages"></i>
-                    <i class="bi bi-bell tool_tip_default" data-bs-toggle="tooltip" data-bs-placement="left"  title="Notifications"></i>
+
+                <div class="right-col d-flex flex-column gap-3 d-none d-xxl-flex">
+                    <div id="calendar"class="p-4 block">
+                        <div class="calendar-container"></div>
+                    </div>
                 </div>
-            </div>
-            <div class="calendar p-4 content">
-                <div class="calendar-container"></div>
-            </div>
-            <div class="content p-4 flex-grow-1">
-                test
             </div>
         </div>
     </div>
 </div>
+
+
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="../resources/js/calendar.min.js"></script>
+<!-- PLUGINS -->
+    <!-- Bootstrap JS with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Apex Chart -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <!-- Calendar JS -->
+    <script src="../resources/js/calendar.min.js"></script>
+    <!-- Moment JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <!-- Date Range Picker -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
-<script type="text/javascript">
+    <!-- Datatables JS -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.4.0/js/dataTables.select.min.js"></script>
+    <!-- Smart Wizard -->
+    <script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
+    <!-- JQuery Validate -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js" type="text/javascript"></script>
 
-    var getWindowSize;
-    $(document).ready(function(){
-        $(function(){
-            $('.calendar-container').calendar({
-                date:new Date(),// today
-                weekDayLength: 3,
-                prevButton:'<i class="bi bi-chevron-left"></i>',
-                nextButton:'<i class="bi bi-chevron-right"></i>',
-                highlightSelectedWeekday:false, //this prevents blue weekday highlight
-                todayButtonContent:"See Current Day"
-            });
-        });
+<script>
 
-        $('.tool_tip_default').tooltip('enable');
-        $('#collapse').click(function(){
-            $('.sidebar').toggleClass("mini");
-            $(".sidebar .nav_label").toggleClass("d-none");
-            $("#collapse-btn").toggleClass("text-end");
-            $("#collapse-btn").toggleClass("text-center");
-            $('.tool_tip').tooltip('toggleEnabled');
-        });
-        setInterval(function(){ 
-            $(".time").text(display_time());
-            $(".date").text(display_date());
-        }, 1000);
-        changeSidebar();
-    });
-    $(window).resize(changeSidebar);
+/*   --- SIDEBAR ---   */
 
-    
+// Call function when browser window is resized
+$(window).resize(adapt_sidebar);
 
-    // Why is this done in JQuery? Because, it is cumbersome to toggle d-md-none and d-none. d-md-none overrides d-none
-    function changeSidebar() {
-        var WindowSize = $(window).width();
+// Change sidebar size when window is <= 1200px
+function adapt_sidebar() {
+    var WindowSize = $(window).width();
 
-        if (WindowSize < 1200) {
-            $('.sidebar').addClass("mini");
-            $(".sidebar .nav_label").addClass("d-none");
-            $("#collapse-btn").addClass("text-end");
-            $("#collapse-btn").addClass("text-center");
-            $('.tool_tip').tooltip('enable');
-        } else {
-            $('.sidebar').removeClass("mini");
-            $(".sidebar .nav_label").removeClass("d-none");
-            $("#collapse-btn").removeClass("text-end");
-            $("#collapse-btn").removeClass("text-center");
-            $('.tool_tip').tooltip('disable');
+    if (WindowSize <= 1200) {
+        $('.sidebar').addClass("mini");
+        $(".sidebar .nav_label").addClass("d-none");
+        $("#collapse-btn").removeClass("justify-content-between");
+        $("#collapse-btn, .nav_link").addClass("justify-content-center");
+        $('.tool_tip').tooltip('enable');
+    } else {
+        $('.sidebar').removeClass("mini");
+        $(".sidebar .nav_label").removeClass("d-none");
+        $("#collapse-btn").addClass("justify-content-between");
+        $("#collapse-btn, .nav_link").removeClass("justify-content-center");
+        $('.tool_tip').tooltip('disable');
+    } 
+}
+
+/*   --- WEBSITE THEME ---   */
+
+// Get current theme variable
+function get_theme() {
+    const currentTheme = localStorage.getItem("theme") || "default";
+    return currentTheme;
+}
+
+// Theme Initiate
+function init_theme() {
+    console.log("Theme Initiated");
+    if (get_theme() == "dark") {
+        $('.themeButton').text("dark_mode");
+    }
+    $('#themeCSS').attr("href", `../resources/css/themes/${get_theme()}.css`);
+}
+
+/*   --- Page Navigation ---   */
+
+// Get current page variable
+function get_curPage() {
+    const currentPage = localStorage.getItem("page") || "dashboard";
+    return currentPage;
+}
+
+
+function init_page() {
+    // Initializes the page based on the current page variable
+    $.ajax({
+        type: 'GET',
+        url: '../student/navStudent.json',
+        dataType: 'html',
+    }).done(function(response) {
+        var data = JSON.parse(response);
+        $('.sb_link').removeClass('nav_active');
+        switch(get_curPage()) {
+            case 'curriculum':
+                $('#mainContent').load(data[0].curriculum.curriculumIndex);
+                $('.curriculum').addClass('nav_active');
+                $('.curriculum').removeClass('nav_select');
+                break;
+            case 'class':
+                $('#mainContent').load(data[0].class.classIndex);
+                $('.class').addClass('nav_active');
+                $('.class').removeClass('nav_select');
+                break;
+            case 'grades':
+                $('#mainContent').load(data[0].grades.gradesIndex);
+                $('.grades').addClass('nav_active');
+                $('.grades').removeClass('nav_select');
+                break;
+            case 'calendar':
+                $('#mainContent').load(data[0].calendar.calendarIndex);
+                $('.calendar').addClass('nav_active');
+                $('.calendar').removeClass('nav_select');
+                break;
+            case 'settings':
+                $('#mainContent').load(data[0].settings.settingsIndex);
+                $('.settings').addClass('nav_active');
+                $('.settings').removeClass('nav_select');
+                break;
+            default:
+                $('#mainContent').load(data[0].dashboard);
+                $('.dashboard').addClass('nav_active');
+                $('.dashboard').removeClass('nav_select');
         }
+        document.title = get_curPage().charAt(0).toUpperCase() + get_curPage().slice(1)  + ' | DigiTex LMS';
+    });
 
+    // Selects a new page and saves the page in the browser's local storage
+    $('.sb_link').click(function() {
+        var page = $(this).find('a').attr('data-page');
+        $('.sb_link').removeClass('nav_active');
+        $('.sb_link').addClass('nav_select');
         
-    }
+        $.ajax({
+            type: 'GET',
+            url: '../instructor/navInstructor.json',
+            dataType: 'html',
+        }).done(function(response) {
+            var data = JSON.parse(response)
+            switch(page) {
+                case 'class':
+                    $('#mainContent').load(data[0].class.classIndex);
+                    $('.class').addClass('nav_active');
+                    $('.class').removeClass('nav_select');
+                    break;
+                case 'grades':
+                    $('#mainContent').load(data[0].grades.gradesIndex);
+                    $('.grades').addClass('nav_active');
+                    $('.grades').removeClass('nav_select');
+                    break;
+                case 'calendar':
+                    $('#mainContent').load(data[0].calendar.calendarIndex);
+                    $('.calendar').addClass('nav_active');
+                    $('.calendar').removeClass('nav_select');
+                    break;
+                case 'settings':
+                    $('#mainContent').load(data[0].settings.settingsIndex);
+                    $('.settings').addClass('nav_active');
+                    $('.settings').removeClass('nav_select');
+                    break;
+                default:
+                    $('#mainContent').load(data[0].dashboard);
+                    $('.dashboard').addClass('nav_active');
+                    $('.dashboard').removeClass('nav_select');
+            }
+            localStorage.setItem("page", page);
+            document.title = get_curPage().charAt(0).toUpperCase() + get_curPage().slice(1)  + ' | DigiTex LMS';
+        });
+    });
+}
 
-    function display_time() {
-        const getDate = new Date(); // This gets whole date based on your current location
+/*   --- Time and Date ---   */
 
-        // This is about time
-        let hours = getDate.getHours(); // This only get hours
-        let minutes = getDate.getMinutes(); // This only get minutes
-        let ampm = hours >= 12 ? 'PM' : 'AM'; // If hours is greater than or equal to 12 (noon - military time) it is considered as PM, otherwise it is AM.
-        
-        hours = hours % 12; // Gets remainder (ex. 13 % 12 = 1, so its 1PM)
-        hours = hours ? hours : 12; // Hour 0 will be 12. This prevents empty value
-        minutes = minutes < 10 ? '0' + minutes : minutes; // This adds a "0" before the number if it is less than 10. Its an aesthetic thing.
-        /*
-        let second = getDate.getSeconds();
-        second = second < 10 ? '0' + second : second;
-        */
-        let strTime = hours + ':' + minutes /*+ ':' + second*/ + ' ' + ampm;
+// Gets current time
+function display_time() {
+    const getDate = new Date(); // This gets whole date based on your current location
 
-        return strTime;
-    }
+    // This is about time
+    let hours = getDate.getHours(); // This only get hours
+    let minutes = getDate.getMinutes(); // This only get minutes
+    let ampm = hours >= 12 ? 'PM' : 'AM'; // If hours is greater than or equal to 12 (noon - military time) it is considered as PM, otherwise it is AM.
+    
+    hours = hours % 12; // Gets remainder (ex. 13 % 12 = 1, so its 1PM)
+    hours = hours ? hours : 12; // Hour 0 will be 12. This prevents empty value
+    minutes = minutes < 10 ? '0' + minutes : minutes; // This adds a "0" before the number if it is less than 10. Its an aesthetic thing.
+    /*
+    let second = getDate.getSeconds();
+    second = second < 10 ? '0' + second : second;
+    */
+    let strTime = hours + ':' + minutes /*+ ':' + second*/ + ' ' + ampm;
 
-    function display_date() {
-        const getDate = new Date(); // This gets whole date based on your current location
+    return strTime;
+}
 
-        // This is about date
-        const dateFormat = new Intl.DateTimeFormat('en-PH', {month: 'long'}); // Date formatter for set on PH
-        let month = dateFormat.format(getDate);
-        let day = getDate.getDate();
-        let year = getDate.getFullYear();
-        
-        month = month < 10 ? '0' + month : month;
-        day = day < 10 ? '0' + day : day;
-        
-        let strDate = month + ' ' + day + ', ' + year;
+// Gets current date
+function display_date() {
+    const getDate = new Date(); // This gets whole date based on your current location
 
-        return strDate;
-    }
+    // This is about date
+    const dateFormat = new Intl.DateTimeFormat('en-PH', {month: 'long'}); // Date formatter for set on PH
+    let month = dateFormat.format(getDate);
+    let day = getDate.getDate();
+    let year = getDate.getFullYear();
+    
+    month = month < 10 ? '0' + month : month;
+    day = day < 10 ? '0' + day : day;
+    
+    let strDate = month + ' ' + day + ', ' + year;
+
+    return strDate;
+}
+
+/*   --- Side Calendar ---   */
+
+// Initializes the calendar on the right side
+function init_sideCalendar() {
+    $('.calendar-container').calendar({
+        date:new Date(),// today
+        weekDayLength: 1,
+        prevButton:'<i class="bi bi-chevron-left"></i>',
+        nextButton:'<i class="bi bi-chevron-right"></i>',
+        highlightSelectedWeekday:false, //this prevents blue weekday highlight
+        todayButtonContent:"See Current Day"
+    });
+}
+
+/*   --- Tooltips ---   */
+
+// Initializes the tooltips
+function init_tooltip() {
+    $('.tool_tip_default').tooltip('enable');
+
+    $('#collapse').click(function(){
+        $('.sidebar').toggleClass("mini");
+        $(".sidebar .nav_label").toggleClass("d-none");
+        $("#collapse-btn").toggleClass("justify-content-between");
+        $("#collapse-btn, .nav_link").toggleClass("justify-content-center");
+        $('.tool_tip').tooltip('toggleEnabled');
+    });
+}
+
+/*   --- Function call on document ready ---   */
+
+$(document).ready(function(){
+    adapt_sidebar();
+    init_theme();
+    init_page();
+    init_sideCalendar();
+    init_tooltip();
+
+    // Updates the time in 1 sec interval
+    setInterval(function(){ 
+        $(".time").text(display_time());
+        $(".date").text(display_date());
+    }, 1000);
+});
 </script>
 
 </html>
