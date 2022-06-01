@@ -9,7 +9,7 @@ function update_active_year($id){
             $sql = "UPDATE academic_year SET active=0 WHERE active=1 && id!='$id'";
             if($stmt = mysqli_prepare($conn,$sql)){
                 if(mysqli_stmt_execute($stmt)){
-                    header("location: ../../../layout/admin.php?page=Curriculum&sub=AcademicYear");
+                    header("location: ../../../layout/admin.php");
                     exit();
                 }
             }
@@ -37,7 +37,7 @@ function create_academic_year($name,$year,$semester){
                 // Attempt to execute the prepared statement
                 if(mysqli_stmt_execute($stmt)){
                     // Redirect to Academic Year page
-                    header("location: ../../../layout/admin.php?page=Curriculum&sub=AcademicYear");
+                    header("location: ../../../layout/admin.php");
                     exit();
                 } else{
                     echo "Oops! Something went wrong. Please try again later.";
@@ -57,7 +57,7 @@ function update_academic_year($id,$name,$year,$semester){
         
         // Attempt to execute the prepared statement
         if(mysqli_stmt_execute($stmt)){
-            echo "Response.Write('<script language='javascript'>window.alert('Update Successful');window.location='../../../layout/admin.php?page=Curriculum&sub=AcademicYear';</script>');";
+            echo "Response.Write('<script language='javascript'>window.alert('Update Successful');window.location='../../../layout/admin.php';</script>');";
         } else{
             echo "Oops! Something went wrong. Please try again later.";
         }
@@ -71,8 +71,7 @@ function delete_academic_year($id){
         
         // Attempt to execute the prepared statement
         if(mysqli_stmt_execute($stmt)){
-            echo "Response.Write('<script language='javascript'>window.alert('Deleted Successfully');window.location='../../../layout/admin.php?page=Curriculum&sub=AcademicYear';</script>');";
-            //header("location: ../../../layout/admin.php?page=Curriculum&sub=AcademicYear");
+            echo "Response.Write('<script language='javascript'>window.alert('Deleted Successfully');window.location='../../../layout/admin.php';</script>');";
             exit();
         } else{
             echo "Oops! Something went wrong. Please try again later.";
@@ -91,13 +90,12 @@ if(isset($_POST['startYear'],$_POST['endYear'],$_POST['sem'])){
         create_academic_year($yearsem,$year,$_POST['sem']);
     }
     else{
-       echo "Response.Write('<script language='javascript'>window.alert('Invalid Academic Year');
-       window.location='../../../layout/admin.php?page=Curriculum&sub=AcademicYear';</script>');";
+        echo "Response.Write('<script language='javascript'>window.alert('Invalid Academic Year');window.location='../../../layout/admin.php';</script>');";
     }
 }
-else{
-    header("location: ../../../layout/admin.php?page=Curriculum&sub=AcademicYear");
-}
+/* else{
+    echo "Response.Write('<script language='javascript'>window.alert('Required Fields Missing');window.location='../../../layout/admin.php';</script>');";
+} */
 
 if(isset($_POST['delID'])){
     delete_academic_year($_POST['delID']);
@@ -110,10 +108,9 @@ if(isset($_POST['editID'],$_POST['editStartYear'],$_POST['editEndYear'],$_POST['
         update_academic_year($_POST['editID'],$yearsem,$year,$_POST['editSem']);
     }
     else{
-       echo "Response.Write('<script language='javascript'>window.alert('Invalid Academic Year');window.location='../../../layout/admin.php?page=Curriculum&sub=AcademicYear';</script>');";
+        echo "Response.Write('<script language='javascript'>window.alert('Invalid Academic Year');window.location='../../../layout/admin.php';</script>');";
     }
-}
-else{
-    header("location: ../../../layout/admin.php?page=Curriculum&sub=AcademicYear");
+}else{
+    echo "Response.Write('<script language='javascript'>window.alert('Required Fields Missing');window.location='../../../layout/admin.php';</script>');";
 }
 ?>
