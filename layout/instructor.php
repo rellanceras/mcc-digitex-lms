@@ -484,7 +484,7 @@ function init_page() {
     // Initializes the page based on the current page variable
     $.ajax({
         type: 'GET',
-        url: '../student/navStudent.json',
+        url: '../instructor/navInstructor.json',
         dataType: 'html',
     }).done(function(response) {
         var data = JSON.parse(response);

@@ -1,0 +1,21 @@
+[
+    {
+        "dashboard" : "../student/dashboard.php",
+        "class" : {
+            "classIndex" : "../student/class/index.php",
+            "viewclass" : "../student/class/view_class.php",
+            "addclass" : "../student/class/add_class.php"
+        },
+        "grades" : {
+            "gradesIndex" : "../student/grades/index.php",
+            "viewgrades" : "../student/grades/view_grades.php"
+        },
+        "settings" : {
+            "settingsIndex" : "../student/settings/index.php",
+            "general" : "../student/settings/general.php",
+            "security" : "../student/settings/security.php",
+            "appearance" : "../student/settings/appearance.php",
+            "archive" : "../student/settings/archive.php"
+        }
+    }
+]
