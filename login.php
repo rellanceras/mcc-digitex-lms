@@ -55,7 +55,7 @@ session_start();
                     //$sql = "INSERT INTO `user_logins`(  `email`,`date`, `time`) 
                     //    VALUES ('$username','$datenow','$timenow')";
                     //    mysqli_query($conn, $sql);
-                    header("location: layout/teacher.php");
+                    header("location: layout/instructor.php");
                 }else if($account_type == "3"){
                     $_SESSION['sid'] = $sid;
                     $_SESSION['role'] = $account_type;
