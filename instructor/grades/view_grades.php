@@ -94,11 +94,11 @@
             </div>
             <div class="modal-body">
                 <label>Quiz Grade </label>
-                <input name="year" class="form-control"/>
+                <input name="year" class="form-control block-sm"/>
                 <label>Exam Grade </label>
-                <input name="semester" class="form-control"/>
+                <input name="semester" class="form-control block-sm"/>
                 <label>Final Grade </label>
-                <input name="semester" class="form-control"/>
+                <input name="semester" class="form-control block-sm"/>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary">Save</button>
