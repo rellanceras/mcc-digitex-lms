@@ -59,7 +59,7 @@
                     <ul class="list-unstyled recent_act">
                         <?php
                             include("../config.php");
-                            $query=mysqli_query($conn,"SELECT * FROM user_logins,user where user.email='adminlms@gmail.com'");
+                            $query=mysqli_query($conn,"SELECT * FROM user_logins,user where user.email='adminlms@gmail.com' ORDER BY user_logins.id DESC");
                             while($row = mysqli_fetch_array($query)){
                         ?>
                         <li class="nav-item nav_select">
