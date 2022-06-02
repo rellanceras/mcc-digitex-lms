@@ -240,7 +240,7 @@
                     </a>
                 </li>
                 <li class="nav-item nav_select sb_link grades">
-                    <a class="nav-link text-reset tool_tip" data-page="grades" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar">
+                    <a class="nav-link text-reset tool_tip" data-page="grades" data-bs-toggle="tooltip" data-bs-placement="right" title="Grades">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons material-icons-round">school</span>
                             <span class="nav_label ms-3">Grades</span>
