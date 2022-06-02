@@ -8,6 +8,7 @@
         },
         "grades" : {
             "gradesIndex" : "../instructor/grades/index.php",
+            "viewcourse" : "../instructor/grades/view_course.php",
             "viewgrades" : "../instructor/grades/view_grades.php"
         },
         "settings" : {
@@ -16,6 +17,10 @@
             "security" : "../instructor/settings/security.php",
             "appearance" : "../instructor/settings/appearance.php",
             "archive" : "../instructor/settings/archive.php"
+        },
+        "calendar" : {
+            "calendarIndex" : "../instructor/calendar/index.php",
+            "viewcalendar" : "../instructor/calendar/view_calendar.php"
         }
     }
 ]

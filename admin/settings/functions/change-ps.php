@@ -1,12 +1,12 @@
 <?php
 
-    // session_start();
+    session_start();
 
     //changing password of users
 
-    if (isset($_SESSION['school_id'])){   
+    if (isset($_SESSION['sid'])){   //pagka-login, sa school_id na naka-session magbe-base
 
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/mcc-digitex-lms/config.php'); //still in localhost
+    require_once('../../../config.php'); 
     
     if(isset($_POST['currentpsw']) && isset($_POST['newpsw']) && isset($_POST['cnewpsw'])){
 
@@ -22,21 +22,24 @@
         $cnewpsw = validate($_POST['cnewpsw']);
         
         if(empty($currentpsw)){
-            header("Location: ?error=Current password is required."); //location to be inserted once UI is done
+            $_SESSION['error'] = "Current password is required.";
+            header("Location: ../../../layout/admin.php"); //pupunta ng security.php -- may magdi-display dapat na Alert
             exit();
         } else if(empty($newpsw)){
-            header("Location: ?error=New password is required."); //location to be inserted once UI is done
+            $_SESSION['error'] = "New password is required.";
+            header("Location: ../../../layout/admin.php"); //pupunta ng security.php -- may magdi-display dapat na Alert
             exit();
         } else if(empty($cnewpsw)){
-            header("Location: ?error=Confirm new password is required."); //location to be inserted once UI is done
+            $_SESSION['error'] = "Confirm new password is required.";
+            header("Location: ../../../layout/admin.php"); //pupunta ng security.php -- may magdi-display dapat na Alert
             exit();
         } else if($newpsw != $cnewpsw){
-            header("Location: ?error=New password and confirm password did not match."); //location to be inserted once UI is done
-            exit();
+            $_SESSION['error'] = "New password and confirm password did not match.";
+            header("Location: ../../../layout/admin.php"); //pupunta ng security.php -- may magdi-display dapat na Alert
         } else{
-            $current_schoolid_loggedin = $_SESSION['school_id'];
+            $current_schoolid_loggedin = $_SESSION['sid'];   
 
-            $sql = "SELECT password FROM user WHERE school_id=?";
+            $sql = "SELECT password FROM user WHERE school_id=?";  
             $stmt = $conn->prepare($sql); 
             $stmt->bind_param("s", $current_schoolid_loggedin);
             $stmt->execute();
@@ -54,19 +57,21 @@
                         $sql = $conn->prepare("UPDATE user SET password = ? WHERE school_id = ?");
                         $sql->bind_param('ss', $passw, $current_schoolid_loggedin);
                         $sql->execute();
-
-                        header("Location: change-password?success=Password has been changed.");  
+                        $_SESSION['success'] = "Password has been changed.";
+                        header("Location: ../../../layout/admin.php");  
                     } 
             } else{
-                header("Location: change-password?error=Current password is incorrect.");
+                $_SESSION['error'] = "Current password is incorrect.";
+                header("Location: ../../../layout/admin.php");
                 exit();
             }
         }
-    }elseif(!isset($_SESSION['loggedin'])) {
-        header('Location: ../page_403');    //if user is trying to access page without logging in
+    }elseif(!isset($_SESSION['sid'])) {
+        header('Location: ../../../404.php'); //if user is trying to access page without logging in -- pupunta ng 404.php
         exit;
     } else{
-            header("Location: "); //insert location for change password page
+        $_SESSION['error'] = "Password is required.";
+        header("Location: ../../../layout/admin.php"); //insert location for change password page -- pupunta ng security.php
     }
 }
 

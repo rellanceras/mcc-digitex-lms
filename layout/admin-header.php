@@ -2,11 +2,11 @@
     session_start();  
     if(!$_SESSION['sid'])  
     {  
-    
-        header("Location: ../404.php");//redirect to the login page to secure the welcome page without login access.  
+        header("Location: ../admin/logout.php");//redirect to the login page to secure the welcome page without login access.  
     }
     include('../config.php');
     $sid = $_SESSION['sid'];
+
     $sql = "SELECT * FROM user WHERE school_id = '$sid'";
 
     $result = mysqli_query($conn,$sql);

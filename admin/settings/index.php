@@ -21,22 +21,22 @@
     </div>
     <div class="block">
         <ul class="d-flex flex-row list-unstyled align-items-center gap-3 m-2 subnav">
-            <li class="subnav_active sn_link">
+            <li class="subnav_active sn_link general">
                 <a class="nav-link" data-page="general">
                     General
                 </a>
             </li>
-            <li class="subnav_select sn_link">
+            <li class="subnav_select sn_link security">
                 <a class="nav-link" data-page="security">
                     Security and Login
                 </a>
             </li>
-            <li class="subnav_select sn_link">
+            <li class="subnav_select sn_link appearance">
                 <a class="nav-link" data-page="appearance">
                     Appearance
                 </a>
             </li>
-            <li class="subnav_select sn_link">
+            <li class="subnav_select sn_link archive">
                 <a class="nav-link" data-page="archive">
                     Archive
                 </a>
@@ -50,6 +50,12 @@
 </div>
 
 <script>
+
+function get_subPage() {
+    const currentPage = localStorage.getItem("settpage") || "general";
+    return currentPage;
+}
+
 $(document).ready(function(){
     $.ajax({
         type: 'GET',
@@ -57,8 +63,31 @@ $(document).ready(function(){
         dataType: 'html',
     }).done(function(response) {
         var data = JSON.parse(response)
-        $('#pageContent').load(data[0]['settings'].general);
+        $('.sn_link').removeClass('subnav_active');
+        switch(get_subPage()) {
+            case 'security':
+                $('#pageContent').load(data[0].settings.security);
+                $('.security').addClass('subnav_active');
+                $('.security').removeClass('subnav_select');
+                break;
+            case 'appearance':
+                $('#pageContent').load(data[0].settings.appearance);
+                $('.appearance').addClass('subnav_active');
+                $('.appearance').removeClass('subnav_select');
+                break;
+            case 'archive':
+                $('#pageContent').load(data[0].settings.archive);
+                $('.archive').addClass('subnav_active');
+                $('.archive').removeClass('subnav_select');
+                break;
+            default:
+                $('#pageContent').load(data[0].settings.general);
+                $('.general').addClass('subnav_active');
+                $('.general').removeClass('subnav_select');
+            }
+        $('#setSubPage').text(get_subPage().charAt(0).toUpperCase() + get_subPage().slice(1));
         document.title = 'Settings | DigiTeach LMS';
+        
     });
 
     //display Current Active Year
@@ -74,9 +103,10 @@ $(document).ready(function(){
 
     $('.sn_link').click(function() {
         var page = $(this).find('a').attr('data-page');
-        $('.sn_link').addClass('subnav_select');
-        $('.sn_link').removeClass('subnav_active');
 
+        $('.sn_link').removeClass('subnav_active');
+        $('.sn_link').addClass('subnav_select');
+        
         $(this).addClass('subnav_active');
         $(this).removeClass('subnav_select');
         $.ajax({
@@ -86,21 +116,19 @@ $(document).ready(function(){
         }).done(function(response) {
             var data = JSON.parse(response)
             switch(page) {
-                case 'general':
-                    $('#pageContent').load(data[0].settings.general);
-                    break;
                 case 'security':
-                    $('#pageContent').load(data[0].settings.security);
-                    break;
-                case 'appearance':
-                    $('#pageContent').load(data[0].settings.appearance);
-                    break;
-                case 'archive':
-                    $('#pageContent').load(data[0].settings.archive);
-                    break;
-                default:
-                    $('#pageContent').load(data[0].settings.general);
+                $('#pageContent').load(data[0].settings.security);
+                break;
+            case 'appearance':
+                $('#pageContent').load(data[0].settings.appearance);
+                break;
+            case 'archive':
+                $('#pageContent').load(data[0].settings.archive);
+                break;
+            default:
+                $('#pageContent').load(data[0].settings.general);
             }
+            localStorage.setItem("settpage", page);
             $('#setSubPage').text(page.charAt(0).toUpperCase() + page.slice(1));
         });
     });

@@ -1,11 +1,11 @@
 
-<button type="button" class="btn-action" id="addBtn" data-bs-toggle="modal" data-bs-target="#addevent">ADD EVENT</button>
+<button type="button" class="btn-action" id="addBtn" data-bs-toggle="modal" data-bs-target="#addeventIns">ADD EVENT</button>
 <br/><br/><br/>
 <div id="evoCalendar"></div>
 
 
 <!-- Add Event Modal -->
-<div class="modal fade" id="addevent" tabindex="-1" aria-labelledby="AddModalLabel" aria-hidden="true">
+<div class="modal fade" id="addeventIns" tabindex="-1" aria-labelledby="AddModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
