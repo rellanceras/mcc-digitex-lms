@@ -20,18 +20,19 @@ function update_active_year($id){
     }
 }
 
-function create_academic_year($name,$year,$semester){
+function create_academic_year($name,$yearStart,$yearEnd,$semester){
     require_once "../../../config.php";
             // Prepare an insert statement
-            $sql = "INSERT INTO academic_year (name, acad_year, semester) VALUES (?, ?, ?)"; 
+            $sql = "INSERT INTO academic_year (name, startYear, endYear, semester) VALUES (?, ?, ?, ?)"; 
             
             if($stmt = mysqli_prepare($conn, $sql)){
                 // Bind variables to the prepared statement as parameters
-                mysqli_stmt_bind_param($stmt, "sss", $param_name, $param_year, $param_semester);
+                mysqli_stmt_bind_param($stmt, "ssss", $param_name, $param_startYear, $param_endYear, $param_semester);
                 
                 // Set parameters
                 $param_name = $name;
-                $param_year = $year;
+                $param_startYear = $yearStart;
+                $param_endYear = $yearEnd;
                 $param_semester = $semester;
                 
                 // Attempt to execute the prepared statement
@@ -49,9 +50,9 @@ function create_academic_year($name,$year,$semester){
     
 }
 
-function update_academic_year($id,$name,$year,$semester){
+function update_academic_year($id,$name,$yearStart,$yearEnd,$semester){
     require_once "../../../config.php";
-    $sql = "UPDATE academic_year SET name='$name', acad_year='$year', semester='$semester' WHERE id='$id'";
+    $sql = "UPDATE academic_year SET name='$name', startYear='$yearStart', endYear='$yearEnd', semester='$semester' WHERE id='$id'";
 
     if($stmt = mysqli_prepare($conn, $sql)){
         
@@ -86,8 +87,7 @@ if(isset($_POST['activeID'])){
 if(isset($_POST['startYear'],$_POST['endYear'],$_POST['sem'])){
     if($_POST['endYear']-$_POST['startYear']==1){
         $yearsem = $_POST['startYear']."-".$_POST['endYear']." ".$_POST['sem'];
-        $year = $_POST['startYear']."-".$_POST['endYear'];
-        create_academic_year($yearsem,$year,$_POST['sem']);
+        create_academic_year($yearsem,$_POST['startYear'],$_POST['endYear'],$_POST['sem']);
     }
     else{
         echo "Response.Write('<script language='javascript'>window.alert('Invalid Academic Year');window.location='../../../layout/admin.php';</script>');";
@@ -104,8 +104,8 @@ if(isset($_POST['delID'])){
 if(isset($_POST['editID'],$_POST['editStartYear'],$_POST['editEndYear'],$_POST['editSem'])){
     if($_POST['editEndYear']-$_POST['editStartYear']==1){
         $yearsem = $_POST['editStartYear']."-".$_POST['editEndYear']." ".$_POST['editSem'];
-        $year = $_POST['editStartYear']."-".$_POST['editEndYear'];
-        update_academic_year($_POST['editID'],$yearsem,$year,$_POST['editSem']);
+        //$year = $_POST['editStartYear']."-".$_POST['editEndYear'];
+        update_academic_year($_POST['editID'],$yearsem,$_POST['editStartYear'],$_POST['editEndYear'],$_POST['editSem']);
     }
     else{
         echo "Response.Write('<script language='javascript'>window.alert('Invalid Academic Year');window.location='../../../layout/admin.php';</script>');";

@@ -10,7 +10,7 @@ while ($row = $query->fetch_assoc()) {
     $result[] = [
         $row['id'],
         $row['name'],
-        $row['acad_year'],
+        $acadYear = $row['startYear']."-".$row['endYear'],
         $row['semester'],
         $row['archived']
     ];
