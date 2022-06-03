@@ -4,7 +4,7 @@
         "class" : {
             "classIndex" : "../instructor/class/index.php",
             "viewclass" : "../instructor/class/view_class.php",
-            "addclass" : "../instructor/class/add_class.php"
+            "classdetails" : "../instructor/class/class_details.php"
         },
         "grades" : {
             "gradesIndex" : "../instructor/grades/index.php",

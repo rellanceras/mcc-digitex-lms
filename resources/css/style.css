@@ -176,19 +176,34 @@ p {
 }
 
 
+/* .accord .material-icons::after {
+    content: "expand_less";
+}
 
+.accord.collapsed .material-icons::after {
+    content: "expand_more";
+} */
 
+.accord .material-icons {
+    transition: all 0.3s ease;
+}
+
+.accord.collapsed .material-icons {
+    transform: rotate(180deg);
+}
 
 
 
 
 
 .sidebar {
-    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
 }
 
 .right-col {
-    width: 300px;
+    min-width: 300px;
+    max-width: 300px;
 }
 #calendar {
     max-height: 600px;
@@ -383,4 +398,22 @@ table.dataTable tfoot td {
 
 .limited {
     max-width: 900px;
+}
+
+
+
+
+.card-img-overlay{
+    padding-top: 135px;
+    padding-left: 10px;
+}
+
+.course_card{
+    width: 17em;
+
+}
+
+.course_card .card-img-top{
+    height: 150px;
+    object-fit: cover;
 }

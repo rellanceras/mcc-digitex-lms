@@ -1,51 +1,192 @@
-<nav class="block2" style="width:100px">
-        <span class="breadcrumb px-4 py-2 m-0">
-        <span class="material-icons">grid_view</span> <span class="material-icons">expand_more</span>
-        </span>
-    </nav>
+<div class="d-none d-xl-block btn-group mb-5" role="group">
+    <button type="button" class="btn btn-sm btn-light"><span class="material-icons" style="padding-top:5px;padding-left:5px;">grid_view</span></button>
+    <button type="button" class="btn btn-sm btn-light"><span class="material-icons" style="padding-top:5px;padding-right:5px;">list</span></button>
+</div>
 
-    <div class="block p-4">
-        <h4>Current Courses</h4>
+<!-- Mobile version -->
+<div class="d-xl-none d-flex flex-column gap-5">
+    <div class="">
+        <h5 class="mb-3 fw-bold">Current Courses</h5>
         <hr>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
-    <div class="card block-sm nav_select">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
+        <div class="d-flex flex-column gap-3">
+            <a class="text-decoration-none classes" data-page="classdetails">
+                <div class="d-flex gap-3 p-3 block-sm">
+                    <span class="fw-bold m-0">GEC-0001</span>
+                    <span class="vr"></span>
+                    Advanced Mathematics
+                </div>
+            </a>
+            <a class="text-decoration-none classes" data-page="classdetails">
+                <div class="d-flex gap-3 p-3 block-sm">
+                    <span class="fw-bold m-0">GEC-0001</span>
+                    <span class="vr"></span>
+                    Advanced Mathematics
+                </div>
+            </a>
+            <a class="text-decoration-none classes" data-page="classdetails">
+                <div class="d-flex gap-3 p-3 block-sm">
+                    <span class="fw-bold m-0">GEC-0001</span>
+                    <span class="vr"></span>
+                    Advanced Mathematics
+                </div>
+            </a>
+            <a class="text-decoration-none classes" data-page="classdetails">
+                <div class="d-flex gap-3 p-3 block-sm">
+                    <span class="fw-bold m-0">GEC-0001</span>
+                    <span class="vr"></span>
+                    Advanced Mathematics
+                </div>
+            </a>
+        </div>
     </div>
-  </div>
-  <div class="col">
-    <div class="card block-sm nav_select">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
+    <div class="">
+        <h5 class="mb-3 fw-bold">Previous Courses</h5>
+        <hr>
+        <div class="d-flex flex-column gap-3">
+            <a class="text-decoration-none classes" data-page="classdetails">
+                <div class="d-flex gap-3 p-3 block-sm">
+                    <span class="fw-bold m-0">GEC-0001</span>
+                    <span class="vr"></span>
+                    Advanced Mathematics
+                </div>
+            </a>
+            <a class="text-decoration-none classes" data-page="classdetails">
+                <div class="d-flex gap-3 p-3 block-sm">
+                    <span class="fw-bold m-0">GEC-0001</span>
+                    <span class="vr"></span>
+                    Advanced Mathematics
+                </div>
+            </a>
+            <a class="text-decoration-none classes" data-page="classdetails">
+                <div class="d-flex gap-3 p-3 block-sm">
+                    <span class="fw-bold m-0">GEC-0001</span>
+                    <span class="vr"></span>
+                    Advanced Mathematics
+                </div>
+            </a>
+            <a class="text-decoration-none classes" data-page="classdetails">
+                <div class="d-flex gap-3 p-3 block-sm">
+                    <span class="fw-bold m-0">GEC-0001</span>
+                    <span class="vr"></span>
+                    Advanced Mathematics
+                </div>
+            </a>
+        </div>
     </div>
-  </div>
-  <!-- <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div> -->
 </div>
-        
+
+<!-- Desktop version -->
+<div class="d-none d-xl-flex flex-column gap-5">
+    <div class="">
+        <h5 class="mb-3 fw-bold">Current Courses</h5>
+        <hr>
+        <div class="d-flex gap-3 flex-wrap">
+            <a class="text-decoration-none classes" data-page="classdetails">
+                <div class="card course_card block2" style="overflow:hidden;">
+                    <img src="../resources/img/img_course.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3 fw-bold">GEC-0001</h5>
+                        <h6 class="card-text">Advanced Mathematics</h6>
+                    </div>
+                </div>
+            </a>
+            <a class="text-decoration-none classes" data-page="classdetails">
+                <div class="card course_card block2" style="overflow:hidden;">
+                    <img src="../resources/img/img_course.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3 fw-bold">GEC-0001</h5>
+                        <h6 class="card-text">Advanced Mathematics</h6>
+                    </div>
+                </div>
+            </a>
+            <a class="text-decoration-none classes" data-page="classdetails">
+                <div class="card course_card block2" style="overflow:hidden;">
+                    <img src="../resources/img/img_course.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3 fw-bold">GEC-0001</h5>
+                        <h6 class="card-text">Advanced Mathematics</h6>
+                    </div>
+                </div>
+            </a>
+            <a class="text-decoration-none classes" data-page="classdetails">
+                <div class="card course_card block2" style="overflow:hidden;">
+                    <img src="../resources/img/img_course.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3 fw-bold">GEC-0001</h5>
+                        <h6 class="card-text">Advanced Mathematics</h6>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="">
+        <h5 class="mb-3 fw-bold">Previous Courses</h5>
+        <hr>
+        <div class="d-flex gap-3 flex-wrap">
+            <a class="text-decoration-none classes" data-page="classdetails">
+                <div class="card course_card block2" style="overflow:hidden;">
+                    <img src="../resources/img/img_course.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3 fw-bold">GEC-0001</h5>
+                        <h6 class="card-text">Advanced Mathematics</h6>
+                    </div>
+                </div>
+            </a>
+            <a class="text-decoration-none classes" data-page="classdetails">
+                <div class="card course_card block2" style="overflow:hidden;">
+                    <img src="../resources/img/img_course.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3 fw-bold">GEC-0001</h5>
+                        <h6 class="card-text">Advanced Mathematics</h6>
+                    </div>
+                </div>
+            </a>
+            <a class="text-decoration-none classes" data-page="classdetails">
+                <div class="card course_card block2" style="overflow:hidden;">
+                    <img src="../resources/img/img_course.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3 fw-bold">GEC-0001</h5>
+                        <h6 class="card-text">Advanced Mathematics</h6>
+                    </div>
+                </div>
+            </a>
+            <a class="text-decoration-none classes" data-page="classdetails">
+                <div class="card course_card block2" style="overflow:hidden;">
+                    <img src="../resources/img/img_course.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3 fw-bold">GEC-0001</h5>
+                        <h6 class="card-text">Advanced Mathematics</h6>
+                    </div>
+                </div>
+            </a>
+        </div>
     </div>
 </div>
-</div>
+
+
+
+
+
+<script>
+    $(document).ready(function(){
+        $('.classes').click(function() {
+            var page = $(this).attr('data-page');
+            console.log(page);
+            $.ajax({
+                type: 'GET',
+                url: '../instructor/navInstructor.json',
+                dataType: 'html',
+            }).done(function(response) {
+                var data = JSON.parse(response)
+                switch(page) {
+                    case 'classdetails':
+                        $('#mainContent').load(data[0].class.classdetails);
+                        break;
+                    default:
+                        $('#mainContent').load(data[0].class.viewclass);
+                }
+                $('#setSubPage').text("");
+            });
+        });
+    });
+</script>

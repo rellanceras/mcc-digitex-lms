@@ -5,54 +5,55 @@
 -->
 <!-- Page Content -->
 <div class="container">
-<div class="row">
-
-<div class="card col gradeblock block-sm nav_select" data-page="viewgrades" id="btn_grades">
-<div class="px-4 pt-4 gradecard">
-    <h3 class="mb-3 fw-bold">
-        <div class="d-flex align-items-center">
-            <i class="bi bi-people-fill"></i>
+    <div class="row">
+        <div class="card col gradeblock block-sm nav_select" data-page="viewgrades" id="btn_grades">
+            <div class="px-4 pt-4 gradecard">
+                <h3 class="mb-3 fw-bold">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                </h3>
+            </div>
+            <nav class="bread_block">
+                <ol class="breadcrumb px-4 py-2 m-0">
+                    <li class="breadcrumb-item"><a class="text-decoration-none">GEC-0001</a></li>
+                    <li class="breadcrumb-item"><a class="text-decoration-none">Advance Mathematics</a></li>
+                </ol>
+            </nav>
         </div>
-    </h3>
-</div>
-<nav class="bread_block">
-    <ol class="breadcrumb px-4 py-2 m-0">
-        <li class="breadcrumb-item"><a class="text-decoration-none">GEC-0001</a></li>
-        <li class="breadcrumb-item"><a class="text-decoration-none">Advance Mathematics</a></li>
-    </ol>
-</nav>
-</div>
-
-<div class="card col gradeblock block-sm nav_select" data-page="viewgrades" id="btn_grades">
-<div class="px-4 pt-4 gradecard">
-    <h3 class="mb-3 fw-bold">
-        <div class="d-flex align-items-center">
-            <i class="bi bi-people-fill"></i>
+        &nbsp;
+        <div class="card col gradeblock block-sm nav_select" data-page="viewgrades" id="btn_grades">
+            <div class="px-4 pt-4 gradecard">
+                <h3 class="mb-3 fw-bold">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                </h3>
+            </div>
+            <nav class="bread_block">
+                <ol class="breadcrumb px-4 py-2 m-0">
+                    <li class="breadcrumb-item"><a class="text-decoration-none">GEC-0001</a></li>
+                    <li class="breadcrumb-item"><a class="text-decoration-none">Advance Mathematics</a></li>
+                </ol>
+            </nav>
         </div>
-    </h3>
-</div>
-<nav class="bread_block">
-    <ol class="breadcrumb px-4 py-2 m-0">
-        <li class="breadcrumb-item"><a class="text-decoration-none">GEC-0001</a></li>
-        <li class="breadcrumb-item"><a class="text-decoration-none">Advance Mathematics</a></li>
-    </ol>
-</nav>
-</div>
-
-<div class="card col gradeblock block-sm nav_select" data-page="viewgrades" id="btn_grades">
-<div class="px-4 pt-4 gradecard"> 
-    <h3 class="mb-3 fw-bold">
-        <div class="d-flex align-items-center">
-            <i class="bi bi-people-fill"></i>
+        &nbsp;
+        <div class="card col gradeblock block-sm nav_select" data-page="viewgrades" id="btn_grades">
+            <div class="px-4 pt-4 gradecard"> 
+                <h3 class="mb-3 fw-bold">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                </h3>
+            </div>
+            <nav class="bread_block">
+                <ol class="breadcrumb px-4 py-2 m-0">
+                    <li class="breadcrumb-item"><a class="text-decoration-none">GEC-0001</a></li>
+                    <li class="breadcrumb-item"><a class="text-decoration-none">Advance Mathematics</a></li>
+                </ol>
+            </nav>
         </div>
-    </h3>
-</div>
-<nav class="bread_block">
-    <ol class="breadcrumb px-4 py-2 m-0">
-        <li class="breadcrumb-item"><a class="text-decoration-none">GEC-0001</a></li>
-        <li class="breadcrumb-item"><a class="text-decoration-none">Advance Mathematics</a></li>
-    </ol>
-</nav>
+    </div>
 </div>
 
 <!-- Modal Add-->
