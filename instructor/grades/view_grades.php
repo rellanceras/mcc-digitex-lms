@@ -27,7 +27,7 @@
     <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#myModal">
         <i class="fa fa-file-pdf-o"></i> Save to PDF
     </button>
-        
+    <br><br>
     <table id="viewAcadYear" class="display table table-bordered">
         <thead>
             <tr>
@@ -75,7 +75,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Are you sure you want to save this to PDF?
+                <h6>Are you sure you want to save this to PDF?</h6>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary">Save</button>
@@ -95,8 +95,10 @@
             <div class="modal-body">
                 <label>Quiz Grade </label>
                 <input name="year" class="form-control block-sm"/>
+                <br>
                 <label>Exam Grade </label>
                 <input name="semester" class="form-control block-sm"/>
+                <br>
                 <label>Final Grade </label>
                 <input name="semester" class="form-control block-sm"/>
             </div>

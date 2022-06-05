@@ -4,7 +4,14 @@
         "class" : {
             "classIndex" : "../instructor/class/index.php",
             "viewclass" : "../instructor/class/view_class.php",
-            "classdetails" : "../instructor/class/class_details.php"
+            "classdetails" : "../instructor/class/class_details.php",
+            "subIndex" : "../instructor/class/sub_index.php",
+            "all" : "../instructor/class/all.php",
+            "announcements" : "../instructor/class/announcements.php",
+            "quizzes" : "../instructor/class/quizes.php",
+            "discussions" : "../instructor/class/discussions.php",
+            "links" : "../instructor/class/links.php",
+            "more" : "../instructor/class/more.php"
         },
         "grades" : {
             "gradesIndex" : "../instructor/grades/index.php",
