@@ -1,9 +1,10 @@
 <?php 
 
-require_once($_SERVER['DOCUMENT_ROOT'] . '/mcc-digitex-lms/config.php'); 
+	require_once('../../../config.php');
 
 if(isset($_POST["addSub"])){
 
+$acad_year_id = $_POST['ay'];
 $subject_code = $_POST['scode'];
 $subject_name = $_POST['sname'];
 $department = $_POST['dept'];
@@ -13,8 +14,8 @@ $duplicate=mysqli_query($conn,"select * from `subject` where subject_code='$subj
 $count = mysqli_num_rows($duplicate);
 
 if($count == 0){
-$sql = "INSERT INTO `subject` (`subject_code`,`subject_name`,`department`,`subject_description`) 
-	VALUES ('$subject_code','$subject_name','$department','$description')";
+$sql = "INSERT INTO `subject` (`subject_code`,`subject_name`,`department`,`subject_description`,`acad_year_id`) 
+	VALUES ('$subject_code','$subject_name','$department','$description','$acad_year_id')";
 
 	$query_run = mysqli_query($conn, $sql);
 	if($query_run){
