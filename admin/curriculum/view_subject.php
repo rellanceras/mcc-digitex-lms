@@ -4,8 +4,7 @@
 
 -->
 <?php
-	//include("config.php");
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/mcc-digitex-lms/config.php'); 
+	require_once('../../config.php');
 ?>
 
 
@@ -29,7 +28,17 @@
     <tbody>  
         <?php 
             
-            $sql = "SELECT * FROM subject";
+			$sql = "SELECT * FROM academic_year WHERE archived=0 && active=1";
+			
+			$query = $conn->query($sql);
+			$result = [];
+			$result2;
+			while ($row1 = $query->fetch_assoc()) {
+				$result = [
+				$ay=$row1['acad_year']
+				];
+										
+            $sql = "SELECT * FROM subject WHERE acad_year_id = '$ay'";
             $res_data = mysqli_query($conn,$sql);
             
             while($row=mysqli_fetch_assoc($res_data))
@@ -42,7 +51,7 @@
             <td><?php echo $row["subject_name"]; ?></td>
             <td><?php echo $row["subject_code"]; ?></td>
             <td><?php echo $row["department"]; ?></td>
-            <td hidden><?php echo $row["acad_year_id"]; ?></td>
+            <td hidden><?php echo $ay ?></td>
             <td style="text-align:center">
                 <button type="button" class="btn bi bi-pen btn-primary editSub" data-bs-toggle="modal" data-bs-target="#editModal"></button>
                 <button type="button" class="btn bi bi-trash btn-danger deleteSub" data-bs-toggle="modal" data-bs-target="#deleteModal"></button>
@@ -50,6 +59,7 @@
         </tr>
         
         <?php
+            }
             }
         ?>
     </tbody>
@@ -65,6 +75,8 @@
             </div>
 			<form action="../admin/curriculum/functions/CRUD_subject.php" method="POST">
             <div class="modal-body">
+				<label>Academic Year</label>
+                <input name="ay" class="form-control" value="<?php echo $ay?>" readonly/>
                 <label>Subject Code</label>
                 <input name="scode" class="form-control block"/>
                 <label>Subject Name </label>
@@ -115,6 +127,7 @@
                 <input name="subjectCode" id="subjectCode" class="form-control block" required/>
 				<label>Department </label>
                 <input name="department" id="department" class="form-control block" required/>
+                <input name="acad_year" id="acad_year" class="form-control" value="<?php echo $ay?>" readonly hidden/>
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary" name="editSub">Save</button>
