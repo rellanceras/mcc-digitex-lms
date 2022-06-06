@@ -3,7 +3,11 @@
     <div class="p-3 block2">
         <a href="#jun12022" class="accord d-flex justify-content-between btn w-100" data-bs-toggle="collapse" role="button">
             <span class="fw-bold fs-6">Announcement</span>
-            <span class="material-icons">close</span>
+            <div>
+                <button class="material-icons btn btn-sm btn-default">more_horiz</button>         
+                <button class="material-icons btn btn-sm btn-default ">close</button>
+            </div>
+            
         </a>
         <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex p-3 gap-3 text-start">
@@ -13,28 +17,54 @@
                 </p> 
             </div>
         </div>
-        <p class="d-flex align-items-right gap-2 m-0">Posted on &nbsp;<span class="fst-italic fw-bold">January 23, 2022</span></p>
+        <p class="text-end mb-3">Posted on&nbsp;<span class="fst-italic fw-bold">January 23, 2022</span></p>
         <hr>
     </div>
 
     <div class="p-3 block2">
         <div class="accord d-flex justify-content-between btn w-100" data-bs-toggle="collapse">
             <span class="fw-bold fs-6">Quiz</span>
-            <span class="material-icons">close</span>
+            <div>
+                <button class="material-icons btn btn-sm btn-default">more_horiz</button>         
+                <button class="material-icons btn btn-sm btn-default ">close</button>
+            </div>
         </div>
         <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex p-3 gap-3 text-start">
                 <p class="m-0">
-                    Type of Test: <br/>
-                    Due Date: <br/>
-                    Total Points: <br/> 
-                </p> 
+                Due Date: June 5, 2022 <br/>
+                Test Types: Multiple Choice, True or False, Essay <br/>
+                Total Score: 100 points </br>
+            </p>
+            
             </div>
-            <button onclick="myFunction()" id="myBtn" class="btn btn-sm btn-default">Read more</button> 
+            <div class="text-start">
+            <button onclick="myFunction()" id="myBtn" class="btn btn-sm btn-default">Read more</button>
+            </div>
         </div>
-        <p class="d-flex align-items-right gap-2 m-0">Posted on &nbsp;<span class="fst-italic fw-bold">January 23, 2022</span></p>
+        <p class="text-end mb-3">Posted on&nbsp;<span class="fst-italic fw-bold">January 23, 2022</span></p>
         <hr>
     </div>
+    <div class="p-3 block2">
+        <a href="#jun12022" class="accord d-flex justify-content-between btn w-100" data-bs-toggle="collapse" role="button">
+            <span class="fw-bold fs-6">Announcement</span>
+            <div>
+                <button class="material-icons btn btn-sm btn-default">more_horiz</button>         
+                <button class="material-icons btn btn-sm btn-default ">close</button>
+            </div>
+            
+        </a>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex p-3 gap-3 text-start">
+                <p class="m-0">
+                    Message... <br/>
+                    Message... 
+                </p> 
+            </div>
+        </div>
+        <p class="text-end mb-3">Posted on&nbsp;<span class="fst-italic fw-bold">January 23, 2022</span></p>
+        <hr>
+    </div>    
 </div>
 
 <script>
