@@ -151,11 +151,11 @@
                             </div>
                         </a>
                     </li>
-                    <li class="nav-item nav_select sb_link class">
-                        <a class="nav-link text-reset" data-page="class">
+                    <li class="nav-item nav_select sb_link courses">
+                        <a class="nav-link text-reset" data-page="courses">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons">class</span>
-                                <span class="nav_label ms-3">Class</span>
+                                <span class="nav_label ms-3">Courses</span>
                             </div>
                         </a>
                     </li>
@@ -231,11 +231,11 @@
                         </div>
                     </a>
                 </li>
-                <li class="nav-item nav_select sb_link class">
-                    <a class="nav-link text-reset tool_tip" data-page="class" data-bs-toggle="tooltip" data-bs-placement="right" title="Class">
+                <li class="nav-item nav_select sb_link course">
+                    <a class="nav-link text-reset tool_tip" data-page="courses" data-bs-toggle="tooltip" data-bs-placement="right" title="Courses">
                         <div class="d-flex align-items-center justify-content-center nav_link">
                             <span class="material-icons material-icons-round">class</span>
-                            <span class="nav_label ms-3">Class</span>
+                            <span class="nav_label ms-3">Courses</span>
                         </div>
                     </a>
                 </li>
@@ -495,10 +495,10 @@ function init_page() {
                 $('.curriculum').addClass('nav_active');
                 $('.curriculum').removeClass('nav_select');
                 break;
-            case 'class':
-                $('#mainContent').load(data[0].class.classIndex);
-                $('.class').addClass('nav_active');
-                $('.class').removeClass('nav_select');
+            case 'courses':
+                $('#mainContent').load(data[0].course.courseIndex);
+                $('.courses').addClass('nav_active');
+                $('.courses').removeClass('nav_select');
                 break;
             case 'grades':
                 $('#mainContent').load(data[0].grades.gradesIndex);
@@ -536,10 +536,10 @@ function init_page() {
         }).done(function(response) {
             var data = JSON.parse(response)
             switch(page) {
-                case 'class':
-                    $('#mainContent').load(data[0].class.classIndex);
-                    $('.class').addClass('nav_active');
-                    $('.class').removeClass('nav_select');
+                case 'courses':
+                    $('#mainContent').load(data[0].course.courseIndex);
+                    $('.courses').addClass('nav_active');
+                    $('.courses').removeClass('nav_select');
                     break;
                 case 'grades':
                     $('#mainContent').load(data[0].grades.gradesIndex);

@@ -68,7 +68,7 @@ $(document).ready(function(){
         dataType: 'html',
     }).done(function(response) {
         var data = JSON.parse(response)
-        $('#pageContent').load(data[0]['class'].all);
+        $('#pageContent').load(data[0]['course'].all);
     });
 
     $('.sn_link').click(function() {
@@ -86,25 +86,25 @@ $(document).ready(function(){
             var data = JSON.parse(response)
             switch(page) {
                 case 'all':
-                    $('#pageContent').load(data[0].class.all);
+                    $('#pageContent').load(data[0].course.all);
                     break;
                 case 'announcements':
-                    $('#pageContent').load(data[0].class.announcements);
+                    $('#pageContent').load(data[0].course.announcements);
                     break;
                 case 'quizzes':
-                    $('#pageContent').load(data[0].class.quizzes);
+                    $('#pageContent').load(data[0].course.quizzes);
                     break;
                 case 'discussions':
-                    $('#pageContent').load(data[0].class.discussions);
+                    $('#pageContent').load(data[0].course.discussions);
                     break;
                 case 'links':
-                    $('#pageContent').load(data[0].class.links);
+                    $('#pageContent').load(data[0].course.links);
                     break;
                 case 'more':
-                    $('#pageContent').load(data[0].class.more);
+                    $('#pageContent').load(data[0].course.more);
                     break;
                 default:
-                    $('#pageContent').load(data[0].classdetails.all);
+                    $('#pageContent').load(data[0].coursedetails.all);
             }
             $('#setSubPage').text(page.charAt(0).toUpperCase() + page.slice(1));
         });

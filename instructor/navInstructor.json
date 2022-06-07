@@ -1,17 +1,17 @@
 [
     {
         "dashboard" : "../instructor/dashboard.php",
-        "class" : {
-            "classIndex" : "../instructor/class/index.php",
-            "viewclass" : "../instructor/class/view_class.php",
-            "classdetails" : "../instructor/class/class_details.php",
-            "subIndex" : "../instructor/class/sub_index.php",
-            "all" : "../instructor/class/all.php",
-            "announcements" : "../instructor/class/announcements.php",
-            "quizzes" : "../instructor/class/quizes.php",
-            "discussions" : "../instructor/class/discussions.php",
-            "links" : "../instructor/class/links.php",
-            "more" : "../instructor/class/more.php"
+        "course" : {
+            "courseIndex" : "../instructor/course/index.php",
+            "viewcourse" : "../instructor/course/view_course.php",
+            "coursedetails" : "../instructor/course/course_details.php",
+            "subIndex" : "../instructor/course/sub_index.php",
+            "all" : "../instructor/course/all.php",
+            "announcements" : "../instructor/course/announcements.php",
+            "quizzes" : "../instructor/course/quizes.php",
+            "discussions" : "../instructor/course/discussions.php",
+            "links" : "../instructor/course/links.php",
+            "more" : "../instructor/course/more.php"
         },
         "grades" : {
             "gradesIndex" : "../instructor/grades/index.php",

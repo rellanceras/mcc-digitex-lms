@@ -9,28 +9,28 @@
         <h5 class="mb-3 fw-bold">Current Courses</h5>
         <hr>
         <div class="d-flex flex-column gap-3">
-            <a class="text-decoration-none classes" data-page="classdetails">
+            <a class="text-decoration-none courses" data-page="coursedetails">
                 <div class="d-flex gap-3 p-3 block-sm">
                     <span class="fw-bold m-0">GEC-0001</span>
                     <span class="vr"></span>
                     Advanced Mathematics
                 </div>
             </a>
-            <a class="text-decoration-none classes" data-page="classdetails">
+            <a class="text-decoration-none courses" data-page="coursedetails">
                 <div class="d-flex gap-3 p-3 block-sm">
                     <span class="fw-bold m-0">GEC-0001</span>
                     <span class="vr"></span>
                     Advanced Mathematics
                 </div>
             </a>
-            <a class="text-decoration-none classes" data-page="classdetails">
+            <a class="text-decoration-none courses" data-page="coursedetails">
                 <div class="d-flex gap-3 p-3 block-sm">
                     <span class="fw-bold m-0">GEC-0001</span>
                     <span class="vr"></span>
                     Advanced Mathematics
                 </div>
             </a>
-            <a class="text-decoration-none classes" data-page="classdetails">
+            <a class="text-decoration-none courses" data-page="coursedetails">
                 <div class="d-flex gap-3 p-3 block-sm">
                     <span class="fw-bold m-0">GEC-0001</span>
                     <span class="vr"></span>
@@ -43,28 +43,28 @@
         <h5 class="mb-3 fw-bold">Previous Courses</h5>
         <hr>
         <div class="d-flex flex-column gap-3">
-            <a class="text-decoration-none classes" data-page="classdetails">
+            <a class="text-decoration-none courses" data-page="coursedetails">
                 <div class="d-flex gap-3 p-3 block-sm">
                     <span class="fw-bold m-0">GEC-0001</span>
                     <span class="vr"></span>
                     Advanced Mathematics
                 </div>
             </a>
-            <a class="text-decoration-none classes" data-page="classdetails">
+            <a class="text-decoration-none courses" data-page="coursedetails">
                 <div class="d-flex gap-3 p-3 block-sm">
                     <span class="fw-bold m-0">GEC-0001</span>
                     <span class="vr"></span>
                     Advanced Mathematics
                 </div>
             </a>
-            <a class="text-decoration-none classes" data-page="classdetails">
+            <a class="text-decoration-none courses" data-page="coursedetails">
                 <div class="d-flex gap-3 p-3 block-sm">
                     <span class="fw-bold m-0">GEC-0001</span>
                     <span class="vr"></span>
                     Advanced Mathematics
                 </div>
             </a>
-            <a class="text-decoration-none classes" data-page="classdetails">
+            <a class="text-decoration-none courses" data-page="coursedetails">
                 <div class="d-flex gap-3 p-3 block-sm">
                     <span class="fw-bold m-0">GEC-0001</span>
                     <span class="vr"></span>
@@ -81,7 +81,7 @@
         <h5 class="mb-3 fw-bold">Current Courses</h5>
         <hr>
         <div class="d-flex gap-3 flex-wrap">
-            <a class="text-decoration-none classes" data-page="classdetails">
+            <a class="text-decoration-none courses" data-page="coursedetails">
                 <div class="card course_card block2" style="overflow:hidden;">
                     <img src="../resources/img/img_course.jpg" class="card-img-top">
                     <div class="card-body">
@@ -90,7 +90,7 @@
                     </div>
                 </div>
             </a>
-            <a class="text-decoration-none classes" data-page="classdetails">
+            <a class="text-decoration-none courses" data-page="coursedetails">
                 <div class="card course_card block2" style="overflow:hidden;">
                     <img src="../resources/img/img_course.jpg" class="card-img-top">
                     <div class="card-body">
@@ -99,7 +99,7 @@
                     </div>
                 </div>
             </a>
-            <a class="text-decoration-none classes" data-page="classdetails">
+            <a class="text-decoration-none courses" data-page="coursedetails">
                 <div class="card course_card block2" style="overflow:hidden;">
                     <img src="../resources/img/img_course.jpg" class="card-img-top">
                     <div class="card-body">
@@ -108,7 +108,7 @@
                     </div>
                 </div>
             </a>
-            <a class="text-decoration-none classes" data-page="classdetails">
+            <a class="text-decoration-none courses" data-page="coursedetails">
                 <div class="card course_card block2" style="overflow:hidden;">
                     <img src="../resources/img/img_course.jpg" class="card-img-top">
                     <div class="card-body">
@@ -123,7 +123,7 @@
         <h5 class="mb-3 fw-bold">Previous Courses</h5>
         <hr>
         <div class="d-flex gap-3 flex-wrap">
-            <a class="text-decoration-none classes" data-page="classdetails">
+            <a class="text-decoration-none courses" data-page="coursedetails">
                 <div class="card course_card block2" style="overflow:hidden;">
                     <img src="../resources/img/img_course.jpg" class="card-img-top">
                     <div class="card-body">
@@ -132,7 +132,7 @@
                     </div>
                 </div>
             </a>
-            <a class="text-decoration-none classes" data-page="classdetails">
+            <a class="text-decoration-none courses" data-page="coursedetails">
                 <div class="card course_card block2" style="overflow:hidden;">
                     <img src="../resources/img/img_course.jpg" class="card-img-top">
                     <div class="card-body">
@@ -141,7 +141,7 @@
                     </div>
                 </div>
             </a>
-            <a class="text-decoration-none classes" data-page="classdetails">
+            <a class="text-decoration-none courses" data-page="coursedetails">
                 <div class="card course_card block2" style="overflow:hidden;">
                     <img src="../resources/img/img_course.jpg" class="card-img-top">
                     <div class="card-body">
@@ -150,7 +150,7 @@
                     </div>
                 </div>
             </a>
-            <a class="text-decoration-none classes" data-page="classdetails">
+            <a class="text-decoration-none courses" data-page="coursedetails">
                 <div class="card course_card block2" style="overflow:hidden;">
                     <img src="../resources/img/img_course.jpg" class="card-img-top">
                     <div class="card-body">
@@ -169,7 +169,7 @@
 
 <script>
     $(document).ready(function(){
-        $('.classes').click(function() {
+        $('.courses').click(function() {
             var page = $(this).attr('data-page');
             console.log(page);
             $.ajax({
@@ -179,11 +179,11 @@
             }).done(function(response) {
                 var data = JSON.parse(response)
                 switch(page) {
-                    case 'classdetails':
-                        $('#mainContent').load(data[0].class.classdetails);
+                    case 'coursedetails':
+                        $('#mainContent').load(data[0].course.coursedetails);
                         break;
                     default:
-                        $('#mainContent').load(data[0].class.viewclass);
+                        $('#mainContent').load(data[0].course.viewcourse);
                 }
                 $('#setSubPage').text("");
             });
