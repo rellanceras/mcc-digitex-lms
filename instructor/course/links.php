@@ -140,7 +140,7 @@
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Upload Folder</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Create Folder</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -151,7 +151,7 @@
                 <textarea class="form-control" name="description" id="anctDesc" style="height: 200px; resize: none;"  required=""></textarea>
             </div>
             <div class="modal-footer d-flex justify-content-center">
-                <button type="button" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-primary">create</button>
             </div>
         </div>
     </div>
