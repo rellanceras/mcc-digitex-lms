@@ -41,7 +41,7 @@
                         <h3 class="mb-2 fw-bold">
                             Welcome to 
                         </h3>
-                        <img class="nav_label" src="resources/img/logov1-dark-trans.png" width="200px" height="auto" class="logo"/>
+                        <img class="nav_label logo" src="resources/img/logov1-dark-trans.png" width="200px" height="auto"/>
 
                         <p class="fst-italic">"Your own learning hub"</p>
                     </div>
@@ -60,21 +60,21 @@
                     <h3 class="mb-5 fw-bold d-none d-md-inline" id="login_greeting"></h3>
                     <img class="nav_label logo d-md-none" src="resources/img/logov1-trans.png" width="200px" height="auto" class="logo"/>
                 </div>
-                <form action = "login.php" method = "post">
+                <form>
                     <div class="mb-3">
                         <label for="Email" class="form-label">Email address or Username</label>
-                        <input type="email" class="form-control block-sm" id="username" name="username" aria-describedby="emailHelp" required>
+                        <input type="email" class="form-control block-sm" id="username" aria-describedby="emailHelp" required>
                     </div>
                     <div class="mb-3">
                         <label for="Password" class="form-label">Password</label>
                         <div class="d-flex align-items-center">
-                            <input type="password" class="form-control block-sm" id="password" name="password"required>
+                            <input type="password" class="form-control block-sm" id="password" required>
                             <span class="material-icons" id="show_pass" style="margin-left: -30px;">visibility_off</span>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-success w-100">Login</button>
                     <div class="text-center mt-3 f-pass">
-                        <a class="text-decoration-none" href="layout/">Forget Password?</a>
+                        <a class="text-decoration-none" href="admin/index.php">Forget Password?</a>
                     </div>
                 </form>
             </div>

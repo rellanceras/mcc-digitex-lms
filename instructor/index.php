@@ -244,11 +244,11 @@
                     </div>
                 </a>
             </li>
-            <li class="nav-item block_sm main_link link_curriculum nav_select tool_tip" data-bs-toggle="tooltip" data-bs-placement="right" title="Courses">
-                <a class="nav-link text-reset" href="#" data-page="curriculum">
+            <li class="nav-item block_sm main_link link_qbank nav_select tool_tip" data-bs-toggle="tooltip" data-bs-placement="right" title="Question Bank">
+                <a class="nav-link text-reset" href="#" data-page="qbank">
                     <div class="d-flex align-items-center justify-content-center gap-3 nav_link">
-                        <span class="material-icons">local_library</span>
-                        <span class="nav_label flex-grow-1">Curriculum</span>
+                        <span class="material-icons">quiz</span>
+                        <span class="nav_label flex-grow-1">Question Bank</span>
                     </div>
                 </a>
             </li>
@@ -260,11 +260,11 @@
                     </div>
                 </a>
             </li>
-            <li class="nav-item block_sm main_link link_users nav_select tool_tip" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar">
-                <a class="nav-link text-reset" href="#" data-page="users">
+            <li class="nav-item block_sm main_link link_grades nav_select tool_tip" data-bs-toggle="tooltip" data-bs-placement="right" title="Grades">
+                <a class="nav-link text-reset" href="#" data-page="grades">
                     <div class="d-flex align-items-center justify-content-center gap-3 nav_link">
-                        <span class="material-icons">manage_accounts</span>
-                        <span class="nav_label flex-grow-1">Users</span>
+                        <span class="material-icons">school</span>
+                        <span class="nav_label flex-grow-1">Grades</span>
                     </div>
                 </a>
             </li>
@@ -434,3 +434,4 @@
 
 </body>
 <?php include('footer.php'); ?>
+

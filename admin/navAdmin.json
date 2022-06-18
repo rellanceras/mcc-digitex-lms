@@ -1,34 +1,29 @@
 [
     {
-        "dashboard" : "../admin/dashboard.php",
+        "dashboard" : "dashboard.php",
         "curriculum" : {
-            "curriculumIndex" : "../admin/curriculum/index.php",
-            "all" : "../admin/curriculum/view_all.php",
-            "academicyear" : "../admin/curriculum/view_acadyear.php",
-            "subject" : "../admin/curriculum/view_subject.php",
-            "department" : "../admin/curriculum/view_department.php"
+            "index" : "curriculum/index.php",
+            "all" : "curriculum/view_all.php",
+            "acadyear" : "curriculum/view_acadyear.php",
+            "subject" : "curriculum/view_subject.php",
+            "department" : "curriculum/view_department.php"
         },
         "class" : {
-            "classIndex" : "../admin/class/index.php",
-            "viewclass" : "../admin/class/view_class.php",
-            "addclass" : "../admin/class/add_class.php"
+            "index" : "class/index.php",
+            "vclass" : "class/view_class.php",
+            "aclass" : "class/add_class.php"
         },
         "settings" : {
-            "settingsIndex" : "../admin/settings/index.php",
-            "general" : "../admin/settings/general.php",
-            "security" : "../admin/settings/security.php",
-            "appearance" : "../admin/settings/appearance.php",
-            "archive" : "../admin/settings/archive.php"
+            "index" : "settings/index.php",
+            "general" : "settings/general.php",
+            "security" : "settings/security.php",
+            "appearance" : "settings/appearance.php",
+            "archive" : "settings/archive.php"
         },
         "users" : {
-            "usersIndex" : "../admin/users/index.php",
-            "viewusers" : "../admin/users/view_users.php",
-            "addusers" : "../admin/users/add_users.php"
-        },
-        "calendar" : {
-            "calendarIndex" : "../admin/calendar/index.php",
-            "viewcalendar" : "../admin/calendar/view_calendar.php"
+            "index" : "users/index.php",
+            "vusers" : "users/view_users.php",
+            "ausers" : "users/add_users.php"
         }
-
     }
 ]

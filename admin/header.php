@@ -1,16 +1,3 @@
-<?php  
-
-session_start();  
-if(!$_SESSION['user'])  
-{  
-  
-    header("Location: /mcc-digitex-lms/404.php");//redirect to the login page to secure the welcome page without login access.  
-}  
-  
-
-  
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,32 +22,24 @@ if(!$_SESSION['user'])
 
     <!-- PLUGINS -->
         <!-- Calendar -->
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css"/>
-        <link rel="stylesheet" type="text/css" href="../resources/css/evo-calendar.css" />
-        <link rel="stylesheet" type="text/css" href="../resources/css/evo-calendar.royal-navy.css" />
         <link rel="stylesheet" href="../resources/css/calendarstyle.css" />
-        <link rel="stylesheet" href="../resources/css/theme.css" />
-
+        <link rel="stylesheet" href="../resources/css/calendartheme.css" />
         <!-- Date Range Picker -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
         <!-- Datatables -->
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css" type="text/css">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.4/css/select.dataTables.min.css">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.4.0/css/select.dataTables.min.css"/>
         <!-- Smart Wizard -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/css/smart_wizard_all.min.css" type="text/css" />
-        <!-- Year Picker -->
-        <link rel='stylesheet' href='../resources/css/yearpicker.css' />
-        
 
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../resources/css/style.css"/>
-    <link rel="stylesheet" id="themeCSS"/>
+    <!-- <link rel="stylesheet" id="themeCSS"/> -->
 
     
 </head>

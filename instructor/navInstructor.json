@@ -1,0 +1,36 @@
+[
+    {
+        "dashboard" : "dashboard.php",
+        "class" : {
+            "index" : "class/index.php",
+            "vclasslist" : "class/view_classlist.php",
+            "vclass" : "class/view_class.php",
+            "creq" : {
+                "all" : "class/view_all.php",
+                "vannouncement" : "class/view_announcement.php",
+                "vexamlist" : "class/view_examlist.php",
+                "vexam" : "class/view_exam.php",
+                "vdiscussion" : "class/view_discussion.php",
+                "vfiles" : "class/view_files.php",
+                "vexamform" : "class/view_examform.php",
+                "aannouncement" : "class/add_announcement.php",
+                "aexam" : "class/add_exam.php"
+            }
+        },
+        "grades" : {
+            "index" : "grades/index.php",
+            "viewgrades" : "grades/view_grades.php"
+        },
+        "settings" : {
+            "index" : "settings/index.php",
+            "general" : "settings/general.php",
+            "security" : "settings/security.php",
+            "appearance" : "settings/appearance.php",
+            "archive" : "settings/archive.php"
+        },
+        "qbank" : {
+            "index" : "qbank/index.php",
+            "viewqbank" : "qbank/view_qbank.php"
+        }
+    }
+]

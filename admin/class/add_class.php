@@ -1,4 +1,3 @@
-<!-- Page Content -->
 <form id="addClass" method="POST" action="">
     <div id="smartwizard">
         <ul class="nav">
@@ -503,6 +502,5 @@ function init_smartWizard() {
         
             
       });
-      
 }
 </script>
