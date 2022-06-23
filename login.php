@@ -33,7 +33,7 @@ session_start();
              if($account_type == "1"){
                $_SESSION['user'] = $wname;
                $_SESSION['sid'] = $sid;
-            header("location: layout/admin.php");
+            header("location: admin/index.php");
         }  else if($account_type == "2"){
                $_SESSION['user'] = $wname;
                $_SESSION['sid'] = $sid;

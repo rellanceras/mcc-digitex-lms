@@ -152,10 +152,10 @@
             var data = JSON.parse(response)
             switch(page) {
                 case 'addusers':
-                    $('#pageContent').load(data[0].users.addusers);
+                    $('#pageContent').load(data[0].users["ausers"]);
                     break;
                 default:
-                    $('#pageContent').load(data[0].users.viewusers);
+                    $('#pageContent').load(data[0].users["vusers"]);
             }
             $('#setSubPage').text("Add Users");
         });

@@ -9,12 +9,12 @@
 
 <!-- Page Content -->
                     
-<button type="button" class="btn btn-primary" style="margin-bottom: 1%;" data-bs-toggle="modal" data-bs-target="#createModal">
+<button type="button" class="btn btn-primary block_sm" style="margin-bottom: 1%;" data-bs-toggle="modal" data-bs-target="#createModal">
     Add Academic Year
 </button>
 
                     
-<table id="viewAcadYear" class="display table table-bordered" style="width:100%">
+<table id="viewAcadYear" class="display row-border" style="width:100%">
     <thead>
         <tr>
         <th>ID</th>
@@ -32,7 +32,7 @@
 <!-- Add Modal -->
 <div class="modal fade" id="createModal"  aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content block_md block_primary">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Add Academic Year</h5>
                 <a class="block2" data-bs-dismiss="modal" aria-label="Close"><span class="material-icons m-1">close</span></a>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="mb-3">
                     <label for=sem>Semester:</label>
-                    <select class="form-control block" id="sem" name="sem">
+                    <select class="form-control" id="sem" name="sem">
                         <option value="" disabled selected>Choose option</option>
                         <option value="1st Semester">1st Semester</option>
                         <option value="2nd Semester">2nd Semester</option>
@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary block_sm">Save</button>
             </div>
             </form>
         </div>
@@ -74,7 +74,7 @@
 <!--EDIT Modal -->
 <div class="modal fade" id="editModal"  aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content block_md block_primary">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Edit Academic Year</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -105,7 +105,7 @@
                     </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary block_sm">Save</button>
             </div>
         </form>
         </div>
@@ -115,7 +115,7 @@
 <!--DELETE Modal -->
 <div class="modal fade" id="deleteModal"  aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content block_md block_primary">
             <div class="modal-header">
                 <h5 class="modal-title">Delete Academic Year</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -127,9 +127,9 @@
                 <h6 class="mb-3"><span class="fw-bold" id="deletingYear"></span></h6>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-secondary block_sm" data-bs-dismiss="modal">Cancel</button>
                 <!--<button type="button" class="btn btn-primary">Delete</button>-->
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" class="btn btn-danger block_sm">Delete</button>
             </div>
             </form>
         </div>
@@ -138,7 +138,7 @@
 <!--Active Confirmation Modal -->
 <div class="modal fade" id="activeConfirmModal"  aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content block_md block_primary">
             <div class="modal-header">
                 <h5 class="modal-title">Change Active Academic Year</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -150,9 +150,9 @@
                 <h6 class="mb-3"><span class="fw-bold" id="activatingYear"></span></h6>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-secondary block_sm" data-bs-dismiss="modal">Cancel</button>
                 <!--<button type="button" class="btn btn-primary">Delete</button>-->
-                <button type="submit" class="btn btn-primary">Activate</button>
+                <button type="submit" class="btn btn-primary block_sm">Activate</button>
             </div>
             </form>
         </div>
@@ -189,12 +189,12 @@ var tableYear = $('#viewAcadYear').DataTable(
             "data":4,
             "render": function(data,type,row){
                 var active = 
-                "<button type='button' disabled class='btn btn-success'>Currently Active</button>";
+                "<button type='button' disabled class='btn btn-success block_sm'>Currently Active</button>";
                 // edit either variable to add things
                 var inactive = 
-                "<button type='button' id='activeBtn' class='btn btn-success' style='margin-bottom: 1%;' data-bs-toggle='modal' data-bs-target='#activeConfirmModal'>Set as Active</button>"+
-                "<button type='button' id='deleteBtn' class='btn btn-danger' style='margin-bottom: 1%;' data-bs-toggle='modal' data-bs-target='#deleteModal'>Delete</button>"+
-                "<button type='button' id='editBtn' class='btn btn-primary' style='margin-bottom: 1%;' data-bs-toggle='modal' data-bs-target='#editModal'>Edit</button>";
+                "<button type='button' id='activeBtn' class='btn btn-success block_sm' style='margin-bottom: 1%;' data-bs-toggle='modal' data-bs-target='#activeConfirmModal'>Set as Active</button>"+
+                "<button type='button' id='deleteBtn' class='btn btn-danger block_sm' style='margin-bottom: 1%;' data-bs-toggle='modal' data-bs-target='#deleteModal'>Delete</button>"+
+                "<button type='button' id='editBtn' class='btn btn-primary block_sm' style='margin-bottom: 1%;' data-bs-toggle='modal' data-bs-target='#editModal'>Edit</button>";
                 if(data==1){
                     $('#currentActive').text(row[1]);
                     $('#currentActiveYear').text(row[1]);

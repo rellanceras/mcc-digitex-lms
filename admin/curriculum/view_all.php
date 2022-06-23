@@ -1,4 +1,4 @@
-<table id="view_all" class="display table table-bordered" style="width:100%">
+<table id="view_all" class="display row-border" style="width:100%">
     <thead style="width:100%">
         <tr>
             <tr>

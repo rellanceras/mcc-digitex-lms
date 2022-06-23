@@ -1,4 +1,3 @@
-<!-- Page Content -->
 <form id="addClass" method="POST" action="">
     <div id="smartwizard">
         <ul class="nav">
@@ -28,7 +27,7 @@
             </li>
         </ul>
         <div class="tab-content">
-            <div id="step-1" class="tab-pane limited p-4 block2 mx-auto" role="tabpanel">
+            <div id="step-1" class="tab-pane limited p-4 block_md block_secondary mx-auto" role="tabpanel">
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="className" class="form-label fw-bold">Class Name:</label>
@@ -68,11 +67,11 @@
                     </div>
                 </div>
             </div>
-            <div id="step-2" class="tab-pane limited p-4 block2 mx-auto" role="tabpanel">
+            <div id="step-2" class="tab-pane limited p-4 block_md block_secondary mx-auto" role="tabpanel">
                 <div class="d-flex align-items-center mb-3">
                     <a class="nav-link nav_active" href="#">
                         <div class="d-flex align-items-center">
-                            <span class="nav_label me-3">Instructors: <span id="selectedIns">0</span></span>
+                            <span class="nav_label block_sm me-3">Instructors: <span id="selectedIns">0</span></span>
                             <span class="material-icons">info</span>
                         </div>
                     </a>
@@ -148,11 +147,11 @@
                     </tfoot>
                 </table>
             </div>
-            <div id="step-3" class="tab-pane limited p-4 block2 mx-auto" role="tabpanel">
+            <div id="step-3" class="tab-pane limited p-4 block_md block_secondary mx-auto" role="tabpanel">
                 <div class="d-flex align-items-center mb-3">
                     <a class="nav-link nav_active" href="#">
                         <div class="d-flex align-items-center">
-                            <span class="nav_label me-3">Students: <span id="selectedStuds">0</span></span>
+                            <span class="nav_label block_sm me-3">Students: <span id="selectedStuds">0</span></span>
                             <span class="material-icons">info</span>
                         </div>
                     </a>
@@ -229,32 +228,32 @@
                 </table>
                 
             </div>
-            <div id="step-4" class="tab-pane limited p-4 block2 mx-auto" role="tabpanel">
+            <div id="step-4" class="tab-pane limited p-4 block_md block_secondary mx-auto" role="tabpanel">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="className" class="form-label fw-bold">Class Name:</label>
-                            <input type="text" class="form-control-plaintext text-muted block-sm px-3" id="classNameSum"  value="Sample Class Name" readonly>
+                            <input type="text" class="form-control form-control-plaintext text-muted block_sm block_secondary px-3" id="classNameSum"  value="Sample Class Name" readonly>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="className" class="form-label fw-bold">Subject Name:</label>
-                            <input type="text" class="form-control-plaintext text-muted block-sm px-3" id="classSubjectSum"  value="Sample Subject Name" readonly>
+                            <input type="text" class="form-control form-control-plaintext text-muted block_sm block_secondary px-3" id="classSubjectSum"  value="Sample Subject Name" readonly>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="mb-3">
                         <label for="className" class="form-label fw-bold">Class Description:</label>
-                        <textarea class="form-control-plaintext text-muted block-sm px-3" style="height: 200px; resize: none;" id="classDescSum" readonly>Sample Class Desc</textarea>
+                        <textarea class="form-control form-control-plaintext text-muted block_sm block_secondary px-3" style="height: 200px; resize: none;" id="classDescSum" readonly>Sample Class Desc</textarea>
                     </div>
                 </div>
                 <hr/>
                 <div class="row">
                     <div class="mb-3">
                         <label for="className" class="form-label fw-bold">Instructor/s:</label>
-                        <table id="courseInsSum" class="display table table-bordered" style="width:100%">
+                        <table id="courseInsSum" class="display row-border" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -278,7 +277,7 @@
                 <div class="row">
                     <div class="mb-3">
                         <label for="className" class="form-label fw-bold">Student/s:</label>
-                        <table id="courseStudsSum" class="display table table-bordered" style="width:100%">
+                        <table id="courseStudsSum" class="display row-border" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -319,7 +318,38 @@ $(document).ready(function(){
             $('#classSubject').prop('disabled', false);
         }
     });
+
+    $('#courseInsSum').DataTable({
+        dom: 'Bfrtip',
+        pageLength : 5,
+        buttons: [
+            {
+                text: '<i class="bi bi-arrow-clockwise"></i>'
+            },
+            {
+                extend: 'colvis',
+                text: '<i class="bi bi-layout-three-columns"></i>'
+            },
+        ],
+        order: [[ 1, 'asc' ]]
+    });
+    $('#courseStudsSum').DataTable({
+        dom: 'Bfrtip',
+        pageLength : 5,
+        buttons: [
+            {
+                text: '<i class="bi bi-arrow-clockwise"></i>'
+            },
+            {
+                extend: 'colvis',
+                text: '<i class="bi bi-layout-three-columns"></i>'
+            },
+        ],
+        order: [[ 1, 'asc' ]]
+    });
 });
+
+
 
 
 function init_smartWizard() {
@@ -503,6 +533,5 @@ function init_smartWizard() {
         
             
       });
-      
 }
 </script>

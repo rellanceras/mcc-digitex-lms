@@ -9,11 +9,11 @@
 ?>
 
 <!-- Page Content -->
-<button type="button" class="btn btn-primary" style="margin-bottom: 1%;" data-bs-toggle="modal" data-bs-target="#myModal">
+<button type="button" class="btn btn-primary block_sm" style="margin-bottom: 1%;" data-bs-toggle="modal" data-bs-target="#myModal">
     Add Department
 </button>
 
-<table id="view_dept" class="display table table-bordered" style="width:100%">
+<table id="view_dept" class="display row-border" style="width:100%">
     <thead>
         <tr>
             <tr>
@@ -39,8 +39,8 @@
             <td class=""><?php echo $row["dept_name"]; ?></td>
             <td hidden><?php echo $row["abbreviation"]; ?></td>
             <td style="text-align:center">
-                <button type="button" class="btn bi bi-pen btn-primary editDept" data-bs-toggle="modal" data-bs-target="#editModal"></button>
-                <button type="button"  class="btn bi bi-trash btn-danger deleteDept" data-bs-toggle="modal" data-bs-target="#deleteModal"></button>
+                <button type="button" class="btn bi bi-pen btn-primary block_sm editDept" data-bs-toggle="modal" data-bs-target="#editModal"></button>
+                <button type="button"  class="btn bi bi-trash btn-danger block_sm deleteDept" data-bs-toggle="modal" data-bs-target="#deleteModal"></button>
             </td>
             
         </tr>
@@ -54,7 +54,7 @@
 <!-- Add Modal -->
 <div class="modal fade" id="myModal"  aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content block_md block_primary">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Add Department</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -76,7 +76,7 @@
 <!-- Edit Modal -->
 <div class="modal fade" id="editModal"  aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content block_md block_primary">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Edit Department</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -99,7 +99,7 @@
 <!--DELETE Modal -->
 <div class="modal fade" id="deleteModal"  aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content block_md block_primary">
             <div class="modal-header">
                 <h5 class="modal-title">Delete Department</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
